@@ -1,0 +1,15 @@
+[
+    {
+      "ID": 1,
+      "PaymentMethod": "Online"
+    },
+    {
+        "ID": 2,
+        "PaymentMethod": "Cash"
+    },
+    {
+        "ID": 3,
+        "PaymentMethod": "Both"
+    }
+
+]
