@@ -23,7 +23,7 @@ namespace Infrastructure.Data
         }
 
         public async Task<ICollection<Payment>> GetPaymentMethods()
-        {
+        {   
             return await _context.Payments.ToListAsync();
         }
 
