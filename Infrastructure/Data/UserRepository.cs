@@ -20,7 +20,7 @@ namespace Infrastructure.Data
         public async Task<User> GetUserById(int id)
         {
             return await _context.Users
-                .Where(u => u.ID == id)
+                .Where(u => u.Id == id)
                 .FirstOrDefaultAsync();
         }
 
