@@ -10,15 +10,21 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SidebarComponent } from './sidebar/sidebar/sidebar.component';
+import { LoginComponent } from './account/login/login.component';
+import { AccountRoutingModule } from './account/account-routing.module';
+import { HeaderComponent } from './sidebar/home/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
+    HeaderComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AccountRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatSidenavModule,

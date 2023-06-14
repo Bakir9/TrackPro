@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20230410173623_InitialCreate")]
+    [Migration("20230611175456_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -22,111 +22,103 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Core.Entities.Payment", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("PaymentMethod")
+                    b.Property<decimal>("Amount")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("ID");
+                    b.Property<string>("PaymentMethod")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Payments");
                 });
 
             modelBuilder.Entity("Core.Entities.User", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Active")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Adress")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<DateOnly>("Birthday")
+                        .HasColumnType("date");
+
                     b.Property<string>("Country")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("FamilyMember")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Gender")
+                        .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("LastActive")
+                        .HasColumnType("date");
 
                     b.Property<string>("LastName")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("MarriageStatus")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("MemberFrom")
+                        .HasColumnType("date");
+
+                    b.Property<string>("Nationality")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("PaymentType")
+                    b.Property<string>("Password")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("PhoneNumber")
+                    b.Property<string>("Phone")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateOnly>("YearOfBirth")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Core.Entities.UserPayment", b =>
+            modelBuilder.Entity("Core.Entities.Payment", b =>
                 {
-                    b.Property<int>("PaymentId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("PaymentDate")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("PaymentId", "UserId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UsersPayment");
-                });
-
-            modelBuilder.Entity("Core.Entities.UserPayment", b =>
-                {
-                    b.HasOne("Core.Entities.Payment", "Payment")
-                        .WithMany("UserPayments")
-                        .HasForeignKey("PaymentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Core.Entities.User", "User")
                         .WithMany("UserPayments")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Payment");
-
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Core.Entities.Payment", b =>
-                {
-                    b.Navigation("UserPayments");
                 });
 
             modelBuilder.Entity("Core.Entities.User", b =>

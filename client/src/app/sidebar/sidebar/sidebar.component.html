@@ -3,7 +3,7 @@
     <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
     <mat-icon *ngIf="sidenav.opened">close</mat-icon>
     </button>
-    <span class="dashboard-name">IKZ Graz</span>
+    <span class="dashboard-name">TrackPro - Work smarter</span>
 </mat-toolbar>
 
 <mat-sidenav-container>
@@ -12,25 +12,25 @@
         <h4 class="name">Bakir Malkoc</h4>
         <p class="designation">Software Engineer</p>
 
-        <button mat-button class="menu-button">
+        <button mat-button class="menu-button" routerLink="/dashboard">
             <mat-icon>home</mat-icon>
-            <span>Pocetna</span>
+            <span>Home</span>
         </button>
         <button mat-button class="menu-button">
             <mat-icon>person</mat-icon>
-            <span>Profil</span>
+            <span>Profile</span>
         </button>
         <button mat-button class="menu-button">
             <mat-icon>people</mat-icon>
-            <span>Clanovi</span>
+            <span>Members</span>
         </button>
         <button mat-button class="menu-button">
             <mat-icon>payment</mat-icon>
-            <span>Uplate</span>
+            <span>Payments</span>
         </button>
         <button mat-button class="menu-button">
             <mat-icon>card_travel</mat-icon>
-            <span>Ostali prihodi</span>
+            <span>Income</span>
         </button>
         <button mat-button class="menu-button">
             <mat-icon>info</mat-icon>
@@ -39,15 +39,21 @@
 
         <mat-divider></mat-divider>
 
-        <button mat-button class="menu-button">
+        <button mat-button class="menu-button-settings">
             <mat-icon>help</mat-icon>
             <span>Help</span>
+        </button>
+        <button mat-button class="menu-button-settings">
+            <mat-icon>settings</mat-icon>
+            <span>Settings</span>
         </button>
     </mat-sidenav>
     <!-- Body -->
     <mat-sidenav-content>
         <div class="content mat-elevation-z4">
-            Content
+            <div class="col-xl-12">
+                <router-outlet></router-outlet> 
+            </div>
         </div>
     </mat-sidenav-content>
     

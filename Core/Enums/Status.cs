@@ -13,13 +13,10 @@ namespace Core.Enums
 
     public enum PaymentMethod
     {
-        [EnumMember(Value = "Debit Card")]
-        DebitCard,
+        [EnumMember(Value = "Bank Card")]
+        BankCard,
 
         [EnumMember(Value = "Cash")]
-        Cash,
-        
-        [EnumMember(Value = "Both")]
-        Both,
+        Cash
     }
 }

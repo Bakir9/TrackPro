@@ -1,15 +1,35 @@
 [
     {
-      "ID": 1,
-      "PaymentMethod": "Online"
+        "Id": 2,
+        "Amount": 25.0,
+        "PaymentMethod": "Online",
+        "UserId": 1
+
     },
     {
-        "ID": 2,
-        "PaymentMethod": "Cash"
+        "Id": 3,
+        "Amount": 25,
+        "PaymentMethod": "Uplatnica",
+        "UserId": 1
     },
     {
-        "ID": 3,
-        "PaymentMethod": "Both"
+        "Id": 4,
+        "Amount": 25.0,
+        "PaymentMethod": "Uplatnica",
+        "UserId": 1
+    },
+    {
+        "Id": 5,
+        "Amount": 25.0,
+        "PaymentMethod": "Online",
+        "UserId": 1
+    },
+    {
+        "Id": 6,
+        "Amount": 25.0,
+        "PaymentMethod": "Uplatnica",
+        "UserId": 1
     }
+
 
 ]

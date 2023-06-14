@@ -5,7 +5,7 @@ mat-toolbar {
 
 mat-sidenav {
     margin: 16px;
-    width: 200px;
+    width: 230px;
     border-right: none;
     background: #002b5c;
     color: white;
@@ -24,8 +24,8 @@ mat-sidenav {
    margin: 16px;
    margin-left: 32px;
    display: flex;
-   justify-content: center;
-   align-items: center;
+   //justify-content: center;
+   //align-items: center;
    overflow: hidden;
    border-radius: 10px;
    -webkit-border-radius: 10px;
@@ -42,6 +42,18 @@ mat-sidenav-container {
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+    color: white !important;
+    mat-icon {
+        margin-right: 8px;
+    }
+}
+
+.menu-button-settings {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
     justify-content: flex-start;
     font-size: 1rem;
     color: white !important;

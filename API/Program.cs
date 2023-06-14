@@ -16,8 +16,8 @@ builder.Services.AddDbContext<StoreContext>( opt =>
     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+// builder.Services.AddScoped<IUserRepository, UserRepository>();
+// builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 
 var app = builder.Build();
 
@@ -36,15 +36,18 @@ app.MapControllers();
 
 using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;
+var loggerFactory = services.GetRequiredService<ILoggerFactory>();
+
 var context = services.GetRequiredService<StoreContext>();
 var logger = services.GetRequiredService<ILogger<Program>>();
 try
 {
    await context.Database.MigrateAsync();
+   await StoreContextSeed.SeedAsync(context, loggerFactory);
 }
 catch (Exception ex)
 {
-    
     logger.LogError(ex, "An error occured during migration");
 }
+
 app.Run();

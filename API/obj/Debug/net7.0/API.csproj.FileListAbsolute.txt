@@ -142,3 +142,10 @@ C:\Users\bakir\Desktop\TrackPro\api\obj\Debug\net7.0\refint\API.dll
 C:\Users\bakir\Desktop\TrackPro\api\obj\Debug\net7.0\API.pdb
 C:\Users\bakir\Desktop\TrackPro\api\obj\Debug\net7.0\API.genruntimeconfig.cache
 C:\Users\bakir\Desktop\TrackPro\api\obj\Debug\net7.0\ref\API.dll
+C:\Users\bakir\Desktop\TrackPro\api\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\bakir\Desktop\TrackPro\api\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\bakir\Desktop\TrackPro\api\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\bakir\Desktop\TrackPro\api\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\bakir\Desktop\TrackPro\api\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\bakir\Desktop\TrackPro\api\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\bakir\Desktop\TrackPro\api\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
