@@ -20,11 +20,10 @@ namespace Core.Entities
       
       [Column(TypeName = "date")]
       public DateTime MemberFrom { get; set; } = DateTime.Now;
-      public string Active { get; set; }
+      public int Active { get; set; }
       
       [Column(TypeName = "date")]
       public DateTime LastActive {get; set;}
       public List<Payment> UserPayments{ get; }
-      
     }
 }

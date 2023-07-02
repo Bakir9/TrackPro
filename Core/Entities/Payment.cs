@@ -5,6 +5,8 @@ namespace Core.Entities
         public int UserId { get; set; }
         public decimal Amount { get; set; }
         public string PaymentMethod { get; set; }
+        public string Month { get; set; }
+        public int Year { get; set; }
         public User User { get; set; }
     }
 }

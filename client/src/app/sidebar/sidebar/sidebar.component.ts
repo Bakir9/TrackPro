@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { Router } from '@angular/router';
 import {BreakpointObserver } from '@angular/cdk/layout';
 
 

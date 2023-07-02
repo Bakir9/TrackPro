@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
+    //[ApiController]
+    //[Route("api/[controller]")]
     public class UsersController : BaseApiController
     {
         private readonly IUserRepository _userRepository;

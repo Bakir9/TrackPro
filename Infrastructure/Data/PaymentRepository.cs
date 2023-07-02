@@ -30,7 +30,7 @@ namespace Infrastructure.Data
         public async Task<ICollection<Payment>> GetPaymentUsers()
         {
            return await _context.Payments
-                //.Include(p => p.UserPayment)
+                .Include(p => p.User)
                 .ToListAsync();
         }
 

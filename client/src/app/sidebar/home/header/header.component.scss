@@ -1,0 +1,113 @@
+.widget-chart.text-left .icon-wrapper {
+    min-width: 54px;
+    margin: 0 1rem 0 0;
+}
+
+.icon-wrapper {
+    width: 54px;
+    height: 54px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.opacity-8
+{
+    opacity: 0.8;
+}
+
+.album {
+    display: inline-block;
+    font-family: 'Pe-icon-7-stroke';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+
+.text-white {
+    color: black;
+}
+
+.rm-border {
+    border-width: 0 !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.no-shadow {
+    box-shadow: 0 0 0 transparent !important;
+}
+
+.bg-transparent {
+    background: transparent !important;
+}
+
+.widget-chart {
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+}
+
+.widget-chart .widget-subheading {
+    margin: -0.5rem 0 0;
+    display: block;
+    opacity: .6;
+}
+
+.widget-subheading:first-child {
+    margin-top: 0;
+}
+
+.widget-chart .widget-description {
+    margin: 1rem 0 0;
+}
+
+.text-focus {
+    color: #6610f2 !important;
+}
+
+.widget-chart .widget-numbers {
+    font-weight: bold;
+    font-size: 2.5rem;
+    display: block;
+    line-height: 1;
+    margin: 1rem auto;
+}
+
+.widget-chart .widget-chart-content {
+    position: relative;
+    z-index: 5;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+}
+
+
+.bg-warning {
+    background-color: #DD5600 !important;
+}
+
+.widget-chart.text-left {
+    flex-direction: row;
+    align-items: center;
+}
+
+.icon-wrapper .icon-wrapper-bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+    opacity: .2;
+}
+
+.icon-center {
+    margin-left: 12px;
+}
