@@ -12,18 +12,18 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { SidebarComponent } from './sidebar/sidebar/sidebar.component';
 import { AccountRoutingModule } from './account/account-routing.module';
 import { HeaderComponent } from './sidebar/home/header/header.component';
-import { MembersComponent } from './sidebar/members/members/members.component';
-import {MatSelectModule} from '@angular/material/select';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
-import {MatTableModule, MatTableDataSource} from '@angular/material/table';
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { SidebarModule } from './sidebar/sidebar.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent,
     HeaderComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +40,7 @@ import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
-   
+    SidebarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
