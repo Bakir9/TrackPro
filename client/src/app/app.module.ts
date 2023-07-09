@@ -18,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { SidebarModule } from './sidebar/sidebar.module';
+import { AddMemberComponent } from './sidebar/members/add-member/add-member.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [

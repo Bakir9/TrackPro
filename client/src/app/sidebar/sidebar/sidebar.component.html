@@ -4,14 +4,11 @@
     <mat-icon *ngIf="sidenav.opened">close</mat-icon>
     </button>
     <span class="dashboard-name">TrackPro - Work smarter</span>
+    <button mat-button (click)="openDialog()">Add Member</button>
 </mat-toolbar>
 
 <mat-sidenav-container>
     <mat-sidenav #sidenav="matSidenav">
-        <!--<img src="../assets/images/profile.png" alt="" class="avatar mat-elevation-z8">
-        <h4 class="name">Bakir Malkoc</h4>
-        <p class="designation">Software Engineer</p>-->
-
         <button mat-button class="menu-button" routerLink="/dashboard">
             <mat-icon>home</mat-icon>
             <span>Home</span>

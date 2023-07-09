@@ -1,0 +1,109 @@
+<div mat-dialog-title>
+    <h1>Create new member</h1>
+</div>
+<form>
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input matInput type="text" placeholder="First Name" formControlName="firstName">
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="Last Name" formControlName="lastName">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Title</mat-label>
+                    <input matInput type="text" placeholder="Title" formControlName="title">
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field>
+                    <mat-label>Gender</mat-label>
+                    <mat-select>
+                      <mat-option value="option1" selected>Male</mat-option>
+                      <mat-option value="option2">Female</mat-option>
+                      
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Date of birth</mat-label>
+                    <input matInput formControlName="dob">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix ></mat-datepicker-toggle>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Adress</mat-label>
+                    <input matInput placeholder="Adress" formControlName="adress">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" placeholder="Ex. test@gmail.com" formControlName="email">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Phone</mat-label>
+                    <input matInput type="text" placeholder="+43..." formControlName="phone">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Country</mat-label>
+                    <input matInput type="text" placeholder="Country" formControlName="country">
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nationality</mat-label>
+                    <input matInput type="text" placeholder="Nationality" formControlName="nationality">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field>
+                    <mat-label>Marriage Status</mat-label>
+                    <mat-select>
+                      <mat-option value="option1" selected>Sigle</mat-option>
+                      <mat-option value="option2">Married</mat-option>
+                      <mat-option value="option3">Widowed</mat-option>
+                      <mat-option value="option3">Divorced</mat-option>
+                      <mat-option value="option3">Separated</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            
+        </div>
+    </div>
+    <div mat-dialog-actions align="end" class="me-5">
+        <button mat-stroked-button>Close</button>
+        <button mat-flat-button color="primary">Add</button>
+    </div>
+</form>
+<mat-dialog-actions>
+   
+</mat-dialog-actions>
