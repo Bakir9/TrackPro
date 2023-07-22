@@ -1,9 +1,4 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import {
-  MAT_MOMENT_DATE_FORMATS,
-  MomentDateAdapter,
-  MAT_MOMENT_DATE_ADAPTER_OPTIONS,
-} from '@angular/material-moment-adapter';
 import { FormGroup } from '@angular/forms';
 import { MembersService } from '../members.service';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -14,21 +9,7 @@ import 'moment/locale/fr';
 @Component({
   selector: 'app-add-member',
   templateUrl: './add-member.component.html',
-  styleUrls: ['./add-member.component.scss'],
-  providers: [
-    // The locale would typically be provided on the root module of your application. We do it at
-    // the component level here, due to limitations of our example generation script.
-    {provide: MAT_DATE_LOCALE, useValue: 'ja-JP'},
-    // `MomentDateAdapter` and `MAT_MOMENT_DATE_FORMATS` can be automatically provided by importing
-    // `MatMomentDateModule` in your applications root module. We provide it at the component level
-    // here, due to limitations of our example generation script.
-    {
-      provide: DateAdapter,
-      useClass: MomentDateAdapter,
-      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
-    },
-    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
-  ],
+  styleUrls: ['./add-member.component.scss']
 })
 export class AddMemberComponent implements OnInit {
   memberForm: FormGroup
