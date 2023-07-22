@@ -23,6 +23,10 @@ export class MembersService {
   getMember(id: number) {
     return this.http.get(this.apiUrl + 'users/' + id);
   }
+
+  createUser(values: any) {
+    return this.http.post(this.apiUrl +'users/create', values);
+  }
 }
 
 
