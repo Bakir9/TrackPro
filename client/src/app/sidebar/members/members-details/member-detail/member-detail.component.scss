@@ -3,14 +3,13 @@
   }
 .row {
      display: flex;
+     margin:0;
+     align-items: flex-start;
     mat-form-field {
         width: 100%;
     }
 }
-  
-  .action {
-    padding: 0px 25px 20px;
-    button {
-      flex: 1;
-    }
-  }
+
+.icon-color {
+    color: green;
+}

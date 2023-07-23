@@ -1,0 +1,755 @@
+<mat-tab-group>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">person_pin</mat-icon>
+       Members Info
+      </ng-template>
+      <div class="row mt-3 ms-2">
+        <div class="col border border-light shadow-sm p-3 mb-5 bg-body rounded">
+            <h4>Members Info</h4>
+            <form action="">
+                <div class="content">
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline">
+                                <mat-label>First Name</mat-label>
+                                <input matInput type="text" placeholder="First Name" formControlName="firstName" value="Bakir">
+                            </mat-form-field>
+                        </div>
+                        <div class="col">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Last Name</mat-label>
+                                <input matInput placeholder="Last Name" formControlName="lastName" value="Malkoc">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Title</mat-label>
+                                <input matInput type="text" placeholder="Title" formControlName="title" value="BA">
+                            </mat-form-field>
+                        </div>
+                        <div class="col">
+                            <mat-form-field>
+                                <mat-label>Choose a date</mat-label>
+                                <input matInput [matDatepicker]="picker">
+                                <mat-hint>MM/DD/YYYY</mat-hint>
+                                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                              </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <mat-label>Gender:</mat-label>
+                            <mat-radio-button value="male" checked="true">Male</mat-radio-button>
+                            <mat-radio-button value="female">Female</mat-radio-button>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-4">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Adress</mat-label>
+                                <input matInput placeholder="Adress" formControlName="adress" value="Grillweg 7b">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-4">
+                            <mat-form-field appearance="outline">
+                                <mat-label>PLZ</mat-label>
+                                <input matInput placeholder="PLZ" formControlName="plz" value="8053">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-4">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Ort</mat-label>
+                                <input matInput placeholder="Ort" formControlName="ort" value="Graz">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Email</mat-label>
+                                <input matInput type="email" placeholder="Ex. test@gmail.com" formControlName="email" value="bakir.malkoc@gmail.com">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Phone</mat-label>
+                                <input matInput type="text" placeholder="+43..." formControlName="phone" value="06645162656">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field>
+                                <mat-label>Select Country</mat-label>
+                                <mat-select>
+                                  <mat-option value="bih" selected>Bosnien-Herzegowina</mat-option>
+                                  <mat-option value="croatien">Croatia</mat-option>
+                                  <mat-option value="albanien">Albania</mat-option>
+                                  <mat-option value="slowenien">Slowenia</mat-option>
+                                  <mat-option value="serbien">Serbien</mat-option>
+                                  <mat-option value="austria">Austria</mat-option>
+                                  <mat-option value="germany">Germany</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col">
+                            <mat-form-field>
+                                <mat-label>Select Country</mat-label>
+                                <mat-select>
+                                  <mat-option value="bih" selected>Bosnien-Herzegowina</mat-option>
+                                  <mat-option value="croatien">Croatien</mat-option>
+                                  <mat-option value="albanien">Albanien</mat-option>
+                                  <mat-option value="slowenien">Slowenien</mat-option>
+                                  <mat-option value="serbien">Serbien</mat-option>
+                                  <mat-option value="austria">Austria</mat-option>
+                                  <mat-option value="germany">Germany</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field>
+                                <mat-label>Marriage Status</mat-label>
+                                <mat-select>
+                                  <mat-option value="option1" selected>Sigle</mat-option>
+                                  <mat-option value="option2">Married</mat-option>
+                                  <mat-option value="option3">Widowed</mat-option>
+                                  <mat-option value="option3">Divorced</mat-option>
+                                  <mat-option value="option3">Separated</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col" align="end">
+                            <button mat-flat-button color="primary" type="submit">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+              </form>
+        </div>
+        <div class="col border border-light shadow-sm p-3 mb-5 bg-body rounded ms-2">
+            <h4>Change password</h4>
+            <form action="">
+                <div class="content">
+                    <div class="row" style="align-items: baseline;">
+                        <div class="col-3">
+                            <p>Current Password:</p>
+                        </div>
+                        <div class="col">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Current Password</mat-label>
+                                <input matInput type="password" placeholder="Current Passwod" formControlName="currentPassword">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <p>New Password:</p>
+                        </div>
+                        <div class="col">
+                            <mat-form-field appearance="outline">
+                                <mat-label>New Password</mat-label>
+                                <input matInput type="password" placeholder="New Password" formControlName="newPassword">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col" align="end">
+                            <button mat-stroked-button type="submit">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+              </form>
+        </div>
+      </div>
+    </mat-tab>
+  
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">person_add</mat-icon>
+        Family
+      </ng-template>
+      <h3 class="mt-2 ms-2">Family Members</h3>
+      <div class="row">
+        <div class="col-4 shadow-sm">
+            <p class="m-0">Wife:</p>
+            <mat-list role="list">
+                <div class="row">
+                    <div class="col">
+                        <mat-list-item role="listitem">Alma Mujic</mat-list-item>
+                    </div>
+                    <div class="col">
+                        <button mat-stroked-button type="submit">Info</button>
+                    </div>
+                </div>
+            </mat-list>
+        </div>
+        <div class="col-4 shadow-sm">
+            <p class="m-0">Childrens:</p>
+            <mat-list role="list">
+                <div class="row">
+                    <div class="col">
+                        <mat-list-item role="listitem">Mujo Mujic</mat-list-item>
+                    </div>
+                    <div class="col">
+                        <button mat-stroked-button type="submit">Info</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-list-item role="listitem">Mujo Mujic</mat-list-item>
+                    </div>
+                    <div class="col">
+                        <button mat-stroked-button type="submit">Info</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-list-item role="listitem">Mujo Mujic</mat-list-item>
+                    </div>
+                    <div class="col">
+                        <button mat-stroked-button type="submit">Info</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-list-item role="listitem">Haso Husic</mat-list-item>
+                    </div>
+                    <div class="col">
+                        <button mat-stroked-button type="submit">Info</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-list-item role="listitem">Sinbad Ibrahimovic</mat-list-item>
+                    </div>
+                    <div class="col">
+                        <button mat-stroked-button type="submit">Info</button>
+                    </div>
+                </div>
+            </mat-list>
+        </div>
+        <div class="col-4 shadow-sm">
+            <p class="m-0">Parents:</p>
+            <mat-list role="list">
+                <div class="row">
+                    <div class="col">
+                        <mat-list-item role="listitem">Mujo Mujic</mat-list-item>
+                    </div>
+                    <div class="col">
+                        <button mat-stroked-button type="submit">Info</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-list-item role="listitem">Haso Husic</mat-list-item>
+                    </div>
+                    <div class="col">
+                        <button mat-stroked-button type="submit">Info</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-list-item role="listitem">Sinbad Ibrahimovic</mat-list-item>
+                    </div>
+                    <div class="col">
+                        <button mat-stroked-button type="submit">Info</button>
+                    </div>
+                </div>
+            </mat-list>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+            <p class="m-0">Others:</p>
+            <mat-list role="list">
+                <div class="row">
+                    <div class="col">
+                        <mat-list-item role="listitem">Mujo Mujic</mat-list-item>
+                    </div>
+                    <div class="col">
+                        <button mat-stroked-button type="submit">Info</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-list-item role="listitem">Haso Husic</mat-list-item>
+                    </div>
+                    <div class="col">
+                        <button mat-stroked-button type="submit">Info</button>
+                    </div>
+                </div>
+            </mat-list>
+        </div>
+      </div>
+    </mat-tab>
+  
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">payment</mat-icon>
+        Payment
+      </ng-template>
+      <div class="row">
+        <div class="col">
+            <h4>Membership Payment</h4>
+        </div>
+      </div>
+      <div class="row mt-2 mb-2">
+        <div class="col">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Year: 2023
+                </mat-panel-title>
+                <mat-panel-description>
+                    Not Payed
+                    <mat-icon color="warn">check_circle_outline</mat-icon>
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="content">
+                            <mat-label>January</mat-label>
+                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                        </div>
+                        <div class="content">
+                            <mat-label>Februar</mat-label>
+                            <mat-checkbox class="example-margin">Checked</mat-checkbox> 
+                        </div>
+                        <div class="content">
+                            <mat-label>Mart</mat-label>
+                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="content">
+                            <mat-label>April</mat-label>
+                            <mat-checkbox class="example-margin">Checked</mat-checkbox> 
+                        </div>
+                        <div class="content">
+                            <mat-label>Maj</mat-label>
+                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                        </div>
+                        <div class="content">
+                            <mat-label>Juni</mat-label>
+                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="content">
+                            <mat-label>Juli</mat-label>
+                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                        </div>
+                        <div class="content">
+                            <mat-label>August</mat-label>
+                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                        </div>
+                        <div class="content">
+                            <mat-label>Septembar</mat-label>
+                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="content">
+                            <mat-label>Oktobar</mat-label>
+                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                        </div>
+                        <div class="content">
+                            <mat-label>Novembar</mat-label>
+                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                        </div>
+                        <div class="content">
+                            <mat-label>Decembar</mat-label>
+                            <mat-checkbox class="example-margin">Checked</mat-checkbox> 
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </div>
+      </div>
+        <div class="row mt-2 mb-2">
+            <div class="col">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Year: 2022
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Payed
+                        <mat-icon class="icon-color">check_circle_outline</mat-icon>
+                    </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="content">
+                                <mat-label>January</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Februar</mat-label>
+                                <mat-checkbox class="example-margin">Checked</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Mart</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="content">
+                                <mat-label>April</mat-label>
+                                <mat-checkbox class="example-margin">Checked</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Maj</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Juni</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="content">
+                                <mat-label>Juli</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>August</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Septembar</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="content">
+                                <mat-label>Oktobar</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Novembar</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Decembar</mat-label>
+                                <mat-checkbox class="example-margin">Checked</mat-checkbox> 
+                            </div>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+            </div>
+        </div>
+        <div class="row mt-2 mb-2">
+            <div class="col">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Year: 2021
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Payed
+                        <mat-icon class="icon-color">check_circle_outline</mat-icon>
+                    </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="content">
+                                <mat-label>January</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Februar</mat-label>
+                                <mat-checkbox class="example-margin">Checked</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Mart</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="content">
+                                <mat-label>April</mat-label>
+                                <mat-checkbox class="example-margin">Checked</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Maj</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Juni</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="content">
+                                <mat-label>Juli</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>August</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Septembar</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="content">
+                                <mat-label>Oktobar</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Novembar</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Decembar</mat-label>
+                                <mat-checkbox class="example-margin">Checked</mat-checkbox> 
+                            </div>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+            </div>
+        </div>
+        <div class="row">
+           <div class="col">
+                <h4>Mekteb</h4>
+           </div>
+        </div>
+        <div class="row mt-2 mb-2">
+            <div class="col">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Year: 2023
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Payed
+                        <mat-icon class="icon-color">check_circle_outline</mat-icon>
+                    </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="content">
+                                <mat-label>January</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Februar</mat-label>
+                                <mat-checkbox class="example-margin">Checked</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Mart</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="content">
+                                <mat-label>April</mat-label>
+                                <mat-checkbox class="example-margin">Checked</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Maj</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Juni</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="content">
+                                <mat-label>Juli</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>August</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Septembar</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="content">
+                                <mat-label>Oktobar</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Novembar</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Decembar</mat-label>
+                                <mat-checkbox class="example-margin">Checked</mat-checkbox> 
+                            </div>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+            </div>
+        </div>
+        <div class="row mt-2 mb-2">
+            <div class="col">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Year: 2022
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Payed
+                        <mat-icon class="icon-color">check_circle_outline</mat-icon>
+                    </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="content">
+                                <mat-label>January</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Februar</mat-label>
+                                <mat-checkbox class="example-margin">Checked</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Mart</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="content">
+                                <mat-label>April</mat-label>
+                                <mat-checkbox class="example-margin">Checked</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Maj</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Juni</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="content">
+                                <mat-label>Juli</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>August</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Septembar</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="content">
+                                <mat-label>Oktobar</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Novembar</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Decembar</mat-label>
+                                <mat-checkbox class="example-margin">Checked</mat-checkbox> 
+                            </div>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+            </div>
+        </div>
+        <div class="row mt-2 mb-2">
+            <div class="col">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Year: 2021
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Payed
+                        <mat-icon class="icon-color">check_circle_outline</mat-icon>
+                    </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="content">
+                                <mat-label>January</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Februar</mat-label>
+                                <mat-checkbox class="example-margin">Checked</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Mart</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="content">
+                                <mat-label>April</mat-label>
+                                <mat-checkbox class="example-margin">Checked</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Maj</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Juni</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="content">
+                                <mat-label>Juli</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>August</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Septembar</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="content">
+                                <mat-label>Oktobar</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Novembar</mat-label>
+                                <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                            </div>
+                            <div class="content">
+                                <mat-label>Decembar</mat-label>
+                                <mat-checkbox class="example-margin">Checked</mat-checkbox> 
+                            </div>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h4>Other Payments</h4>
+            </div>
+        </div>
+    </mat-tab>
+  </mat-tab-group>
+  

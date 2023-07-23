@@ -10,10 +10,18 @@ import { MatInputModule } from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { EditMemberComponent } from './members/edit-member/edit-member.component';
+import { MemberDetailComponent } from './members/members-details/member-detail/member-detail.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatListModule} from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
-    AddMemberComponent
+    AddMemberComponent,
+    EditMemberComponent,
+    MemberDetailComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +34,11 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatRadioModule,
     MatNativeDateModule,
     MatNativeDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatTabsModule,
+    MatListModule,
+    MatExpansionModule,
+    MatCheckboxModule
   ],
   exports: [AddMemberComponent]
 })

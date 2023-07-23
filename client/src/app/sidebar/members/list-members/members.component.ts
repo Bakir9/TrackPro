@@ -7,6 +7,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
+import { EditMemberComponent } from '../edit-member/edit-member.component';
 
 @Component({
   selector: 'app-members',
@@ -23,7 +25,7 @@ export class MembersComponent implements OnInit {
   displayedColumns: string[] = ['firstName', 'lastName', 'email', 'country', 'phone', 'nationality', 'action'];
   members: IMember[];
 
-  constructor (private memberService: MembersService){}
+  constructor (private memberService: MembersService,  private dialog: MatDialog,){}
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -36,6 +38,14 @@ export class MembersComponent implements OnInit {
 
   ngOnInit() {
     this.getMembers();
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(EditMemberComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+        console.log("Test");
+    });
   }
 
   getMembers() {
