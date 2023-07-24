@@ -16,12 +16,14 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MemberPaymetComponent } from './payments/dialog/member-paymet/member-paymet.component';
 
 @NgModule({
   declarations: [
     AddMemberComponent,
     EditMemberComponent,
-    MemberDetailComponent
+    MemberDetailComponent,
+    MemberPaymetComponent
   ],
   imports: [
     CommonModule,

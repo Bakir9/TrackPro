@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { EditMemberComponent } from '../edit-member/edit-member.component';
+import { MemberPaymetComponent } from '../../payments/dialog/member-paymet/member-paymet.component';
 
 @Component({
   selector: 'app-members',
@@ -42,6 +43,13 @@ export class MembersComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(EditMemberComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+        console.log("Test");
+    });
+  }
+  openPayment() {
+    const dialogRef = this.dialog.open(MemberPaymetComponent);
 
     dialogRef.afterClosed().subscribe(result => {
         console.log("Test");
