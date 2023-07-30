@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { SidebarModule } from './sidebar/sidebar.module';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SidebarModule } from './sidebar/sidebar.module';
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
-    SidebarModule
+    SidebarModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

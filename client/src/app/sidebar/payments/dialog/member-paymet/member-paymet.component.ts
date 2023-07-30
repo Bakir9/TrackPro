@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./member-paymet.component.scss']
 })
 export class MemberPaymetComponent {
-
+  selected = 'uplatnica';
 }

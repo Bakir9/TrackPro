@@ -37,6 +37,10 @@ mat-sidenav-container {
     height: calc(100vh - 65px);
 }
 
+mat-expansion-panel{
+    background: #0879ad;
+    color: white;
+}
 .menu-button {
     width: 100%;
     display: flex;

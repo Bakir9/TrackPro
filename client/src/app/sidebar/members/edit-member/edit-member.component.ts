@@ -8,6 +8,7 @@ import { MembersService } from '../members.service';
   styleUrls: ['./edit-member.component.scss']
 })
 export class EditMemberComponent {
+  selected = "emaneh";
   constructor(
     private memberService: MembersService,
     private dialogRef: MatDialogRef<EditMemberComponent>, 

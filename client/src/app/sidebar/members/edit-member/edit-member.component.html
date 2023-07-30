@@ -108,6 +108,15 @@
                     </mat-select>
                   </mat-form-field>
             </div>
+            <div class="col">
+                <mat-form-field>
+                    <mat-label>Select Association</mat-label>
+                    <mat-select [(value)]="selected">
+                      <mat-option value="emaneh" selected>Emaneh</mat-option>
+                      <mat-option value="klubprijateljea">Klub prijatelja</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
         </div>
     </div>
     <mat mat-dialog-actions align="end" class="me-5">

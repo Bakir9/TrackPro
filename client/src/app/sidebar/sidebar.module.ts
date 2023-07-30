@@ -16,6 +16,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatMenuModule} from '@angular/material/menu';
 import { MemberPaymetComponent } from './payments/dialog/member-paymet/member-paymet.component';
 
 @NgModule({
@@ -40,8 +41,9 @@ import { MemberPaymetComponent } from './payments/dialog/member-paymet/member-pa
     MatTabsModule,
     MatListModule,
     MatExpansionModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatMenuModule
   ],
-  exports: [AddMemberComponent]
+  exports: [AddMemberComponent, MatMenuModule]
 })
 export class SidebarModule { }

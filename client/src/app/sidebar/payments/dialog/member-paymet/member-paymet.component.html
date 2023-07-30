@@ -1,124 +1,42 @@
 <div mat-dialog-title>
-    <h1>New Payment</h1>
+    <h1>Nova uplata</h1>
 </div>
 <form>
     <div mat-dialog-content class="content">
         <div class="row">
             <div class="col">
-                <mat-form-field appearance="outline">
-                    <mat-label>First Name</mat-label>
-                    <input matInput type="text" placeholder="First Name" formControlName="firstName">
-                </mat-form-field>
-            </div>
-            <div class="col">
-                <mat-form-field appearance="outline">
-                    <mat-label>Last Name</mat-label>
-                    <input matInput placeholder="Last Name" formControlName="lastName">
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <mat-form-field appearance="outline">
-                    <mat-label>Title</mat-label>
-                    <input matInput type="text" placeholder="Title" formControlName="title">
-                </mat-form-field>
-            </div>
-            <div class="col">
                 <mat-form-field>
-                    <mat-label>Choose a date</mat-label>
-                    <input matInput [matDatepicker]="picker">
-                    <mat-hint>MM/DD/YYYY</mat-hint>
-                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                  </mat-form-field>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <mat-label>Gender:</mat-label>
-                <mat-radio-button value="male">Male</mat-radio-button>
-                <mat-radio-button value="female">Female</mat-radio-button>
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-4">
-                <mat-form-field appearance="outline">
-                    <mat-label>Adress</mat-label>
-                    <input matInput placeholder="Adress" formControlName="adress" value="Grillweg 7b">
-                </mat-form-field>
-            </div>
-            <div class="col-4">
-                <mat-form-field appearance="outline">
-                    <mat-label>PLZ</mat-label>
-                    <input matInput placeholder="PLZ" formControlName="plz" value="8053">
-                </mat-form-field>
-            </div>
-            <div class="col-4">
-                <mat-form-field appearance="outline">
-                    <mat-label>Ort</mat-label>
-                    <input matInput placeholder="Ort" formControlName="ort" value="Graz">
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <mat-form-field appearance="outline">
-                    <mat-label>Email</mat-label>
-                    <input matInput type="email" placeholder="Ex. test@gmail.com" formControlName="email">
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <mat-form-field appearance="outline">
-                    <mat-label>Phone</mat-label>
-                    <input matInput type="text" placeholder="+43..." formControlName="phone">
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <mat-form-field>
-                    <mat-label>Select Country</mat-label>
+                    <mat-label>Svrha placanja</mat-label>
                     <mat-select>
-                      <mat-option value="bih" selected>Bosnien-Herzegowina</mat-option>
-                      <mat-option value="croatien">Croatia</mat-option>
-                      <mat-option value="albanien">Albania</mat-option>
-                      <mat-option value="slowenien">Slowenia</mat-option>
-                      <mat-option value="serbien">Serbien</mat-option>
-                      <mat-option value="austria">Austria</mat-option>
-                      <mat-option value="germany">Germany</mat-option>
+                            <mat-option value="clanarina" selected>Clanarina</mat-option>
+                            <mat-option value="mekteb">Mekteb</mat-option>
+                            <mat-option value="ostalo">Ostalo</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
             <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Iznos</mat-label>
+                    <input matInput placeholder="Iznos" formControlName="iznos">
+                    <span matTextPrefix>&#8364;</span>
+                </mat-form-field>
+            </div>
+            <div class="col">
                 <mat-form-field>
-                    <mat-label>Select Country</mat-label>
-                    <mat-select>
-                      <mat-option value="bih" selected>Bosnien-Herzegowina</mat-option>
-                      <mat-option value="croatien">Croatien</mat-option>
-                      <mat-option value="albanien">Albanien</mat-option>
-                      <mat-option value="slowenien">Slowenien</mat-option>
-                      <mat-option value="serbien">Serbien</mat-option>
-                      <mat-option value="austria">Austria</mat-option>
-                      <mat-option value="germany">Germany</mat-option>
+                    <mat-label>Nacin placanja</mat-label>
+                    <mat-select [(value)]="selected">
+                            <mat-option value="uplatnica">Uplatnica</mat-option>
+                            <mat-option value="online">Online</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <mat-form-field>
-                    <mat-label>Marriage Status</mat-label>
-                    <mat-select>
-                      <mat-option value="option1" selected>Sigle</mat-option>
-                      <mat-option value="option2">Married</mat-option>
-                      <mat-option value="option3">Widowed</mat-option>
-                      <mat-option value="option3">Divorced</mat-option>
-                      <mat-option value="option3">Separated</mat-option>
-                    </mat-select>
-                  </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Napomene</mat-label>
+                    <textarea matInput placeholder="Napomene"></textarea>
+                </mat-form-field> 
             </div>
         </div>
     </div>

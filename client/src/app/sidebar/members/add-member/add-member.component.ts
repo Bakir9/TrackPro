@@ -10,7 +10,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class AddMemberComponent implements OnInit {
   memberForm: FormGroup
-
+  selected = "emaneh";
   constructor(
     private memberService: MembersService, 
     private dialogRef: MatDialogRef<AddMemberComponent>, 

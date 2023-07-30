@@ -29,11 +29,22 @@
             <mat-icon>card_travel</mat-icon>
             <span>Income</span>
         </button>
+        
+        <button mat-button class="menu-button" routerLink="/activities">
+            <mat-icon>payment</mat-icon>
+            <span>Ostale aktivnosti</span>
+        </button>
+        <button mat-button [matMenuTriggerFor]="menu" class="menu-button">
+            <mat-icon>payment</mat-icon>Udruzenja
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/association/emaneh">Emaneh</button>
+            <button mat-menu-item routerLink="/association/klubprijatelja">Klub prijatelja</button>
+        </mat-menu>
         <button mat-button class="menu-button">
             <mat-icon>info</mat-icon>
             <span>About</span>
         </button>
-
         <mat-divider></mat-divider>
 
         <button mat-button class="menu-button-settings">
