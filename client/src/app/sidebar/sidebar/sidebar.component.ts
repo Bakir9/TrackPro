@@ -30,7 +30,6 @@ export class SidebarComponent {
 
   openDialog() {
     const dialogRef = this.dialog.open(AddMemberComponent);
-
     dialogRef.afterClosed().subscribe(result => {
         console.log("Test");
     });

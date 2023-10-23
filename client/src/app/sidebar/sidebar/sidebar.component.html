@@ -4,30 +4,30 @@
     <mat-icon *ngIf="sidenav.opened">close</mat-icon>
     </button>
     <span class="dashboard-name">TrackPro - Work smarter</span>
-    <button mat-button (click)="openDialog()">Add Member</button>
+    <button mat-button (click)="openDialog()">Novi clan</button>
 </mat-toolbar>
 
 <mat-sidenav-container>
     <mat-sidenav #sidenav="matSidenav">
         <button mat-button class="menu-button" routerLink="/dashboard">
             <mat-icon>home</mat-icon>
-            <span>Home</span>
+            <span>Pocetna</span>
         </button>
         <button mat-button class="menu-button" routerLink="/member-details">
             <mat-icon>person</mat-icon>
-            <span>Profile</span>
+            <span>Profil</span>
         </button>
         <button mat-button class="menu-button" routerLink="/members">
             <mat-icon>people</mat-icon>
-            <span>Members</span>
+            <span>Clanovi</span>
         </button>
         <button mat-button class="menu-button">
             <mat-icon>payment</mat-icon>
-            <span>Payments</span>
+            <span>Uplate</span>
         </button>
         <button mat-button class="menu-button">
             <mat-icon>card_travel</mat-icon>
-            <span>Income</span>
+            <span>Dodatne uplate</span>
         </button>
         
         <button mat-button class="menu-button" routerLink="/activities">
@@ -41,12 +41,11 @@
             <button mat-menu-item routerLink="/association/emaneh">Emaneh</button>
             <button mat-menu-item routerLink="/association/klubprijatelja">Klub prijatelja</button>
         </mat-menu>
-        <button mat-button class="menu-button">
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button-settings">
             <mat-icon>info</mat-icon>
             <span>About</span>
         </button>
-        <mat-divider></mat-divider>
-
         <button mat-button class="menu-button-settings">
             <mat-icon>help</mat-icon>
             <span>Help</span>

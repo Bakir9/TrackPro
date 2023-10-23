@@ -20,7 +20,7 @@ export class MembersService {
     )
   }
 
-  getMember(id: number) {
+  getMemberDetail(id:number) {
     return this.http.get(this.apiUrl + 'users/' + id);
   }
 

@@ -2155,11 +2155,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bakir\\Desktop\\TrackPro\\api\\API.csproj",
+      "projectUniqueName": "C:\\Users\\bakir\\Desktop\\TrackPro\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\bakir\\Desktop\\TrackPro\\api\\API.csproj",
+      "projectPath": "C:\\Users\\bakir\\Desktop\\TrackPro\\API\\API.csproj",
       "packagesPath": "C:\\Users\\bakir\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bakir\\Desktop\\TrackPro\\api\\obj\\",
+      "outputPath": "C:\\Users\\bakir\\Desktop\\TrackPro\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -2241,7 +2241,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

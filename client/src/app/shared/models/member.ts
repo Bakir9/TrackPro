@@ -1,5 +1,5 @@
 export interface IMember {
-    id: number;
+    id: string;
     firstName: string;
     lastName: string;
     title: string;
@@ -13,7 +13,7 @@ export interface IMember {
     nationality: string;
     marriageStatus: string;
     memberFrom: string;
-    active: number;
+    active: string;
     lastActive: string;
     userPayments: string;
 }
