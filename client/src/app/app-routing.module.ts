@@ -7,8 +7,8 @@ import { MemberDetailComponent } from './sidebar/members/members-details/member-
 const routes: Routes = 
 [
   {path: "dashboard", component: HeaderComponent},
-  {path: "members", component: MembersComponent},
-  {path: "member-details", component: MemberDetailComponent}
+  {path: "users", component: MembersComponent},
+  {path: "user-details", component: MemberDetailComponent}
 ];
 
 @NgModule({

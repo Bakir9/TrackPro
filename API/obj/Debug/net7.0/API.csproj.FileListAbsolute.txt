@@ -149,3 +149,5 @@ C:\Users\bakir\Desktop\TrackPro\api\bin\Debug\net7.0\Microsoft.IdentityModel.Pro
 C:\Users\bakir\Desktop\TrackPro\api\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\bakir\Desktop\TrackPro\api\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\bakir\Desktop\TrackPro\api\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\bakir\Desktop\TrackPro\api\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\bakir\Desktop\TrackPro\api\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

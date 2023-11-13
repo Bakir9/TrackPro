@@ -16,7 +16,7 @@ namespace Infrastructure.Data
             try
             {
                 //var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
+                
                 if(!context.Users.Any())
                 {
                     var userData = 
@@ -25,7 +25,6 @@ namespace Infrastructure.Data
                     var udata = JsonSerializer.Deserialize<List<User>>(userData);
                     context.Users.AddRange(udata);
                 }
-
                 if(!context.Payments.Any())
                 {
                     var paymentsData = 
@@ -35,6 +34,38 @@ namespace Infrastructure.Data
                     context.Payments.AddRange(pData);
                 }
 
+                if(!context.Activities.Any())
+                {
+                    var activitiesData = 
+                        File.ReadAllText("../Infrastructure/Data/SeedData/activity.json");
+
+                    var aData = JsonSerializer.Deserialize<List<Activity>>(activitiesData);
+                    context.Activities.AddRange(aData);
+                }
+                if(!context.Childs.Any())
+                {
+                    var childsData = 
+                        File.ReadAllText("../Infrastructure/Data/SeedData/childs.json");
+
+                    var cData = JsonSerializer.Deserialize<List<Childs>>(childsData);
+                    context.Childs.AddRange(cData);
+                }
+                if(!context.Associations.Any())
+                {
+                    var associationsData = 
+                        File.ReadAllText("../Infrastructure/Data/SeedData/association.json");
+
+                    var asData = JsonSerializer.Deserialize<List<Association>>(associationsData);
+                    context.Associations.AddRange(asData);
+                }
+                if(!context.Incomes.Any())
+                {
+                    var incomeData = 
+                        File.ReadAllText("../Infrastructure/Data/SeedData/income.json");
+
+                    var incData = JsonSerializer.Deserialize<List<Income>>(incomeData);
+                    context.Incomes.AddRange(incData);
+                }
                 if(context.ChangeTracker.HasChanges()) await context.SaveChangesAsync();
             }
             catch(Exception ex)

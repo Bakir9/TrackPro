@@ -13,6 +13,7 @@ builder.Services.AddCors(opt =>
     });
 });
 // Add services to the container.
+//applicationservice are repository and implemenatations
 builder.Services.AddApplicationServices();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -23,10 +24,8 @@ builder.Services.AddDbContext<StoreContext>( opt =>
 {
     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
- 
 
-// builder.Services.AddScoped<IUserRepository, UserRepository>();
-// builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 

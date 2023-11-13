@@ -1,0 +1,33 @@
+[
+    {
+        "Id": 2,
+        "Amount": 25.0,
+        "PaymentMethod": "Online",
+        "UserId": 1
+
+    },
+    {
+        "Id": 3,
+        "Amount": 25,
+        "PaymentMethod": "Uplatnica",
+        "UserId": 1
+    },
+    {
+        "Id": 4,
+        "Amount": 25.0,
+        "PaymentMethod": "Uplatnica",
+        "UserId": 1
+    },
+    {
+        "Id": 5,
+        "Amount": 25.0,
+        "PaymentMethod": "Online",
+        "UserId": 1
+    },
+    {
+        "Id": 6,
+        "Amount": 25.0,
+        "PaymentMethod": "Uplatnica",
+        "UserId": 1
+    }
+]

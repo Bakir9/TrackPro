@@ -10,5 +10,7 @@ namespace Core.Entities
     public class Childs : BaseEntity
     {
        public string AdditionalInfo { get; set; }
+       public List<User> Users { get; set; }
+       public List<UserChilds> UserChilds { get; set; }
     }
 }

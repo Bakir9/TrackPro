@@ -14,13 +14,18 @@ namespace Infrastructure.Data
 
         public async Task<ICollection<User>> GetUsers()
         {
-            return await _context.Users.ToListAsync();
+            return await _context
+                .Users
+                .Include(user => user.Payments)
+                .AsSplitQuery()
+                .ToListAsync();
         }
 
         public async Task<User> GetUserById(int id)
         {
             return await _context.Users
-                .Where(u => u.Id == id)
+                .Where(p => p.Id == id)
+                .Include("Payments")
                 .FirstOrDefaultAsync();
         }
 
@@ -42,13 +47,6 @@ namespace Infrastructure.Data
         public async Task SaveAsync()
         {
            await _context.SaveChangesAsync();
-        }
-
-        public async Task<IReadOnlyList<User>> GetUserPayment()
-        {
-           return await _context.Users
-                .Include(p => p.UserPayments)
-                .ToListAsync();
         }
     }
 }

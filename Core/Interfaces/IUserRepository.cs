@@ -10,6 +10,5 @@ namespace Core.Interfaces
         void Delete(User user);
         void Update(User user);
         Task SaveAsync();
-        Task<IReadOnlyList<User>> GetUserPayment();
     }
 }

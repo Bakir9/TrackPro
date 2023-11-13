@@ -1,17 +1,21 @@
+using API.DTO;
+using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
+using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    //[ApiController]
-    //[Route("api/[controller]")]
     public class UsersController : BaseApiController
     {
         private readonly IUserRepository _userRepository;
-        public UsersController(IUserRepository userRepository)
+        public IMapper _mapper;
+       
+        public UsersController(IUserRepository userRepository,IMapper mapper)
         {
             _userRepository = userRepository;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -19,13 +23,15 @@ namespace API.Controllers
         {
             var users = await _userRepository.GetUsers();
             return Ok(users);
+            //return Ok(_mapper.Map<IReadOnlyList<User>, IReadOnlyList<UserDTO>>(users));
         } 
 
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
             var user = await _userRepository.GetUserById(id);
-            return Ok(user);
+            //return Ok(user);
+            return Ok(_mapper.Map<User, UserDTO>(user));
         }
 
         [HttpPut("{id}")]
