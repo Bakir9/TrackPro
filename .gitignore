@@ -11,3 +11,4 @@ appsettings.*
 *.json
 /Properties
 bin/*
+.vscode
