@@ -8,3 +8,6 @@ bin.*
 appsettings.*
 *.db
 *.rdb
+*.json
+/Properties
+bin/*
