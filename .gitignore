@@ -4,7 +4,7 @@
 
 /.vs
 obj
-bin.*
+bin
 appsettings.*
 *.db
 *.rdb
