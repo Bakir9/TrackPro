@@ -12,13 +12,10 @@ namespace Infrastructure.Data
             _context = context;
         }
 
-        public async Task<ICollection<User>> GetUsers()
+        public async Task<IReadOnlyList<User>> GetUsers()
         {
             return await _context
-                .Users
-                .Include(user => user.Payments)
-                .AsSplitQuery()
-                .ToListAsync();
+                .Users.ToListAsync();
         }
 
         public async Task<User> GetUserById(int id)
@@ -29,7 +26,7 @@ namespace Infrastructure.Data
                 .FirstOrDefaultAsync();
         }
 
-        public void Create(User user)
+        public void Add(User user)
         {
             _context.Set<User>().Add(user);
         }
@@ -39,7 +36,7 @@ namespace Infrastructure.Data
             _context.Set<User>().Remove(user);
         }
 
-        public void Update(User user)
+        public void Edit(User user)
         {
             _context.Set<User>().Update(user);
         }

@@ -11,6 +11,7 @@ namespace API.Helpers
             CreateMap<User, UserDTO>()
                 .ForMember(u => u.Payments, o => o.MapFrom(p => p.Payments));
             CreateMap<Payment, PaymentDTO>();
+            CreateMap<UserDTO, User>();
         }
     }
 }

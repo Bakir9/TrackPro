@@ -4,11 +4,11 @@ namespace Core.Interfaces
 {
     public interface IUserRepository
     {
-        Task<ICollection<User>> GetUsers();
+        Task<IReadOnlyList<User>> GetUsers();
         Task<User> GetUserById(int id);
-        void Create(User user);
+        void Add(User user);
         void Delete(User user);
-        void Update(User user);
+        void Edit(User user);
         Task SaveAsync();
     }
 }

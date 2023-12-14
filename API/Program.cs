@@ -1,6 +1,9 @@
 using API.Extensions;
+using Core.Entities.Identity;
 using Core.Interfaces;
 using Infrastructure.Data;
+using Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 //var AllowOrigin = "_AllowOrigin";
@@ -14,8 +17,9 @@ builder.Services.AddCors(opt =>
 });
 // Add services to the container.
 //applicationservice are repository and implemenatations
-builder.Services.AddApplicationServices();
 builder.Services.AddControllers();
+builder.Services.AddApplicationServices();
+builder.Services.AddIdentityServices(builder.Configuration);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -40,6 +44,7 @@ app.UseHttpsRedirection();
 
 app.UseCors("CorsPolicy");
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
@@ -49,11 +54,16 @@ var services = scope.ServiceProvider;
 var loggerFactory = services.GetRequiredService<ILoggerFactory>();
 
 var context = services.GetRequiredService<StoreContext>();
+var identityContext = services.GetRequiredService<AppIdentityDbContext>();
+var userManager = services.GetRequiredService<UserManager<AppUser>>();
 var logger = services.GetRequiredService<ILogger<Program>>();
 try
 {
    await context.Database.MigrateAsync();
+   await identityContext.Database.MigrateAsync();
    await StoreContextSeed.SeedAsync(context, loggerFactory);
+   await AppIdentityDbContextSeed.SeedUsersAsync(userManager);
+   
 }
 catch (Exception ex)
 {
