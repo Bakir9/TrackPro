@@ -11,6 +11,7 @@ namespace Infrastructure.Identity
             {
                 var user = new AppUser
                 {
+                    AppUserId = 1,
                     FirstName = "Bakir",
                     LastName = "Malkoc",
                     DisplayName ="Bake",

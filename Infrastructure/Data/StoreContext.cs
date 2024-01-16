@@ -15,6 +15,7 @@ namespace Infrastructure.Data
         public DbSet<Childs> Childs { get; set; }
         public DbSet<Association> Associations { get; set; }
         public DbSet<Activity> Activities { get; set; }
+        public DbSet<UserActivities> UserActivities { get; set; }
         public DbSet<Income> Incomes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

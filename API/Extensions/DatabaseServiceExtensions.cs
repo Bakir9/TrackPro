@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Core.Entities.Identity;
+using Infrastructure.Data;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication.OAuth;
@@ -14,13 +15,13 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace API.Extensions
 {
-    public static class IdentityServiceExtensions
+    public static class DatabaseServiceExtensions
     {
-        public static IServiceCollection AddIdentityServices(this IServiceCollection services, IConfiguration config)
+        public static IServiceCollection AddDatabaseServices(this IServiceCollection services, IConfiguration config)
         {
             services.AddDbContext<AppIdentityDbContext>(opt => 
             {
-                opt.UseSqlite(config.GetConnectionString("IdentityConnection"));
+                opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
             });
 
             services.AddIdentityCore<AppUser>(opt => {
@@ -41,10 +42,13 @@ namespace API.Extensions
                         ValidateAudience = false
                     };
                 });
-
             
             services.AddAuthorization();
             
+            services.AddDbContext<StoreContext>( opt => 
+            {
+                opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
+            });
             return services;
         }
         

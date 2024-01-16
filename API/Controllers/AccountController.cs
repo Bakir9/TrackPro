@@ -31,6 +31,7 @@ namespace API.Controllers
 
              return new UserLoginDTO
             {
+                AppUserId = user.AppUserId,
                 Email = user.Email,
                 DisplayName = user.DisplayName,
                 Token = _tokenService.CreateToken(user)
@@ -60,9 +61,8 @@ namespace API.Controllers
                 DisplayName = user.DisplayName,
                 Token = _tokenService.CreateToken(user)
             };
-            
         }
-
+       
         [HttpPost("register")]
         public async Task<ActionResult<UserLoginDTO>> Register(RegisterDTO registerDTO)
         {

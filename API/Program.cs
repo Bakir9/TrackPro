@@ -1,6 +1,5 @@
 using API.Extensions;
 using Core.Entities.Identity;
-using Core.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
@@ -19,15 +18,15 @@ builder.Services.AddCors(opt =>
 //applicationservice are repository and implemenatations
 builder.Services.AddControllers();
 builder.Services.AddApplicationServices();
-builder.Services.AddIdentityServices(builder.Configuration);
+builder.Services.AddDatabaseServices(builder.Configuration);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<StoreContext>( opt => 
-{
-    opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
+// builder.Services.AddDbContext<StoreContext>( opt => 
+// {
+//     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
+// });
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
