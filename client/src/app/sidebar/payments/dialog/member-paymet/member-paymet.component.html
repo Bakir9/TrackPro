@@ -33,15 +33,31 @@
         </div>
         <div class="row">
             <div class="col">
-                <mat-form-field appearance="outline">
+                <mat-form-field>
                     <mat-label>Mjesec</mat-label>
-                    <input matInput placeholder="Iznos" formControlName="iznos">
+                    <mat-select [(value)]="selected">
+                            <mat-option value="januar">Januar</mat-option>
+                            <mat-option value="februar">Februar</mat-option>
+                            <mat-option value="mart">Mart</mat-option>
+                            <mat-option value="april">April</mat-option>
+                            <mat-option value="maj">Maj</mat-option>
+                            <mat-option value="juni">Juni</mat-option>
+                            <mat-option value="juli">Juli</mat-option>
+                            <mat-option value="august">August</mat-option>
+                            <mat-option value="septembar">Septembar</mat-option>
+                            <mat-option value="oktobar">Oktobar</mat-option>
+                            <mat-option value="novembar">Novembar</mat-option>
+                            <mat-option value="decembar">Decembar</mat-option>
+                    </mat-select>
                 </mat-form-field>
             </div>
             <div class="col">
-                <mat-form-field appearance="outline">
+                <mat-form-field>
                     <mat-label>Semestar</mat-label>
-                    <input matInput placeholder="Iznos" formControlName="iznos">
+                    <mat-select [(value)]="selected">
+                            <mat-option value="1">I Semestar</mat-option>
+                            <mat-option value="2">II Semestar</mat-option>
+                    </mat-select>
                 </mat-form-field>
             </div>
         </div>

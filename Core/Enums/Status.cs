@@ -19,4 +19,16 @@ namespace Core.Enums
         [EnumMember(Value = "Cash")]
         Cash
     }
+
+    public enum PaymentPurpose
+    {
+        [EnumMember(Value = "Membership")]
+        Membership,
+
+        [EnumMember(Value = "Mekteb")]
+        Mekteb,
+
+        [EnumMember(Value = "Others")]
+        Others
+    }
 }

@@ -22,6 +22,13 @@ namespace Infrastructure.Data
            _context.Set<Payment>().Remove(payment);
         }
 
+        public async Task<Payment> GetPaymentById(int id)
+        {
+             return await _context.Payments
+                .Where(p => p.Id == id)
+                .FirstOrDefaultAsync();
+        }
+
         public async Task<ICollection<Payment>> GetPaymentMethods()
         {   
             return await _context.Payments.ToListAsync();

@@ -19,7 +19,6 @@ namespace Core.Entities
       public List<UserActivities> UserActivities { get; } = new();
       [Column(TypeName = "date")]
       public DateTime LastActive {get; set;}
-      
       public List<Payment> Payments { get; } = new List<Payment>();
     }
 }

@@ -9,7 +9,7 @@ namespace API.Controllers
     public class UsersController : BaseApiController
     {
         private readonly IUserRepository _userRepository;
-        public IMapper _mapper;
+        public readonly IMapper _mapper;
         private readonly ILogger<PaymentsController> _logger;
        
         public UsersController(IUserRepository userRepository,IMapper mapper,ILogger<PaymentsController> logger)

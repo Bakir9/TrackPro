@@ -16,6 +16,7 @@ namespace API.Helpers
             CreateMap<UserActivities, UserActivityDTO>();
             CreateMap<Activity, UserActivityDTO>();
             CreateMap<Core.Entities.Activity, UserForActivityDTO>()
+                .ForMember(k => k.ActivityId, o => o.MapFrom(p => p.Id))
                 .ForMember(k => k.Users, o => o.MapFrom(p => p.UserActivities.Select(x => x.User)));
         }
     }
