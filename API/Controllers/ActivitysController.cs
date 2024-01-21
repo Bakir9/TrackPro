@@ -4,6 +4,7 @@ using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Activity = Core.Entities.Activity;
 
 namespace API.Controllers
 {
@@ -41,6 +42,13 @@ namespace API.Controllers
             _actRepository.Delete(activity);
             await _actRepository.SaveAsync();
             return Ok();
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IReadOnlyList<ActivityDTO>>> GetActivities()
+        {
+            var activity = await _actRepository.GetActivities();
+            return Ok(_mapper.Map<IReadOnlyList<Activity>, IReadOnlyList<ActivityDTO>>(activity));
         }
 
         [HttpGet("{id}")]

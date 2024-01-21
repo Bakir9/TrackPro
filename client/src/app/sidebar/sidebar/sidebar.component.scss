@@ -85,11 +85,47 @@ mat-expansion-panel{
 }
 
 mat-divider {
-    margin-top: 16px;
-    margin-bottom:  16px;
+    margin-top: 12px;
+    margin-bottom:  12px;
     background-color: rgba(255, 255, 255, 0.5);
 }
 
 .dashboard-name {
     font-size: 28px;
 }
+
+//tree node style
+.tree {
+    background-color: #0879ad;
+    
+}
+
+.tree button,
+.tree button span {
+    color: white;
+}
+.example-tree-invisible {
+    display: none;
+  }
+  
+  .tree ul,
+  .tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+  }
+  
+ 
+  .tree .mat-nested-tree-node div[role=group] {
+    padding-left: 15px;
+  }
+  
+  .tree div[role=group] > .mat-tree-node {
+   padding-left: 5px;
+  }
+
+  .mat-tree-node span {
+    color: white;
+    padding: 0px;
+    margin: 0;
+  }

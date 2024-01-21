@@ -29,28 +29,45 @@
             <mat-icon>card_travel</mat-icon>
             <span>Dodatne uplate</span>
         </button>
-        
-        <button mat-button class="menu-button" routerLink="/activities">
-            <mat-icon>payment</mat-icon>
-            <span>Ostale aktivnosti</span>
-        </button>
-        <button mat-button [matMenuTriggerFor]="menu" class="menu-button">
-            <mat-icon>payment</mat-icon>Udruzenja
-        </button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="/association/emaneh">Emaneh</button>
-            <button mat-menu-item routerLink="/association/klubprijatelja">Klub prijatelja</button>
-        </mat-menu>
         <mat-divider></mat-divider>
-        <button mat-button class="menu-button-settings">
+        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="tree">
+            <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+                <button mat-button class="menu-button" routerLink="">
+                    <mat-icon>group_work</mat-icon>
+                    <span> {{node.name}}</span>
+                </button>
+               
+            </mat-tree-node>
+            <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+                <div class="mat-tree-node">
+                  <button mat-icon-button matTreeNodeToggle
+                          [attr.aria-label]="'Toggle ' + node.name">
+                    <mat-icon>
+                       {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                    </mat-icon>
+                  </button>
+                  <span>{{node.name}}</span>
+                </div>
+                <div [class.example-tree-invisible]="!treeControl.isExpanded(node)"
+                    role="group">
+                  <ng-container matTreeNodeOutlet></ng-container>
+              </div>
+            </mat-nested-tree-node>
+          </mat-tree>
+        <!-- <button mat-button class="menu-button" routerLink="">
+            <mat-icon>payment</mat-icon>
+            <span>Arapski jezik</span>
+        </button> -->
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button">
             <mat-icon>info</mat-icon>
             <span>About</span>
         </button>
-        <button mat-button class="menu-button-settings">
+        <button mat-button class="menu-button">
             <mat-icon>help</mat-icon>
             <span>Help</span>
         </button>
-        <button mat-button class="menu-button-settings">
+        <button mat-button class="menu-button">
             <mat-icon>settings</mat-icon>
             <span>Settings</span>
         </button>
@@ -63,5 +80,4 @@
             </div>
         </div>
     </mat-sidenav-content>
-    
 </mat-sidenav-container>

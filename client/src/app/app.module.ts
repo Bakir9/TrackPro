@@ -18,6 +18,7 @@ import { MatTableModule } from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { SidebarModule } from './sidebar/sidebar.module';
 import {MatListModule} from '@angular/material/list';
+import {MatTreeNestedDataSource, MatTreeModule, MatNestedTreeNode} from '@angular/material/tree';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {MatListModule} from '@angular/material/list';
     MatTableModule,
     MatPaginatorModule,
     SidebarModule,
-    MatListModule
+    MatListModule,
+    MatTreeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
