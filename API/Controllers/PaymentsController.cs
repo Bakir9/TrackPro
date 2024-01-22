@@ -3,6 +3,7 @@ using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 
 namespace API.Controllers
 {
@@ -24,6 +25,8 @@ namespace API.Controllers
         public async Task<ActionResult<PaymentDTO>> CreatePayment(Payment payment)
         {
             if (payment is null) return NotFound();
+
+            Log.Information("Uspjesno kreirena nova uplate od strane jednog korisniak");
             _paymentRepository.Create(payment);
             await _paymentRepository.SaveAsync();
 

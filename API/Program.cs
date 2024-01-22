@@ -4,6 +4,7 @@ using Infrastructure.Data;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 //var AllowOrigin = "_AllowOrigin";
 var builder = WebApplication.CreateBuilder(args);
@@ -16,12 +17,19 @@ builder.Services.AddCors(opt =>
 });
 // Add services to the container.
 //applicationservice are repository and implemenatations
+
 builder.Services.AddControllers();
 builder.Services.AddApplicationServices();
 builder.Services.AddDatabaseServices(builder.Configuration);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Debug()
+            .WriteTo.Console()
+            .WriteTo.File("logs/myapp-.txt",rollingInterval: RollingInterval.Day)
+            .CreateLogger();
 
 // builder.Services.AddDbContext<StoreContext>( opt => 
 // {

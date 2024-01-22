@@ -6,7 +6,7 @@ import { MemberDetailComponent } from './sidebar/members/members-details/member-
 
 const routes: Routes = 
 [
-  {path: "dashboard", component: HeaderComponent},
+  {path: "home", component: HeaderComponent},
   {path: "users", component: MembersComponent},
   {path: "user-details", component: MemberDetailComponent}
 ];
