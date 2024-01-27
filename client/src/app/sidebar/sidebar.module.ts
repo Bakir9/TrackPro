@@ -19,6 +19,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatMenuModule} from '@angular/material/menu';
 import { MemberPaymetComponent } from './payments/dialog/member-paymet/member-paymet.component';
 import {MatTreeNestedDataSource, MatTreeModule} from '@angular/material/tree';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import {MatTreeNestedDataSource, MatTreeModule} from '@angular/material/tree';
     MatCheckboxModule,
     MatMenuModule,
     MatTreeModule,
+    ReactiveFormsModule
   ],
   exports: [AddMemberComponent, MatMenuModule]
 })

@@ -3,6 +3,7 @@ using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 
 namespace API.Controllers
 {
@@ -10,12 +11,12 @@ namespace API.Controllers
     {
         private readonly IUserRepository _userRepository;
         public readonly IMapper _mapper;
-        private readonly ILogger<PaymentsController> _logger;
+        private readonly ILogger<UsersController> _logger;
        
-        public UsersController(IUserRepository userRepository,IMapper mapper,ILogger<PaymentsController> logger)
+        public UsersController(IUserRepository userRepository,IMapper mapper,ILogger<UsersController> logger)
         {
-            _logger = logger;
             _userRepository = userRepository;
+            _logger = logger;
             _mapper = mapper;
         }
 
@@ -62,14 +63,16 @@ namespace API.Controllers
         }
 
         [HttpPost("create")]
-        public async Task<ActionResult<User>> Add(User user)
+        public async Task<ActionResult<UserDTO>> Create(User user)
         {
             if(user == null){
+                Log.Information("Korisnik nazalost nije dodan");  
                 return NotFound();
             }
             _userRepository.Add(user);
             await _userRepository.SaveAsync();
-            return Ok(user); 
+            Log.Information("Korisnik uspjesno dodan");  
+            return Ok(_mapper.Map<User, UserDTO>(user)); 
         }
     }
 }

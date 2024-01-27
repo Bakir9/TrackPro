@@ -24,8 +24,12 @@ export class MembersService {
     return this.http.get(this.apiUrl + 'users/' + id);
   }
 
-  createUser(values: any) {
+  createMember(values: any) {
     return this.http.post(this.apiUrl +'users/create', values);
+  }
+  
+  deleteMember(id: number) {
+    return this.http.get(this.apiUrl + 'users/' + id);
   }
 }
 

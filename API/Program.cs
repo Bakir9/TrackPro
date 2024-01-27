@@ -31,11 +31,6 @@ Log.Logger = new LoggerConfiguration()
             .WriteTo.File("logs/myapp-.txt",rollingInterval: RollingInterval.Day)
             .CreateLogger();
 
-// builder.Services.AddDbContext<StoreContext>( opt => 
-// {
-//     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
-// });
-
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();

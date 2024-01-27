@@ -19,6 +19,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { SidebarModule } from './sidebar/sidebar.module';
 import {MatListModule} from '@angular/material/list';
 import {MatTreeNestedDataSource, MatTreeModule, MatNestedTreeNode} from '@angular/material/tree';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {MatTreeNestedDataSource, MatTreeModule, MatNestedTreeNode} from '@angula
     SidebarModule,
     MatListModule,
     MatTreeModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

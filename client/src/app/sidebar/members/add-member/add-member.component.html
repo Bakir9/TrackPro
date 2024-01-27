@@ -1,13 +1,16 @@
 <div mat-dialog-title>
     <h1>Create new member</h1>
 </div>
-<form formGroup="memberForm" (ngSubmit)="onFormSubmit()">
+<form [formGroup]="newMember" (ngSubmit)="onFormSubmit()">
     <div mat-dialog-content class="content">
+        <div class="row">
+           
+        </div>
         <div class="row">
             <div class="col">
                 <mat-form-field appearance="outline">
                     <mat-label>First Name</mat-label>
-                    <input matInput type="text" placeholder="First Name" formControlName="firstName">
+                    <input matInput type="text" placeholder="First Name" formControlName="firstName" id="firstName">
                 </mat-form-field>
             </div>
             <div class="col">
@@ -27,7 +30,7 @@
             <div class="col">
                 <mat-form-field>
                     <mat-label>Choose a date</mat-label>
-                    <input matInput [matDatepicker]="picker">
+                    <input matInput [matDatepicker]="picker" formControlName="birthday">
                     <mat-hint>MM/DD/YYYY</mat-hint>
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
@@ -36,9 +39,11 @@
         </div>
         <div class="row">
             <div class="col">
-                <mat-label>Gender:</mat-label>
-                <mat-radio-button value="male">Male</mat-radio-button>
-                <mat-radio-button value="female">Female</mat-radio-button>
+                <mat-radio-group aria-label="Select please:" formControlName="gender">
+                    <mat-label>Gender:</mat-label> 
+                    <mat-radio-button value="Male">Male</mat-radio-button>
+                    <mat-radio-button value="Female">Female</mat-radio-button>
+                </mat-radio-group>
             </div>
         </div>
         <div class="row mt-3">
@@ -65,7 +70,7 @@
             <div class="col">
                 <mat-form-field appearance="outline">
                     <mat-label>Email</mat-label>
-                    <input matInput type="email" placeholder="Ex. test@gmail.com" formControlName="email">
+                    <input matInput type="email" placeholder="Ex. john.doe@gmail.com" formControlName="email">
                 </mat-form-field>
             </div>
         </div>
@@ -81,7 +86,7 @@
             <div class="col">
                 <mat-form-field>
                     <mat-label>Select Country</mat-label>
-                    <mat-select>
+                    <mat-select formControlName="country">
                       <mat-option value="bih" selected>Bosnien-Herzegowina</mat-option>
                       <mat-option value="croatien">Croatia</mat-option>
                       <mat-option value="albanien">Albania</mat-option>
@@ -95,7 +100,7 @@
             <div class="col">
                 <mat-form-field>
                     <mat-label>Select Nationality</mat-label>
-                    <mat-select>
+                    <mat-select formControlName="nationality">
                       <mat-option value="bih" selected>Bosnien-Herzegowina</mat-option>
                       <mat-option value="croatien">Croatien</mat-option>
                       <mat-option value="albanien">Albanien</mat-option>
@@ -111,28 +116,29 @@
             <div class="col">
                 <mat-form-field>
                     <mat-label>Marriage Status</mat-label>
-                    <mat-select>
-                      <mat-option value="option1" selected>Sigle</mat-option>
-                      <mat-option value="option2">Married</mat-option>
-                      <mat-option value="option3">Widowed</mat-option>
-                      <mat-option value="option3">Divorced</mat-option>
-                      <mat-option value="option3">Separated</mat-option>
+                    <mat-select formControlName="marriageStatus">
+                      <mat-option value="Single" selected>Sigle</mat-option>
+                      <mat-option value="Married">Married</mat-option>
+                      <mat-option value="Widowed">Widowed</mat-option>
+                      <mat-option value="Divorced">Divorced</mat-option>
+                      <mat-option value="Separated">Separated</mat-option>
                     </mat-select>
                   </mat-form-field>
             </div>
             <div class="col">
                 <mat-form-field>
                     <mat-label>Select Association</mat-label>
-                    <mat-select [(value)]="selected">
-                      <mat-option value="emaneh" selected>Emaneh</mat-option>
-                      <mat-option value="klubprijateljea">Klub prijatelja</mat-option>
+                    <mat-select [(value)]="selected" formControlName="associationId">
+                      <mat-option value="1" selected>Emaneh</mat-option>
+                      <mat-option value="2">Klub prijatelja</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
         </div>
     </div>
     <mat mat-dialog-actions align="end" class="me-5">
-        <button mat-stroked-button>Close</button>
+        <button mat-button mat-dialog-close (click)="closeDialog()">Close</button>
         <button mat-flat-button color="primary" type="submit">Add</button>
     </mat>
 </form>
+
