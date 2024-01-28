@@ -12,3 +12,4 @@ appsettings.*
 /Properties
 bin/*
 .vscode
+*.txt

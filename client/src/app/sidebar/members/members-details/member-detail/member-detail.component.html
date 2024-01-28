@@ -7,7 +7,7 @@
       <div class="row mt-3 ms-2">
         <div class="col border border-light shadow-sm p-3 mb-5 bg-body rounded">
             <h4>Members Info</h4>
-            <form action="">
+            <form [formGroup]="memberDetail">
                 <div class="content">
                     <div class="row">
                         <div class="col">
@@ -133,7 +133,7 @@
                         </div>
                     </div>
                 </div>
-              </form>
+            </form>
         </div>
         <div class="col border border-light shadow-sm p-3 mb-5 bg-body rounded ms-2">
             <h4>Change password</h4>
@@ -167,7 +167,7 @@
                         </div>
                     </div>
                 </div>
-              </form>
+            </form>
         </div>
       </div>
     </mat-tab>

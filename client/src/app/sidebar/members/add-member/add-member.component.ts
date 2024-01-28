@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { MembersService } from '../members.service';
 import { MatDialogRef } from '@angular/material/dialog';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-add-member',
@@ -11,8 +10,7 @@ import { DatePipe } from '@angular/common';
 })
 export class AddMemberComponent implements OnInit {
   selected = "emaneh";
-  //currentDateAndTime = this.datePipe.transform(new Date, 'yyyy-MM-dd HH:mm:ss');
-  
+
   newMember = this.formBuilder.group({
     id:0,
     firstName: '',
@@ -42,9 +40,6 @@ export class AddMemberComponent implements OnInit {
 
   ngOnInit(): void {}
   
-  updateBirthday(): void{
-
-  }
   onFormSubmit(){
 
     if(this.newMember.valid) {
@@ -61,7 +56,6 @@ export class AddMemberComponent implements OnInit {
   }
 
   closeDialog():void{
-    console.log("Trebao bi se zatvoriti");
     this.dialogRef.close();
   }
 }

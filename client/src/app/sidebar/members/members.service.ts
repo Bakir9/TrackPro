@@ -27,9 +27,24 @@ export class MembersService {
   createMember(values: any) {
     return this.http.post(this.apiUrl +'users/create', values);
   }
+
+  editMember(id: number){
+
+  }
   
   deleteMember(id: number) {
     return this.http.get(this.apiUrl + 'users/' + id);
+  }
+
+  createPayment(values: any){
+    return this.http.post(this.apiUrl + 'payments/create',values);
+  }
+
+  deletePayment(id:number) {
+
+  }
+  updatePayment(id: number){
+
   }
 }
 

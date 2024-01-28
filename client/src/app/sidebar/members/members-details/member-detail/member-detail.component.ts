@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IMember } from 'src/app/shared/models/member';
 import { MembersService } from '../../members.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-member-detail',
@@ -12,11 +13,19 @@ import { MembersService } from '../../members.service';
 export class MemberDetailComponent implements OnInit {
   checked = false;
   user: IMember;
-  constructor(private router: Router, private memberService: MembersService, private route: ActivatedRoute) {}
+  memberDetail = this.formBuilder.group({
+
+  });
+  constructor(
+    private router: Router, 
+    private memberService: MembersService, 
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder) {}
  
-  ngOnInit(): void {
-    
-  }
+    ngOnInit(): void {
+      
+    }
+
   // ngOnInit(): void {
   //     this.memberService.getMemberDetail(2)
   //       .subscribe((user: IMember) => {

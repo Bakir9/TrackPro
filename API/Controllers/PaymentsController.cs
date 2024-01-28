@@ -24,7 +24,7 @@ namespace API.Controllers
         [HttpPost("create")]
         public async Task<ActionResult<PaymentDTO>> CreatePayment(Payment payment)
         {
-            if (payment is null) return NotFound();
+            if (payment is null)  return NotFound();
 
             Log.Information("Uspjesno kreirena nova uplate od strane jednog korisniak");
             _paymentRepository.Create(payment);
