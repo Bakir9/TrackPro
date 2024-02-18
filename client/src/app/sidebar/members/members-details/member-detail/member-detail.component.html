@@ -42,9 +42,12 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <mat-label>Gender:</mat-label>
-                            <mat-radio-button value="male" checked="true">Male</mat-radio-button>
-                            <mat-radio-button value="female">Female</mat-radio-button>
+                            <mat-radio-group aria-label="Select please:" formControlName="gender">
+                                <mat-label>Gender:</mat-label>
+                                <mat-radio-button value="male" checked="true">Male</mat-radio-button>
+                                <mat-radio-button value="female">Female</mat-radio-button>
+                            </mat-radio-group>
+                            
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -87,7 +90,7 @@
                         <div class="col">
                             <mat-form-field>
                                 <mat-label>Select Country</mat-label>
-                                <mat-select>
+                                <mat-select formControlName="country">
                                   <mat-option value="bih" selected>Bosnien-Herzegowina</mat-option>
                                   <mat-option value="croatien">Croatia</mat-option>
                                   <mat-option value="albanien">Albania</mat-option>
@@ -100,8 +103,8 @@
                         </div>
                         <div class="col">
                             <mat-form-field>
-                                <mat-label>Select Country</mat-label>
-                                <mat-select>
+                                <mat-label>Select Nationality</mat-label>
+                                <mat-select formControlName="nationality">
                                   <mat-option value="bih" selected>Bosnien-Herzegowina</mat-option>
                                   <mat-option value="croatien">Croatien</mat-option>
                                   <mat-option value="albanien">Albanien</mat-option>
@@ -117,7 +120,7 @@
                         <div class="col">
                             <mat-form-field>
                                 <mat-label>Marriage Status</mat-label>
-                                <mat-select>
+                                <mat-select formControlName="marriageStatus">
                                   <mat-option value="option1" selected>Sigle</mat-option>
                                   <mat-option value="option2">Married</mat-option>
                                   <mat-option value="option3">Widowed</mat-option>
@@ -137,7 +140,7 @@
         </div>
         <div class="col border border-light shadow-sm p-3 mb-5 bg-body rounded ms-2">
             <h4>Change password</h4>
-            <form action="">
+            <form [formGroup]="passwordChange">
                 <div class="content">
                     <div class="row" style="align-items: baseline;">
                         <div class="col-3">

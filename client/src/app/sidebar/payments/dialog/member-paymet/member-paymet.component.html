@@ -24,7 +24,7 @@
             <div class="col">
                 <mat-form-field>
                     <mat-label>Nacin placanja</mat-label>
-                    <mat-select [(value)]="selected" formControlName="paymentMethod">
+                    <mat-select formControlName="paymentMethod">
                             <mat-option value="1">Uplatnica</mat-option>
                             <mat-option value="2">Online</mat-option>
                     </mat-select>
@@ -35,7 +35,7 @@
             <div class="col">
                 <mat-form-field>
                     <mat-label>Mjesec</mat-label>
-                    <mat-select [(value)]="selected" formControlName="month">
+                    <mat-select  formControlName="month">
                             <mat-option value="1">Januar</mat-option>
                             <mat-option value="2">Februar</mat-option>
                             <mat-option value="3">Mart</mat-option>
@@ -54,7 +54,7 @@
             <div class="col">
                 <mat-form-field>
                     <mat-label>Semestar</mat-label>
-                    <mat-select [(value)]="selected">
+                    <mat-select>
                             <mat-option value="1">I Semestar</mat-option>
                             <mat-option value="2">II Semestar</mat-option>
                             <mat-option value="3">Obicna uplata</mat-option>

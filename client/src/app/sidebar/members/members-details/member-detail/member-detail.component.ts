@@ -14,8 +14,25 @@ export class MemberDetailComponent implements OnInit {
   checked = false;
   user: IMember;
   memberDetail = this.formBuilder.group({
-
+    id:0,
+    firstName: '',
+    lastName: '',
+    adress:'',
+    title: '',
+    gender: '',
+    plz: '',
+    ort: '',
+    email: '',
+    phone: '',
+    country: '',
+    nationality: '',
+    marriageStatus: ''
   });
+  passwordChange = this.formBuilder.group({
+    currentPassword: '',
+    newPassword: ''
+  })
+
   constructor(
     private router: Router, 
     private memberService: MembersService, 
@@ -25,16 +42,4 @@ export class MemberDetailComponent implements OnInit {
     ngOnInit(): void {
       
     }
-
-  // ngOnInit(): void {
-  //     this.memberService.getMemberDetail(2)
-  //       .subscribe((user: IMember) => {
-  //         this.user = user;
-  //         console.log(this.user);
-  //   },
-  //   error => {
-  //     console.log(error);
-  //   });
-  // }
-   
 }

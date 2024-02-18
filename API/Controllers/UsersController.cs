@@ -31,6 +31,11 @@ namespace API.Controllers
         public async Task<ActionResult<UserDTO>> GetUser(int id)
         {
             var user = await _userRepository.GetUserById(id);
+            if(user is null) 
+            {
+                Log.Information("User not found !"); _logger.LogInformation("User not found !");
+                return NotFound();
+            }
 
             return Ok(_mapper.Map<User, UserDTO>(user));
         }
@@ -39,12 +44,15 @@ namespace API.Controllers
         public async Task<ActionResult<UserDTO>> Update(int id, [FromBody]User user) 
         {
             if(user == null){
+                Log.Information("User not found !"); _logger.LogInformation("User not found !");
                 return NotFound();
             }
             _userRepository.Edit(user);
             await _userRepository.SaveAsync();
 
             var updatedUser = await _userRepository.GetUserById(id);
+            Log.Information("Successfully updated !"); _logger.LogInformation("Successfully updated !");
+
             return Ok(_mapper.Map<User, UserDTO>(updatedUser));
         }
 
@@ -54,6 +62,7 @@ namespace API.Controllers
             var user = await _userRepository.GetUserById(id);
 
             if(user == null){
+                Log.Information("User not found !"); _logger.LogInformation("User not found !");
                 return NotFound();
             }
 
@@ -66,12 +75,13 @@ namespace API.Controllers
         public async Task<ActionResult<UserDTO>> Create(User user)
         {
             if(user == null){
-                Log.Information("Korisnik nazalost nije dodan");  
+                Log.Information("User not created ! Check all fields !");  
                 return NotFound();
             }
             _userRepository.Add(user);
             await _userRepository.SaveAsync();
-            Log.Information("Korisnik uspjesno dodan");  
+            Log.Information("Successfully created");  
+
             return Ok(_mapper.Map<User, UserDTO>(user)); 
         }
     }

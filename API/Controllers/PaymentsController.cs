@@ -24,12 +24,17 @@ namespace API.Controllers
         [HttpPost("create")]
         public async Task<ActionResult<PaymentDTO>> CreatePayment(Payment payment)
         {
-            if (payment is null)  return NotFound();
+            if (payment is null)
+            {
+                Log.Information("Bad Request");
+                _logger.LogInformation("Bad Request");
+                return NotFound();
+            } 
 
-            Log.Information("Uspjesno kreirena nova uplate od strane jednog korisniak");
             _paymentRepository.Create(payment);
-            await _paymentRepository.SaveAsync();
-
+             await _paymentRepository.SaveAsync();
+            Log.Information("Payment Success"); _logger.LogInformation("Payment Success");
+            
             return Ok(_mapper.Map<Payment, PaymentDTO>(payment));
         }
 
@@ -37,9 +42,15 @@ namespace API.Controllers
         public async Task<ActionResult<PaymentDTO>> DeletePayment(int id)
         {
             var payment = await _paymentRepository.GetPaymentById(id);
-            if (payment is null) return NotFound();
+           
+            if (payment is null)
+            {
+                Log.Information("Payment not found. Not possible to delete"); _logger.LogInformation("Payment not found. Not possible to delete");
+                return NotFound();
+            } 
             _paymentRepository.Delete(payment);
             await _paymentRepository.SaveAsync();
+            Log.Information("Successfully deleted"); _logger.LogInformation("Successfully deleted");
 
             return Ok(_mapper.Map<Payment, PaymentDTO>(payment));
         }
@@ -47,12 +58,17 @@ namespace API.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<PaymentDTO>> Update(int id, [FromBody]Payment payment)
         {
-            if(payment is null) return NotFound();
+            if(payment is null)
+            {
+                Log.Information("Payment not found. Not possible to update"); _logger.LogInformation("Payment not found. Not possible to update");
+                return NotFound();
+            } 
 
             _paymentRepository.Update(payment);
             await _paymentRepository.SaveAsync();
 
             var paymentUpdate = await _paymentRepository.GetPaymentById(id);
+            Log.Information("Successfully updated"); _logger.LogInformation("Successfully updated");
 
             return Ok(_mapper.Map<Payment, PaymentDTO>(paymentUpdate));
         }
