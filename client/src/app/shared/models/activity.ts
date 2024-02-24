@@ -1,9 +1,10 @@
 export interface IActivity{
     id: number;
     name: string;
-    children: IActivityChildren[];
+    children?: IActivityChildren[];
 }
 
 export interface IActivityChildren {
+    id:number,
     name: string;
 }

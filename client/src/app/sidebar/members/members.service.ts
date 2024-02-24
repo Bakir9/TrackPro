@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
+import { IActivity } from 'src/app/shared/models/activity';
 import { IMember } from 'src/app/shared/models/member';
 
 @Injectable({
@@ -9,7 +10,17 @@ import { IMember } from 'src/app/shared/models/member';
 export class MembersService {
   apiUrl = 'https://localhost:5001/api/';
   members: IMember[] = [];
+  activity: IActivity[] = [];
   constructor(private http: HttpClient) { }
+
+  getSidebarActivity(){
+    return this.http.get<IActivity[]>(this.apiUrl + 'home').pipe(
+      map(response => {
+        this.activity = response;
+        return this.activity;
+      })
+    )
+  }
 
   getMembers() {
     return this.http.get<IMember[]>(this.apiUrl + 'users').pipe(
