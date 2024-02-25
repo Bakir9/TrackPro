@@ -7,27 +7,6 @@ import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource, MatTreeModule } from '@angular/material/tree';
 import { IActivity, IActivityChildren } from 'src/app/shared/models/activity';
 import { MembersService } from '../members/members.service';
-import { InteractivityChecker } from '@angular/cdk/a11y';
-
-// const TREE_DATA_Activity: IActivity[] = 
-// [
-//   {
-//     id: 1,
-//     name: 'Aktivnost 1',
-//     children: [{id: 1, name: 'Grupa 1'}, {id: 2, name: 'Grupa 2'}, {id: 3, name: 'Grupa 3'}],
-//   },
-//   {
-//     id: 2,
-//     name: 'Aktivnost 2',
-//     children: [{id: 1, name: 'Napredni'}, {id: 2, name: 'Grupa 2'}, {id: 3, name: 'Napredni 3'}],
-//   },
-//   {
-//     id: 3,
-//     name: 'Aktivnost 3',
-//     children: [{id: 1, name: 'Napredni 2'}, {id: 2, name: 'Grupa 1'}, {id: 3, name: 'Grupa 2'}],
-//   }
-// ];
-
 
 @Component({
   selector: 'app-sidebar',
@@ -46,7 +25,7 @@ export class SidebarComponent implements OnInit {
 
   constructor(private observer: BreakpointObserver, private dialog: MatDialog, private memberService: MembersService) 
   {
-     
+    
   }
 
   ngOnInit(): void {
@@ -54,7 +33,6 @@ export class SidebarComponent implements OnInit {
   }
   hasChild = (_:number, node: IActivity) => !!node.children && node.children.length > 0;
   ngAfterViewInit() {
-    this.dataSource.data = this.activity;
     this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
       if(res.matches){
         this.sidenav.mode = 'over';
@@ -76,6 +54,8 @@ export class SidebarComponent implements OnInit {
   getSidebarActivity() {
     this.memberService.getSidebarActivity().subscribe((activity: IActivity[]) => {
       this.activity = activity;
+      this.dataSource.data = this.activity;
+      console.log(this.treeControl);
     }, error => {
       console.log(error);
     })

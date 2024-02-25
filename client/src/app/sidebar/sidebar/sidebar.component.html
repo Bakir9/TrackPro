@@ -4,7 +4,7 @@
         <mat-icon *ngIf="sidenav.opened">close</mat-icon>
     </button>
     <span class="dashboard-name">TrackPro - Work smarter</span>
-    <button mat-button (click)="openDialog()">Novi clan</button>
+   
 </mat-toolbar>
 
 <mat-sidenav-container>
@@ -32,11 +32,10 @@
         <mat-divider></mat-divider>
         <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="tree">
             <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
-                <button mat-button class="menu-button" routerLink="">
+                <button mat-button class="menu-button" routerLink="" value= {{node.id}}>
                     <mat-icon>group_work</mat-icon>
                     <span> {{node.name}}</span>
                 </button>
-               
             </mat-tree-node>
             <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
                 <div class="mat-tree-node">
@@ -54,11 +53,7 @@
                   <ng-container matTreeNodeOutlet></ng-container>
               </div>
             </mat-nested-tree-node>
-          </mat-tree>
-        <!-- <button mat-button class="menu-button" routerLink="">
-            <mat-icon>payment</mat-icon>
-            <span>Arapski jezik</span>
-        </button> -->
+        </mat-tree>
         <mat-divider></mat-divider>
         <button mat-button class="menu-button">
             <mat-icon>info</mat-icon>

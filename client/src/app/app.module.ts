@@ -20,6 +20,7 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import {MatListModule} from '@angular/material/list';
 import {MatTreeNestedDataSource, MatTreeModule, MatNestedTreeNode} from '@angular/material/tree';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SidebarModule,
     MatListModule,
     MatTreeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -45,7 +45,7 @@ export class MembersComponent implements OnInit {
     const dialogRef = this.dialog.open(EditMemberComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-        console.log("Test");
+       
     });
   }
   openPayment() {
