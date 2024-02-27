@@ -2,7 +2,7 @@
     width: 54px;
     height: 54px;
     font-size: 45px;
-    color: rgb(25, 25, 236);
+    color: rgb(68, 147, 211);
     position: relative;
     overflow: hidden;
     display: flex;
@@ -16,10 +16,46 @@
     -ms-border-radius: 30px;
     -o-border-radius: 30px;
 }
+.card {
+    margin:15px; 
+}
 
 .mat-card-header-text{
     width: 100% !important;
   }
+
+.card-mystyle {
+    display: flex;
+    flex-direction: row;
+}
+
+.border-left-yellow {
+    border-left: 4px solid rgb(247, 247, 124);
+}
+
+.border-left-green {
+    border-left: 4px solid rgb(127, 170, 127);
+}
+
+.border-left-blue {
+    border-left: 4px solid rgb(67, 134, 173);
+}
+.card-content-text {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    align-content: center;
+}
+
+.card-icon-style {
+    background-color: rgb(236, 236, 236);
+    padding-top: 20px;
+    border-radius: 20px 0 0 20px;
+    -webkit-border-radius: 20px 0 0 20px;
+    -moz-border-radius: 20px 0 0 20px;
+    -ms-border-radius: 20px 0 0 20px;
+    -o-border-radius: 20px 0 0 20px;
+}
 
 .card-header {
     display: flex;
@@ -27,6 +63,11 @@
     align-items: center;
     border-bottom: none;
     background-color: white;
+}
+
+.header-card-description {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
 }
 
 .align-left {
@@ -39,6 +80,7 @@
 .text-card {
     font-size: 25px;
     width: 100%;
+    font-family: 'Abel', sans-serif;
 }
 
 .opacity-8

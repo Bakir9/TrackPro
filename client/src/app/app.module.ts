@@ -21,6 +21,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatTreeNestedDataSource, MatTreeModule, MatNestedTreeNode} from '@angular/material/tree';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {MatCardModule} from '@angular/material/card';
     MatListModule,
     MatTreeModule,
     ReactiveFormsModule,
-    MatCardModule
+    MatCardModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
