@@ -18,16 +18,24 @@ import { MatTableModule } from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { SidebarModule } from './sidebar/sidebar.module';
 import {MatListModule} from '@angular/material/list';
-import {MatTreeNestedDataSource, MatTreeModule, MatNestedTreeNode} from '@angular/material/tree';
+import { MatTreeModule} from '@angular/material/tree';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DatePipe } from '@angular/common';
+import { PaymentComponent } from './sidebar/payments/payment/payment.component';
+import { LoginComponent } from './account/login/login.component';
+import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
+import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    LoginComponent,
+    LoginLayoutComponent,
+    MainLayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +59,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatCardModule,
     FontAwesomeModule
   ],
-  providers: [],
+  exports: [MatCardModule],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

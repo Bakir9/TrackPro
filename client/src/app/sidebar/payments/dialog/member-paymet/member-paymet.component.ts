@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { MembersService } from 'src/app/sidebar/members/members.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-member-paymet',
@@ -18,14 +19,15 @@ export class MemberPaymetComponent implements OnInit {
    amount: '',
    paymentMethod: '',
    month: '',
-   year:'2023-01-07T00:00:00',
+   year:'2023-09-21T00:00:00',
    purpose: 'Clanarina',
    //semestar: '',
    //annotations:'' 
-   paymentDate: '2023-01-07T00:00:00'
+   paymentDate: '2023-09-21T00:00:00'
   });
 
   constructor(
+    private datePipe: DatePipe,
     private memberService: MembersService,
     private dialogRef: MatDialogRef<MemberPaymetComponent>,
     private formBuilder: FormBuilder
@@ -36,10 +38,10 @@ export class MemberPaymetComponent implements OnInit {
   onPaymentSubmit() {
     console.log("Unutar metode");
     if(this.newPayment.valid){
-       console.log(this.newPayment.value);
        this.memberService.createPayment(this.newPayment.value).subscribe({
         next: (val: any) => {
           alert("Payment created");
+          this.closeDialog();
         },
         error: (err: any) => {
           console.log("Uplata nije izvrsena");

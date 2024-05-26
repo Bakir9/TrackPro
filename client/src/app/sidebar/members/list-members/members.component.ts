@@ -26,7 +26,7 @@ export class MembersComponent implements OnInit {
   displayedColumns: string[] = ['firstName', 'lastName', 'email', 'country', 'phone', 'nationality', 'action'];
   members: IMember[];
 
-  constructor (private memberService: MembersService,  private dialog: MatDialog,){}
+  constructor (private memberService: MembersService,  private dialog: MatDialog){}
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

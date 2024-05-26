@@ -20,13 +20,18 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MemberPaymetComponent } from './payments/dialog/member-paymet/member-paymet.component';
 import {MatTreeNestedDataSource, MatTreeModule} from '@angular/material/tree';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ActivityComponent } from './Activity/activity/activity.component';
+import { PaymentComponent } from './payments/payment/payment.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AddMemberComponent,
     EditMemberComponent,
     MemberDetailComponent,
-    MemberPaymetComponent
+    MemberPaymetComponent,
+    ActivityComponent,
+    PaymentComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +51,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatCheckboxModule,
     MatMenuModule,
     MatTreeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardModule
   ],
   exports: [AddMemberComponent, MatMenuModule]
 })

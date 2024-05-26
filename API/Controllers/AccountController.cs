@@ -31,7 +31,7 @@ namespace API.Controllers
             var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
 
             var user = await _userManager.FindByEmailAsync(email);
-
+            
              return new UserLoginDTO
             {
                 AppUserId = user.AppUserId,
@@ -51,15 +51,19 @@ namespace API.Controllers
         public async Task<ActionResult<UserLoginDTO>> Login(LoginDTO loginDTO)
         {
             var user = await _userManager.FindByEmailAsync(loginDTO.Email);
-            Log.Information("Ovo je jedan test za loger");
+            
             if(user == null) return Unauthorized(new ApiResponse(401));
 
             var result = await _signInManager.CheckPasswordSignInAsync(user, loginDTO.Password, false);
             
-            if(!result.Succeeded) return Unauthorized(new ApiResponse(401));
+            if(!result.Succeeded)
+            {
+                Log.Information("Wrong data");
+                return  Unauthorized(new ApiResponse(401));
+            } 
 
             return new UserLoginDTO
-            {
+            {   
                 Email = user.Email,
                 DisplayName = user.DisplayName,
                 Token = _tokenService.CreateToken(user)
