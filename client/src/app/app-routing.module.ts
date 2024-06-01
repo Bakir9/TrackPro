@@ -8,6 +8,7 @@ import { PaymentComponent } from './sidebar/payments/payment/payment.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
 import { LoginComponent } from './account/login/login.component';
+import { AuthGuard } from './core/auth.guard';
 
 const routes: Routes = 
 [
