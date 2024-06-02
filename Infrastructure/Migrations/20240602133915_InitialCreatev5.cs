@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitialCreatev5 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -174,9 +174,9 @@ namespace Infrastructure.Migrations
                     Amount = table.Column<decimal>(type: "TEXT", nullable: false),
                     PaymentMethod = table.Column<string>(type: "TEXT", nullable: true),
                     Month = table.Column<string>(type: "TEXT", nullable: true),
-                    Year = table.Column<DateTime>(type: "date", nullable: false),
+                    Year = table.Column<string>(type: "TEXT", nullable: true),
                     Purpose = table.Column<string>(type: "TEXT", nullable: true),
-                    PaymentDate = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    PaymentDate = table.Column<DateTime>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {

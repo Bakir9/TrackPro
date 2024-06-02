@@ -15,8 +15,6 @@ namespace Infrastructure.Data
         {
             try
             {
-                //var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                
                 if(!context.Users.Any())
                 {
                     var userData = 
@@ -25,15 +23,6 @@ namespace Infrastructure.Data
                     var udata = JsonSerializer.Deserialize<List<User>>(userData);
                     context.Users.AddRange(udata);
                 }
-                if(!context.Payments.Any())
-                {
-                    var paymentsData = 
-                        File.ReadAllText("../Infrastructure/Data/SeedData/payments.json");
-
-                    var pData = JsonSerializer.Deserialize<List<Payment>>(paymentsData);
-                    context.Payments.AddRange(pData);
-                }
-
                 if(!context.Activities.Any())
                 {
                     var activitiesData = 
@@ -41,6 +30,14 @@ namespace Infrastructure.Data
 
                     var aData = JsonSerializer.Deserialize<List<Activity>>(activitiesData);
                     context.Activities.AddRange(aData);
+                }
+                if(!context.Payments.Any())
+                {
+                    var paymentsData = 
+                        File.ReadAllText("../Infrastructure/Data/SeedData/payments.json");
+
+                    var pData = JsonSerializer.Deserialize<List<Payment>>(paymentsData);
+                    context.Payments.AddRange(pData);
                 }
                 if(!context.Childs.Any())
                 {

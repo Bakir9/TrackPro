@@ -174,7 +174,7 @@ namespace Infrastructure.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("PaymentDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("date");
 
                     b.Property<string>("PaymentMethod")
                         .HasColumnType("TEXT");
@@ -185,8 +185,8 @@ namespace Infrastructure.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("Year")
-                        .HasColumnType("date");
+                    b.Property<string>("Year")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 

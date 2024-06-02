@@ -17,7 +17,7 @@ export class AccountService {
   login(values: any){
     return this.http.post<IUser>(this.baseUrl + 'account/login', values).pipe(
       map((user: IUser) => {
-        localStorage.setItem('token', user.token);
+        console.log("Trenutni korisnik: " +user.appUserId);
         this.currentUserSource.next(user);
       })
     );
@@ -31,6 +31,8 @@ export class AccountService {
   }
   
   register(values: any){}
-  logout(){}
+  logout(){
+    localStorage.removeItem('token');
+  }
   
 }

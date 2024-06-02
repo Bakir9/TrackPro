@@ -34,6 +34,9 @@ export class MembersService {
   getMemberDetail(id:number) {
     return this.http.get(this.apiUrl + 'users/' + id);
   }
+  getMemberIdDetail(id: number){
+    return this.http.get(this.apiUrl + 'users/' + id)
+  }
 
   createMember(values: any) {
     return this.http.post(this.apiUrl +'users/create', values);

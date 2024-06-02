@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace API.DTO
 {
@@ -13,8 +9,7 @@ namespace API.DTO
         public decimal Amount { get; set; }
         public string PaymentMethod { get; set; }
         public string Month { get; set; }
-        [Column(TypeName = "date")]
-        public DateTime Year { get; set; }
+        public string Year { get; set; }
         public string Purpose {get; set;}
         public DateTime PaymentDate { get; set; }
     }

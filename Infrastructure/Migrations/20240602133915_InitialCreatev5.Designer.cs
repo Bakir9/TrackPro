@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20240116152603_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240602133915_InitialCreatev5")]
+    partial class InitialCreatev5
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -177,7 +177,7 @@ namespace Infrastructure.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("PaymentDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("date");
 
                     b.Property<string>("PaymentMethod")
                         .HasColumnType("TEXT");
@@ -188,8 +188,8 @@ namespace Infrastructure.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("Year")
-                        .HasColumnType("date");
+                    b.Property<string>("Year")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 

@@ -63,6 +63,7 @@ try
 {
    await context.Database.MigrateAsync();
    await identityContext.Database.MigrateAsync();
+   Log.Information("Spremanjae SeedData u bazu podataka");
    await StoreContextSeed.SeedAsync(context, loggerFactory);
    await AppIdentityDbContextSeed.SeedUsersAsync(userManager);
    

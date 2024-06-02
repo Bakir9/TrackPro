@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IMember } from 'src/app/shared/models/member';
 import { MembersService } from '../../members.service';
 import { FormBuilder } from '@angular/forms';
+import { IUser } from 'src/app/shared/models/user';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-member-detail',
@@ -19,9 +21,10 @@ export class MemberDetailComponent implements OnInit {
     lastName: '',
     adress:'',
     title: '',
+    dateOfBirth: '',
     gender: '',
-    plz: '',
-    ort: '',
+    plz: [{value: '', disabled:true}],
+    ort: [{value: '', disabled:true}],
     email: '',
     phone: '',
     country: '',
@@ -33,6 +36,8 @@ export class MemberDetailComponent implements OnInit {
     newPassword: ''
   })
 
+  actuelUser:IMember;
+
   constructor(
     private router: Router, 
     private memberService: MembersService, 
@@ -40,6 +45,30 @@ export class MemberDetailComponent implements OnInit {
     private formBuilder: FormBuilder) {}
  
     ngOnInit(): void {
-      
+      this.setValueOnForm();
+    }
+
+    setValueOnForm() {
+      this.memberService.getMemberIdDetail(1).subscribe((user:IMember) => {
+        this.actuelUser = user;
+        if(this.actuelUser != null ){
+          this.memberDetail.patchValue({
+            id:0,
+            firstName: this.actuelUser.firstName,
+            lastName: this.actuelUser.lastName,
+            adress:this.actuelUser.adress,
+            title: this.actuelUser.title,
+            dateOfBirth: this.actuelUser.birthday,
+            gender: this.actuelUser.gender,
+            plz: '',
+            ort: '',
+            email: this.actuelUser.email,
+            phone: this.actuelUser.phone,
+            country: this.actuelUser.country,
+            nationality: this.actuelUser.nationality,
+            marriageStatus: this.actuelUser.marriageStatus
+          })
+        }
+      })
     }
 }
