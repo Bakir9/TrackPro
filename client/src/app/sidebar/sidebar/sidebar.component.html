@@ -13,8 +13,8 @@
             <mat-icon>home</mat-icon>
             <span>Pocetna</span>
         </button>
-        <button mat-button class="menu-button" [routerLink]="['/user-details',1]">
-            <mat-icon>person</mat-icon>
+        <button mat-button class="menu-button" [routerLink]="['/user-details', (currentUser$ | async).appUserId]">
+            <mat-icon>person</mat-icon> 
             <span>Profil</span>
         </button>
         <button mat-button class="menu-button" routerLink="/users">

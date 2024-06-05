@@ -16,15 +16,19 @@ export class AppComponent implements OnInit {
   currentUser$: Observable<IUser>;
   currentToken: string;
   constructor
-  (
-    private accountService: AccountService,
-    private router: Router
-  ){}
+  ( private accountService: AccountService,private router: Router){}
 
   ngOnInit(): void {
-    this.currentToken = localStorage.getItem('token')
-    if(this.currentToken === null){
-      this.router.navigate(['/login']); 
-    }
+    this.loadCurrentUser();
+  }
+
+  loadCurrentUser(){
+    const token = localStorage.getItem('token');
+    this.accountService.loadCurrentUser(token).subscribe(() => {
+      console.log("User loaded");
+    },
+  error => {
+    console.log("Something wrong");
+  })
   }
 }
