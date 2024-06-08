@@ -1,3 +1,5 @@
+import { IUser } from "./user";
+
 export interface IMember {
     id: string;
     firstName: string;
@@ -15,5 +17,15 @@ export interface IMember {
     memberFrom: string;
     active: string;
     lastActive: string;
-    userPayments: string;
+    userPayments: IMemberPayments[];
+}
+
+export interface IMemberPayments {
+  id: number;
+  userId: number;
+  amount: number;
+  paymentMethod: string;
+  year: string;
+  purpose: string;
+  paymentDate: string;  
 }

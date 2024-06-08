@@ -15,8 +15,7 @@ export class AppComponent implements OnInit {
   title = 'client';
   currentUser$: Observable<IUser>;
   currentToken: string;
-  constructor
-  ( private accountService: AccountService,private router: Router){}
+  constructor( private accountService: AccountService,private router: Router){}
 
   ngOnInit(): void {
     this.loadCurrentUser();

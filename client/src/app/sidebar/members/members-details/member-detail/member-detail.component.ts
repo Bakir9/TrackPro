@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IMember } from 'src/app/shared/models/member';
+import { IMember, IMemberPayments } from 'src/app/shared/models/member';
 import { MembersService } from '../../members.service';
 import { FormBuilder } from '@angular/forms';
-import { IUser } from 'src/app/shared/models/user';
 import { formatDate } from '@angular/common';
 
 @Component({
@@ -36,7 +35,8 @@ export class MemberDetailComponent implements OnInit {
     newPassword: ''
   })
 
-  actuelUser:IMember;
+  currentMember:IMember;
+  membersPayment: IMemberPayments[];
 
   constructor(
     private router: Router, 
@@ -48,27 +48,32 @@ export class MemberDetailComponent implements OnInit {
       this.setValueOnForm();
     }
 
+
+
     setValueOnForm() {
       this.memberService.getMemberIdDetail(1).subscribe((user:IMember) => {
-        this.actuelUser = user;
-        if(this.actuelUser != null ){
+        this.currentMember = user;
+        if(this.currentMember != null ){
           this.memberDetail.patchValue({
             id:0,
-            firstName: this.actuelUser.firstName,
-            lastName: this.actuelUser.lastName,
-            adress:this.actuelUser.adress,
-            title: this.actuelUser.title,
-            dateOfBirth: this.actuelUser.birthday,
-            gender: this.actuelUser.gender,
+            firstName: this.currentMember.firstName,
+            lastName: this.currentMember.lastName,
+            adress:this.currentMember.adress,
+            title: this.currentMember.title,
+            dateOfBirth: this.currentMember.birthday,
+            gender: this.currentMember.gender,
             plz: '',
             ort: '',
-            email: this.actuelUser.email,
-            phone: this.actuelUser.phone,
-            country: this.actuelUser.country,
-            nationality: this.actuelUser.nationality,
-            marriageStatus: this.actuelUser.marriageStatus
+            email: this.currentMember.email,
+            phone: this.currentMember.phone,
+            country: this.currentMember.country,
+            nationality: this.currentMember.nationality,
+            marriageStatus: this.currentMember.marriageStatus
           })
         }
       })
     }
+
+  groupPayments(){
+  }
 }

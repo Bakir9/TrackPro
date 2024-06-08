@@ -32,12 +32,15 @@ namespace Infrastructure.Services
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddDays(7),
+                Expires = DateTime.Now.AddHours(1),
                 SigningCredentials = creds,
                 Issuer = _config["Token:Issuer"]
             };
             
             var tokenHandler = new JwtSecurityTokenHandler();
+               
+           
+            
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
             return tokenHandler.WriteToken(token);

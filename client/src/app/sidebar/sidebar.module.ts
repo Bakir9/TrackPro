@@ -23,6 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ActivityComponent } from './Activity/activity/activity.component';
 import { PaymentComponent } from './payments/payment/payment.component';
 import { MatCardModule } from '@angular/material/card';
+import { MembersFamilyComponent } from './members/members-details/members-family/members-family.component';
+import { MemberPaymentsComponent } from './members/members-details/member-payments/member-payments.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { MatCardModule } from '@angular/material/card';
     MemberDetailComponent,
     MemberPaymetComponent,
     ActivityComponent,
-    PaymentComponent
+    PaymentComponent,
+    MembersFamilyComponent,
+    MemberPaymentsComponent
   ],
   imports: [
     CommonModule,
