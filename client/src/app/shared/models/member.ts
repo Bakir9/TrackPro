@@ -17,7 +17,7 @@ export interface IMember {
     memberFrom: string;
     active: string;
     lastActive: string;
-    userPayments: IMemberPayments[];
+    payments: IMemberPayments[];
 }
 
 export interface IMemberPayments {

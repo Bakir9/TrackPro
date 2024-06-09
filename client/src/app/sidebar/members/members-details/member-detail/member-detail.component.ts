@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IMember, IMemberPayments } from 'src/app/shared/models/member';
 import { MembersService } from '../../members.service';
 import { FormBuilder } from '@angular/forms';
 import { formatDate } from '@angular/common';
+import { MemberPaymentsComponent } from '../member-payments/member-payments.component';
 
 @Component({
   selector: 'app-member-detail',
@@ -11,7 +12,8 @@ import { formatDate } from '@angular/common';
   styleUrls: ['./member-detail.component.scss']
 })
 
-export class MemberDetailComponent implements OnInit {
+export class MemberDetailComponent implements AfterViewInit {
+  @ViewChild(MemberPaymentsComponent) membersPaymentRef!: MemberPaymentsComponent;
   checked = false;
   user: IMember;
   memberDetail = this.formBuilder.group({
@@ -30,10 +32,13 @@ export class MemberDetailComponent implements OnInit {
     nationality: '',
     marriageStatus: ''
   });
+
   passwordChange = this.formBuilder.group({
     currentPassword: '',
     newPassword: ''
   })
+
+
 
   currentMember:IMember;
   membersPayment: IMemberPayments[];
@@ -44,7 +49,7 @@ export class MemberDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private formBuilder: FormBuilder) {}
  
-    ngOnInit(): void {
+    ngAfterViewInit(): void {
       this.setValueOnForm();
     }
 
@@ -53,6 +58,8 @@ export class MemberDetailComponent implements OnInit {
     setValueOnForm() {
       this.memberService.getMemberIdDetail(1).subscribe((user:IMember) => {
         this.currentMember = user;
+        this.membersPaymentRef.setCurrentData(this.currentMember);
+      
         if(this.currentMember != null ){
           this.memberDetail.patchValue({
             id:0,

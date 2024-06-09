@@ -1,10 +1,43 @@
 <!--Payments-->
-<div class="row mt-2 mb-2">
+<div class="row">
     <div class="col">
+        <h4 class="ms-2 payment-title">Membership Payment</h4>
+    </div>
+  </div>
+<div class="row m-2">
+    <div class="col">
+        <!--test-->
+        <mat-expansion-panel *ngFor="let payment of this.payments; let i = index;" class="mb-2">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Year: {{payment?.year}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    Test for form
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="row">
+                <div class="col-3">
+                    <div class="content">
+                        <mat-label>{{payment?.amount}}</mat-label>
+                        <mat-checkbox class="example-margin">Checked</mat-checkbox> 
+                    </div>
+                    <div class="content">
+                        <mat-label>Maj</mat-label>
+                        <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                    </div>
+                    <div class="content">
+                        <mat-label>Juni</mat-label>
+                        <mat-checkbox class="example-margin">Payed</mat-checkbox> 
+                    </div>
+                </div>
+            </div>
+        </mat-expansion-panel>
+
         <mat-expansion-panel>
             <mat-expansion-panel-header>
             <mat-panel-title>
-                Year: 2023
+                Year: 2023 
             </mat-panel-title>
             <mat-panel-description>
                 Not Payed
@@ -78,170 +111,12 @@
         </mat-expansion-panel>
     </div>
 </div>
-    <div class="row mt-2 mb-2">
-        <div class="col">
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Year: 2022
-                </mat-panel-title>
-                <mat-panel-description>
-                    Payed
-                    <mat-icon class="icon-color">check_circle_outline</mat-icon>
-                </mat-panel-description>
-                </mat-expansion-panel-header>
-                <div class="row">
-                    <div class="col-3">
-                        <div class="content">
-                            <mat-label>January</mat-label>
-                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
-                        </div>
-                        <div class="content">
-                            <mat-label>Februar</mat-label>
-                            <mat-checkbox class="example-margin">Checked</mat-checkbox> 
-                        </div>
-                        <div class="content">
-                            <mat-label>Mart</mat-label>
-                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="content">
-                            <mat-label>April</mat-label>
-                            <mat-checkbox class="example-margin">Checked</mat-checkbox> 
-                        </div>
-                        <div class="content">
-                            <mat-label>Maj</mat-label>
-                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
-                        </div>
-                        <div class="content">
-                            <mat-label>Juni</mat-label>
-                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="content">
-                            <mat-label>Juli</mat-label>
-                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
-                        </div>
-                        <div class="content">
-                            <mat-label>August</mat-label>
-                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
-                        </div>
-                        <div class="content">
-                            <mat-label>Septembar</mat-label>
-                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="content">
-                            <mat-label>Oktobar</mat-label>
-                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
-                        </div>
-                        <div class="content">
-                            <mat-label>Novembar</mat-label>
-                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
-                        </div>
-                        <div class="content">
-                            <mat-label>Decembar</mat-label>
-                            <mat-checkbox class="example-margin">Checked</mat-checkbox> 
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button mat-stroked-button class="float-end">Pay All</button>
-                        <button mat-flat-button class="float-end me-2" color="primary" type="submit">Save</button>
-                    </div>
-                </div>
-            </mat-expansion-panel>
-        </div>
-    </div>
-    <div class="row mt-2 mb-2">
-        <div class="col">
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Year: 2021
-                </mat-panel-title>
-                <mat-panel-description>
-                    Payed
-                    <mat-icon class="icon-color">check_circle_outline</mat-icon>
-                </mat-panel-description>
-                </mat-expansion-panel-header>
-                <div class="row">
-                    <div class="col-3">
-                        <div class="content">
-                            <mat-label>January</mat-label>
-                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
-                        </div>
-                        <div class="content">
-                            <mat-label>Februar</mat-label>
-                            <mat-checkbox class="example-margin">Checked</mat-checkbox> 
-                        </div>
-                        <div class="content">
-                            <mat-label>Mart</mat-label>
-                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="content">
-                            <mat-label>April</mat-label>
-                            <mat-checkbox class="example-margin">Checked</mat-checkbox> 
-                        </div>
-                        <div class="content">
-                            <mat-label>Maj</mat-label>
-                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
-                        </div>
-                        <div class="content">
-                            <mat-label>Juni</mat-label>
-                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="content">
-                            <mat-label>Juli</mat-label>
-                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
-                        </div>
-                        <div class="content">
-                            <mat-label>August</mat-label>
-                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
-                        </div>
-                        <div class="content">
-                            <mat-label>Septembar</mat-label>
-                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="content">
-                            <mat-label>Oktobar</mat-label>
-                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
-                        </div>
-                        <div class="content">
-                            <mat-label>Novembar</mat-label>
-                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
-                        </div>
-                        <div class="content">
-                            <mat-label>Decembar</mat-label>
-                            <mat-checkbox class="example-margin">Checked</mat-checkbox> 
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button mat-stroked-button class="float-end">Pay All</button>
-                        <button mat-flat-button class="float-end me-2" color="primary" type="submit">Save</button>
-                    </div>
-                </div>
-            </mat-expansion-panel>
-        </div>
-    </div>
     <div class="row">
         <div class="col">
-            <h4>Mekteb</h4>
+            <h4 class="ms-2 payment-title">Mekteb</h4>
         </div>
     </div>
-    <div class="row mt-2 mb-2">
+    <div class="row m-2">
         <div class="col">
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
@@ -276,7 +151,7 @@
             </mat-expansion-panel>
         </div>
     </div>
-    <div class="row mt-2 mb-2">
+    <div class="row m-2">
         <div class="col">
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
@@ -313,45 +188,10 @@
     </div>
     <div class="row mt-2 mb-2">
         <div class="col">
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Year: 2021/2022
-                </mat-panel-title>
-                <mat-panel-description>
-                    Payed
-                    <mat-icon class="icon-color">check_circle_outline</mat-icon>
-                </mat-panel-description>
-                </mat-expansion-panel-header>
-                <div class="row">
-                    <div class="col-3">
-                        <div class="content">
-                            <mat-label>Semestar 1</mat-label>
-                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="content">
-                            <mat-label>Semestar 2</mat-label>
-                            <mat-checkbox class="example-margin">Payed</mat-checkbox> 
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button mat-stroked-button class="float-end">Pay All</button>
-                        <button mat-flat-button class="float-end me-2" color="primary" type="submit">Save</button>
-                    </div>
-                </div>
-            </mat-expansion-panel>
+            <h4 class="ms-2 payment-title">Hifz</h4>
         </div>
     </div>
-    <div class="row mt-2 mb-2">
-        <div class="col">
-            <h4>Hifz</h4>
-        </div>
-    </div>
-    <div class="row mt-2 mb-2">
+    <div class="row m-2">
         <div class="col">
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
@@ -388,10 +228,10 @@
     </div>
     <div class="row mt-2 mb-2">
         <div class="col">
-            <h4>Arapski jezik</h4>
+            <h4 class="ms-2 payment-title">Arapski jezik</h4>
         </div>
     </div>
-    <div class="row mt-2 mb-2">
+    <div class="row m-2">
         <div class="col">
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
@@ -428,10 +268,10 @@
     </div>
     <div class="row mt-2 mb-2">
         <div class="col">
-            <h4>Bosanski jezik</h4>
+            <h4 class="ms-2 payment-title">Bosanski jezik</h4>
         </div>
     </div>
-    <div class="row mt-2 mb-2">
+    <div class="row m-2">
         <div class="col">
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
@@ -468,10 +308,10 @@
     </div>
     <div class="row mt-2 mb-2">
         <div class="col">
-            <h4>Hor</h4>
+            <h4 class="m-2 payment-title">Hor</h4>
         </div>
     </div>
-    <div class="row mt-2 mb-2">
+    <div class="row m-2">
         <div class="col">
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
@@ -508,10 +348,10 @@
     </div>
     <div class="row">
         <div class="col">
-            <h4>Other Payments</h4>
+            <h4 class="ms-2 payment-title">Other Payments</h4>
         </div>
     </div>
-    <div class="row mt-2 mb-2">
+    <div class="row m-2">
         <div class="col">
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
@@ -549,129 +389,4 @@
             </mat-expansion-panel>
         </div>
     </div>
-    <div class="row mt-2 mb-2">
-        <div class="col">
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Year: 2022
-                </mat-panel-title>
-                <mat-panel-description>
-                    Ukupno uplata: 16
-                </mat-panel-description>
-                </mat-expansion-panel-header>
-                <div class="row">
-                    <div class="col">
-                        <p>Iznos: 150 EUR</p>
-                    </div>
-                    <div class="col">
-                        <p>Svrha uplate: Ostale uplate</p>
-                    </div>
-                    <div class="col">
-                        <p>Zaprimio: Bakir Malkoc</p>
-                    </div>
-                    <div class="col">
-                        <p>Datum uplate: 12/12/2023 15:35:45</p>
-                    </div>
-                </div>
-            </mat-expansion-panel>
-        </div>
-    </div>
-    <div class="row mt-2 mb-2">
-        <div class="col">
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Year: 2021
-                </mat-panel-title>
-                <mat-panel-description>
-                    Ukupno uplata: 16
-                </mat-panel-description>
-                </mat-expansion-panel-header>
-                <div class="row">
-                    <div class="col">
-                        <p>Iznos: 150 EUR</p>
-                    </div>
-                    <div class="col">
-                        <p>Svrha uplate: Ostale uplate</p>
-                    </div>
-                    <div class="col">
-                        <p>Zaprimio: Bakir Malkoc</p>
-                    </div>
-                    <div class="col">
-                        <p>Datum uplate: 12/12/2023 15:35:45</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <p>Iznos: 150 EUR</p>
-                    </div>
-                    <div class="col">
-                        <p>Svrha uplate: Ostale uplate</p>
-                    </div>
-                    <div class="col">
-                        <p>Zaprimio: Bakir Malkoc</p>
-                    </div>
-                    <div class="col">
-                        <p>Datum uplate: 12/12/2023 15:35:45</p>
-                    </div>
-                </div>
-            </mat-expansion-panel>
-        </div>
-    </div>
-    <div class="row mt-2 mb-2">
-        <div class="col">
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Year: 2020
-                </mat-panel-title>
-                <mat-panel-description>
-                    Ukupno uplata: 16
-                </mat-panel-description>
-                </mat-expansion-panel-header>
-                <div class="row">
-                    <div class="col">
-                        <p>Iznos: 150 EUR</p>
-                    </div>
-                    <div class="col">
-                        <p>Svrha uplate: Ostale uplate</p>
-                    </div>
-                    <div class="col">
-                        <p>Zaprimio: Bakir Malkoc</p>
-                    </div>
-                    <div class="col">
-                        <p>Datum uplate: 12/12/2023 15:35:45</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <p>Iznos: 150 EUR</p>
-                    </div>
-                    <div class="col">
-                        <p>Svrha uplate: Ostale uplate</p>
-                    </div>
-                    <div class="col">
-                        <p>Zaprimio: Bakir Malkoc</p>
-                    </div>
-                    <div class="col">
-                        <p>Datum uplate: 12/12/2023 15:35:45</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <p>Iznos: 150 EUR</p>
-                    </div>
-                    <div class="col">
-                        <p>Svrha uplate: Ostale uplate</p>
-                    </div>
-                    <div class="col">
-                        <p>Zaprimio: Bakir Malkoc</p>
-                    </div>
-                    <div class="col">
-                        <p>Datum uplate: 12/12/2023 15:35:45</p>
-                    </div>
-                </div>
-            </mat-expansion-panel>
-        </div>
-    </div>
+    

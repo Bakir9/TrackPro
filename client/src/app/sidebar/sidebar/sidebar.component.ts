@@ -42,7 +42,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
     this.currentUser$ = this.accountService.currentUser$;
     this.currentToken = localStorage.getItem('token')
-    console.log("Token: " + this.currentToken);
+   
     if(this.currentToken === null){
       this.router.navigate(['/login']); 
     }
@@ -66,7 +66,7 @@ export class SidebarComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(AddMemberComponent);
     dialogRef.afterClosed().subscribe(result => {
-        console.log("Test");
+        
     });
   }
 
@@ -74,7 +74,6 @@ export class SidebarComponent implements OnInit {
     this.memberService.getSidebarActivity().subscribe((activity: IActivity[]) => {
       this.activity = activity;
       this.dataSource.data = this.activity;
-      console.log(this.treeControl);
     }, error => {
       console.log(error);
     })
