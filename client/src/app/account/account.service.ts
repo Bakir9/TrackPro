@@ -19,7 +19,8 @@ export class AccountService {
   loadCurrentUser(token:string){
     if(token === null) {
       this.currentUserSource.next(null);
-      return of(null);
+      this.router.navigate(['/login']);
+      //return of(null);
     }
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', `Bearer ${token}`);
