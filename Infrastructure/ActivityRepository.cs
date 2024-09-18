@@ -10,7 +10,7 @@ namespace Infrastructure
         {
             _context = context;
         }
-
+                                                                                       
         public void Add(Core.Entities.Activity activity)
         {
              _context.Set<Core.Entities.Activity>().Add(activity);
@@ -30,15 +30,19 @@ namespace Infrastructure
         {
            return await _context
                 .Activities
+                .Include(ua => ua.UserActivities)
+                .Include(ua => ua.Users)
                 .ToListAsync();
         }
 
         public async Task<Core.Entities.Activity> GetActivityById(int id)
         {
             return await _context.Activities
+                .Where(a => a.Id == id)
                 .Include(k => k.UserActivities)
-                .ThenInclude(u => u.User)
-                .SingleOrDefaultAsync(m => m.Id == id);
+                .Include(k => k.Users)
+                .FirstOrDefaultAsync();
+                //.SingleOrDefaultAsync(m => m.Id == id);
         }
 
         public async Task SaveAsync()

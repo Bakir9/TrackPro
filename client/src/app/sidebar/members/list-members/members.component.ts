@@ -10,13 +10,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { EditMemberComponent } from '../edit-member/edit-member.component';
 import { MemberPaymetComponent } from '../../payments/dialog/member-paymet/member-paymet.component';
+import { DeletedialogComponent } from '../deletedialog/deletedialog.component';
+import { AddMemberComponent } from '../add-member/add-member.component';
 
 @Component({
   selector: 'app-members',
   templateUrl: './members.component.html',
   styleUrls: ['./members.component.scss'],
-  standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatPaginatorModule, MatIconModule, MatButtonModule],
+  // standalone: true,
+  // imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatPaginatorModule, MatIconModule, MatButtonModule],
 })
 
 export class MembersComponent implements OnInit {
@@ -48,11 +50,24 @@ export class MembersComponent implements OnInit {
        
     });
   }
+
+  openDialogAddMember() {
+    const dialogRef = this.dialog.open(AddMemberComponent);
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
+  }
+
   openPayment() {
     const dialogRef = this.dialog.open(MemberPaymetComponent);
-    // dialogRef.afterClosed().subscribe(result => {
-    //     console.log("Test");
-    // });
+  }
+
+  openDeleteDialog() {
+    const dialogRef = this.dialog.open(DeletedialogComponent);
+    
+    dialogRef.afterClosed().subscribe((result: any )=> { 
+        console.log("ovo je result " + result); 
+    });
   }
 
   getMembers() {

@@ -14,6 +14,7 @@ namespace Infrastructure.Data.Config
             .HasForeignKey(u => u.UserId)
             .IsRequired(false);
 
+
             builder.Entity<User>().Property(u => u.FirstName).IsRequired();
             builder.Entity<User>().Property(u => u.LastName).IsRequired();
             builder.Entity<User>().Property(u => u.Gender).IsRequired();

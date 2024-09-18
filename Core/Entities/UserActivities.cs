@@ -1,8 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace Core.Entities
 {
-    public class UserActivities
+    public class UserActivity
     {
-        public int Id { get; set; }
         public int UserId { get; set; }
         public int ActivityId { get; set; }
         public User User { get; set; } = null;

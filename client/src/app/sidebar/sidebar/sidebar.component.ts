@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddMemberComponent } from '../members/add-member/add-member.component';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource, MatTreeModule } from '@angular/material/tree';
-import { IActivity, IActivityChildren } from 'src/app/shared/models/activity';
+import { IActivity } from 'src/app/shared/models/activity';
 import { MembersService } from '../members/members.service';
 import { AccountService } from 'src/app/account/account.service';
 import { Observable, subscribeOn } from 'rxjs';

@@ -4,8 +4,8 @@ namespace Core.Interfaces
 {
     public interface IUserActivitiesRepository
     {
-        public Task<UserActivities> GetActivityByIdWithUsers();
-        public Task<UserActivities> AddUsersToActivity();
-        public Task<UserActivities> DeleteUsersFromActivity();
+        public Task<UserActivity> GetActivityByIdWithUsers();
+        public Task<UserActivity> AddUsersToActivity();
+        public Task<UserActivity> DeleteUsersFromActivity();
     }
 }

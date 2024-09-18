@@ -5,7 +5,7 @@ namespace Core.Interfaces
 {
     public interface IActivityService
     {
-       Task<UserActivities> AddMembersToActivity(); 
-       Task<IReadOnlyList<UserActivities>> GetActivityMembers();
+       Task<UserActivity> AddMembersToActivity(); 
+       Task<IReadOnlyList<UserActivity>> GetActivityMembers();
     }
 }

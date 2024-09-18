@@ -1,7 +1,7 @@
 using System.Security.Claims;
 using API.DTO;
 using API.Errors;
-using Core.Entities.Identity;
+using Core.Entities;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -12,11 +12,11 @@ namespace API.Controllers
 {
     public class AccountController : BaseApiController
     {
-        private readonly UserManager<AppUser> _userManager;
-        private readonly SignInManager<AppUser> _signInManager;
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
         private readonly ITokenService _tokenService;
-        public readonly ILogger<AppUser> _logger;
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ITokenService tokenService, ILogger<AppUser> logger)
+        public readonly ILogger<User> _logger;
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ITokenService tokenService, ILogger<User> logger)
         {
             _logger = logger;
             _tokenService = tokenService;
@@ -33,12 +33,10 @@ namespace API.Controllers
             var user = await _userManager.FindByEmailAsync(email);
             
              return new UserLoginDTO
-            {
-                AppUserId = user.AppUserId,
+             {
                 Email = user.Email,
-                DisplayName = user.DisplayName,
                 Token = _tokenService.CreateToken(user)
-            };
+             };
         }
 
         [HttpGet("emailexists")]
@@ -64,9 +62,8 @@ namespace API.Controllers
 
             return new UserLoginDTO
             {   
-                AppUserId = user.AppUserId,
                 Email = user.Email,
-                DisplayName = user.DisplayName,
+                DisplayName = user.FirstName,
                 Token = _tokenService.CreateToken(user)
             };
         }
@@ -74,22 +71,31 @@ namespace API.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<UserLoginDTO>> Register(RegisterDTO registerDTO)
         {
-            var user = new AppUser
+            var user = new User
             {
-               FirstName = registerDTO.FirstName,
-               LastName = registerDTO.LastName,
-               DisplayName = registerDTO.DisplayName,
-               UserName = registerDTO.Email,
-               Email = registerDTO.Email
+                FirstName = registerDTO.FirstName,
+                LastName = registerDTO.LastName,
+                Gender = "Male",
+                Birthday = new DateOnly(),
+                Adress =" Grillweg 71",
+                Country = "BIH",
+                Nationality = "BIH",
+                MemberFrom = DateTime.Now,
+                Active =1,
+                Email = registerDTO.Email  ,
+                UserName = registerDTO.Email,
+                Phone = "0626731231",
+                MarriageStatus ="FK",
+                LastActive = DateTime.Now,
+                AssociationId = 1
             };
 
+            
             var result = await _userManager.CreateAsync(user, registerDTO.Password);
-
-            if(!result.Succeeded) return BadRequest(new ApiResponse(400));
-
+            if (!result.Succeeded) return BadRequest(new ApiResponse(400));
+            
             return new UserLoginDTO
             {
-                DisplayName = user.DisplayName,
                 Token = _tokenService.CreateToken(user),
                 Email = user.UserName
             };

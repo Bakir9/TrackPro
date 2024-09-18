@@ -26,7 +26,6 @@ namespace API.Controllers
         {
             if (payment is null)
             {
-                Log.Information("Bad Request");
                 _logger.LogInformation("Bad Request");
                 return NotFound();
             } 
@@ -45,7 +44,7 @@ namespace API.Controllers
            
             if (payment is null)
             {
-                Log.Information("Payment not found. Not possible to delete"); _logger.LogInformation("Payment not found. Not possible to delete");
+                 _logger.LogInformation("Payment not found. Not possible to delete");
                 return NotFound();
             } 
             _paymentRepository.Delete(payment);
@@ -60,7 +59,7 @@ namespace API.Controllers
         {
             if(payment is null)
             {
-                Log.Information("Payment not found. Not possible to update"); _logger.LogInformation("Payment not found. Not possible to update");
+                 _logger.LogInformation("Payment not found. Not possible to update");
                 return NotFound();
             } 
 
@@ -68,7 +67,7 @@ namespace API.Controllers
             await _paymentRepository.SaveAsync();
 
             var paymentUpdate = await _paymentRepository.GetPaymentById(id);
-            Log.Information("Successfully updated"); _logger.LogInformation("Successfully updated");
+            _logger.LogInformation("Successfully updated");
 
             return Ok(_mapper.Map<Payment, PaymentDTO>(paymentUpdate));
         }

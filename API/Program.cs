@@ -1,5 +1,5 @@
 using API.Extensions;
-using Core.Entities.Identity;
+using Core.Entities;
 using Infrastructure.Data;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
@@ -56,17 +56,11 @@ var services = scope.ServiceProvider;
 var loggerFactory = services.GetRequiredService<ILoggerFactory>();
 
 var context = services.GetRequiredService<StoreContext>();
-var identityContext = services.GetRequiredService<AppIdentityDbContext>();
-var userManager = services.GetRequiredService<UserManager<AppUser>>();
 var logger = services.GetRequiredService<ILogger<Program>>();
 try
 {
    await context.Database.MigrateAsync();
-   await identityContext.Database.MigrateAsync();
-   Log.Information("Spremanjae SeedData u bazu podataka");
    await StoreContextSeed.SeedAsync(context, loggerFactory);
-   await AppIdentityDbContextSeed.SeedUsersAsync(userManager);
-   
 }
 catch (Exception ex)
 {

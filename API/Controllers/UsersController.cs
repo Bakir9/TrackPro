@@ -1,7 +1,9 @@
 using API.DTO;
+using API.Errors;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 
@@ -12,12 +14,14 @@ namespace API.Controllers
         private readonly IUserRepository _userRepository;
         public readonly IMapper _mapper;
         private readonly ILogger<UsersController> _logger;
+        private readonly UserManager<User> _userManager;
        
-        public UsersController(IUserRepository userRepository,IMapper mapper,ILogger<UsersController> logger)
+        public UsersController(IUserRepository userRepository,IMapper mapper,ILogger<UsersController> logger, UserManager<User> userManager)
         {
             _userRepository = userRepository;
             _logger = logger;
             _mapper = mapper;
+            _userManager = userManager;
         }
 
         [HttpGet]
@@ -78,8 +82,14 @@ namespace API.Controllers
                 Log.Information("User not created ! Check all fields !");  
                 return NotFound();
             }
-            _userRepository.Add(user);
-            await _userRepository.SaveAsync();
+
+            user.UserName = user.Email;
+            var result = await _userManager.CreateAsync(user);
+            if(!result.Succeeded)
+            {
+                return BadRequest(new ApiResponse(500));
+            }
+           
             Log.Information("Successfully created");  
 
             return Ok(_mapper.Map<User, UserDTO>(user)); 

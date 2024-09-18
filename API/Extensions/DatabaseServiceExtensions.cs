@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Core.Entities.Identity;
+using Core.Entities;
 using Infrastructure.Data;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -19,16 +19,20 @@ namespace API.Extensions
     {
         public static IServiceCollection AddDatabaseServices(this IServiceCollection services, IConfiguration config)
         {
-            services.AddDbContext<AppIdentityDbContext>(opt => 
+            services.AddDbContext<StoreContext>(opt => 
             {
                 opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
             });
 
-            services.AddIdentityCore<AppUser>(opt => {
-                //add identity options here
+            services.AddIdentityCore<User>(opt => {
+                opt.Password.RequireDigit = true;
+                opt.Password.RequireLowercase = true;
+                opt.Password.RequireUppercase = true;
+                opt.Password.RequireNonAlphanumeric = true;
             })
-            .AddEntityFrameworkStores<AppIdentityDbContext>()
-            .AddSignInManager<SignInManager<AppUser>>();
+            .AddUserManager<UserManager<User>>()
+            .AddEntityFrameworkStores<StoreContext>()
+            .AddSignInManager<SignInManager<User>>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(opt => 

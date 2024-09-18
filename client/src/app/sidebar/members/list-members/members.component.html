@@ -1,7 +1,7 @@
 <div class="mt-5">
     <div class="row justify-content-end mb-2 text-end">
         <div class="col-md-auto">
-            <button mat-button (click)="openDialog()" class="text-bg-primary me-2">
+            <button mat-button (click)="openDialogAddMember()" class="text-bg-primary me-2">
                 <mat-icon>add_circle_outline</mat-icon>  
                 Novi clan
             </button>
@@ -46,10 +46,14 @@
                         <button value="{{member.id}}" mat-icon-button color="primary" (click)="openDialog()">
                             <mat-icon>edit</mat-icon>
                         </button>
+                        <button value="{{member.id}}" mat-icon-button color="accent">
+                            <mat-icon>rate_review</mat-icon>
+                        </button>
+                        <!-- [routerLink]="['/user-details', member.id] -->
                         <button value="{{member.id}}" mat-icon-button color="primary" (click)="openPayment()">
                             <mat-icon>payment</mat-icon>
                         </button>
-                        <button value="{{member.id}}" mat-icon-button color="primary" (click)="openDialog()">
+                        <button value="{{member.id}}" mat-icon-button color="warn" (click)="openDeleteDialog()">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </td>

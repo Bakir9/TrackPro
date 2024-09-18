@@ -1,9 +1,9 @@
-using Core.Entities.Identity;
+using Core.Entities;
 
 namespace Core.Interfaces
 {
     public interface ITokenService
     {
-        string CreateToken(AppUser user);
+        string CreateToken(User user);
     }
 }

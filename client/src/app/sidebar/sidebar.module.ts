@@ -25,6 +25,11 @@ import { PaymentComponent } from './payments/payment/payment.component';
 import { MatCardModule } from '@angular/material/card';
 import { MembersFamilyComponent } from './members/members-details/members-family/members-family.component';
 import { MemberPaymentsComponent } from './members/members-details/member-payments/member-payments.component';
+import { DeletedialogComponent } from './members/deletedialog/deletedialog.component';
+import { MembersRoutingModule } from './members/members-routing.module';
+import { MembersComponent } from './members/list-members/members.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -35,7 +40,9 @@ import { MemberPaymentsComponent } from './members/members-details/member-paymen
     ActivityComponent,
     PaymentComponent,
     MembersFamilyComponent,
-    MemberPaymentsComponent
+    MemberPaymentsComponent,
+    DeletedialogComponent,
+    MembersComponent
   ],
   imports: [
     CommonModule,
@@ -45,6 +52,8 @@ import { MemberPaymentsComponent } from './members/members-details/member-paymen
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
     MatRadioModule,
     MatNativeDateModule,
     MatNativeDateModule,
@@ -56,7 +65,8 @@ import { MemberPaymentsComponent } from './members/members-details/member-paymen
     MatMenuModule,
     MatTreeModule,
     ReactiveFormsModule,
-    MatCardModule
+    MatCardModule,
+    MembersRoutingModule
   ],
   exports: [AddMemberComponent, MatMenuModule]
 })

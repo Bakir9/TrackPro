@@ -38,8 +38,8 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
     MainLayoutComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
     AccountRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,

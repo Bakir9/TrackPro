@@ -23,6 +23,6 @@ namespace API.DTO
       public string MarriageStatus { get; set; }
       [Column(TypeName = "date")]
       public DateTime LastActive {get; set;}
-      public List<PaymentDTO> Payments { get; set; }   
+      public List<PaymentDTO> Payments { get; set; } 
     }
 }

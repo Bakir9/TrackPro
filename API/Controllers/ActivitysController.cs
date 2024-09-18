@@ -52,13 +52,23 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<List<UserForActivityDTO>>> GetActivity(int id)
+        public async Task<ActionResult<ActivityDTO>> GetActivityById(int id)
         {
             var activity = await _actRepository.GetActivityById(id);
             
             if(activity is null) return NotFound();
-            var result = activity.UserActivities.Select(x => x.User).ToList();
+           // var result = activity.UserActivities.Select(x => x.User).ToList();
             
+            return Ok(_mapper.Map<Core.Entities.Activity, ActivityDTO>(activity));
+        }
+
+         [HttpPut("{id}")]
+        public async Task<ActionResult<List<ActivityDTO>>> UpdateActivityInfo(int id)
+        {
+            var activity = await _actRepository.GetActivityById(id);
+            
+            if(activity == null) return NotFound();
+
             return Ok(_mapper.Map<Core.Entities.Activity, UserForActivityDTO>(activity));
         }
     }

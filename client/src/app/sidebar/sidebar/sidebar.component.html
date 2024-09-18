@@ -32,7 +32,7 @@
         <mat-divider></mat-divider>
         <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="tree">
             <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
-                <button mat-button class="menu-button" routerLink="" value= {{node.id}}>
+                <button mat-button class="menu-button" routerLink="/activity/{{node.id}}" value= {{node.id}}>
                     <mat-icon>group_work</mat-icon>
                     <span> {{node.name}}</span>
                 </button>

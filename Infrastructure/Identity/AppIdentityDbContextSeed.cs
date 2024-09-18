@@ -1,20 +1,18 @@
-using Core.Entities.Identity;
+using Core.Entities;
 using Microsoft.AspNetCore.Identity;
 
 namespace Infrastructure.Identity
 {
     public class AppIdentityDbContextSeed
     {
-        public static async Task SeedUsersAsync(UserManager<AppUser> userManager)
+        public static async Task SeedUsersAsync(UserManager<User> userManager)
         {
             if(!userManager.Users.Any())
             {
-                var user = new AppUser
+                var user = new User
                 {
-                    AppUserId = 1,
                     FirstName = "Bakir",
                     LastName = "Malkoc",
-                    DisplayName ="Bake",
                     UserName = "bakir.malkoc@gmail.com",
                     Email = "bakir.malkoc@gmail.com"
                 };
