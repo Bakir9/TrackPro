@@ -60,6 +60,10 @@ export class MembersService {
   updatePayment(id: number){
 
   }
+
+  activitiyMembers(id: number) {
+    return this.http.get(this.apiUrl + 'activitys/' + id)
+  }
 }
 
 

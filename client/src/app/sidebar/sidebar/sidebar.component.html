@@ -30,7 +30,13 @@
             <span>Dodatne uplate</span>
         </button>
         <mat-divider></mat-divider>
-        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="tree">
+        <div *ngFor="let item of activity">
+            <button mat-button class="menu-button" routerLink="/activity/{{item.id}}">
+                <mat-icon>card_travel</mat-icon>
+                <span>{{item.name}}</span>
+            </button>
+        </div>
+        <!-- <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="tree">
             <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
                 <button mat-button class="menu-button" routerLink="/activity/{{node.id}}" value= {{node.id}}>
                     <mat-icon>group_work</mat-icon>
@@ -53,7 +59,7 @@
                   <ng-container matTreeNodeOutlet></ng-container>
               </div>
             </mat-nested-tree-node>
-        </mat-tree>
+        </mat-tree> -->
         <mat-divider></mat-divider>
         <button mat-button class="menu-button">
             <mat-icon>info</mat-icon>

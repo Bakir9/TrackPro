@@ -13,9 +13,13 @@ import { MemberPaymentsComponent } from '../member-payments/member-payments.comp
 })
 
 export class MemberDetailComponent implements AfterViewInit {
+  
   @ViewChild(MemberPaymentsComponent) membersPaymentRef!: MemberPaymentsComponent;
   checked = false;
+  currentMember:IMember;
+  membersPayment: IMemberPayments[];
   user: IMember;
+
   memberDetail = this.formBuilder.group({
     id:0,
     firstName: '',
@@ -37,11 +41,6 @@ export class MemberDetailComponent implements AfterViewInit {
     currentPassword: '',
     newPassword: ''
   })
-
-
-
-  currentMember:IMember;
-  membersPayment: IMemberPayments[];
 
   constructor(
     private router: Router, 

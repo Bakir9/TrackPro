@@ -8,7 +8,7 @@ import { MatTreeNestedDataSource, MatTreeModule } from '@angular/material/tree';
 import { IActivity } from 'src/app/shared/models/activity';
 import { MembersService } from '../members/members.service';
 import { AccountService } from 'src/app/account/account.service';
-import { Observable, subscribeOn } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IUser } from 'src/app/shared/models/user';
 import { Router } from '@angular/router';
 import { IMember } from 'src/app/shared/models/member';
@@ -25,8 +25,9 @@ export class SidebarComponent implements OnInit {
   menuitems = ['dashboard','sales', 'orders', 'customers', 'products'];
   loading = true;
   activity: IActivity[];
-  treeControl = new NestedTreeControl<IActivity>(node => node.children);
-  dataSource = new MatTreeNestedDataSource<IActivity>();
+ // treeControl = new NestedTreeControl<IActivity>(node => node.users);
+  //dataSource = new MatTreeNestedDataSource<IActivity>();
+  
   currentUser$: Observable<IUser>;
   currentToken: string;
   actuelUser:IMember;
@@ -50,7 +51,7 @@ export class SidebarComponent implements OnInit {
     this.getSidebarActivity();
   }
 
-  hasChild = (_:number, node: IActivity) => !!node.children && node.children.length > 0;
+  hasChild = (_:number, node: IActivity) => !!node.users && node.users.length > 0;
   ngAfterViewInit() {
     this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
       if(res.matches){
@@ -73,7 +74,7 @@ export class SidebarComponent implements OnInit {
   getSidebarActivity() {
     this.memberService.getSidebarActivity().subscribe((activity: IActivity[]) => {
       this.activity = activity;
-      this.dataSource.data = this.activity;
+      //this.dataSource.data = this.activity;
     }, error => {
       console.log(error);
     })

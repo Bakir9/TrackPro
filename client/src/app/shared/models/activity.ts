@@ -1,10 +1,14 @@
 export interface IActivity{
     id: number;
+    createdBy:string;
     name: string;
-    children?: IActivityChildren[];
+    users?: IActivityMembers[];
 }
 
-export interface IActivityChildren {
-    id:number,
-    name: string;
+export interface IActivityMembers {
+    id:number;
+    firstName: string;
+    lastName: string;
+    gender: string;
+    birthday: string;
 }
