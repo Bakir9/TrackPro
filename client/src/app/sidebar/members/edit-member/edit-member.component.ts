@@ -3,14 +3,14 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MembersService } from '../members.service';
 import { FormBuilder } from '@angular/forms';
 
-type NewType = OnInit;
+
 
 @Component({
   selector: 'app-edit-member',
   templateUrl: './edit-member.component.html',
   styleUrls: ['./edit-member.component.scss']
 })
-export class EditMemberComponent implements NewType {
+export class EditMemberComponent implements OnInit {
   selected = "emaneh";
 
   editForm = this.formBuilder.group({
@@ -33,6 +33,7 @@ export class EditMemberComponent implements NewType {
     payments: '',
     associationId: ''
    });
+
   constructor(
     private memberService: MembersService,
     private dialogRef: MatDialogRef<EditMemberComponent>,

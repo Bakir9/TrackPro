@@ -30,6 +30,7 @@ import { MembersRoutingModule } from './members/members-routing.module';
 import { MembersComponent } from './members/list-members/members.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { AssignmentComponent } from './members/assignment/assignment.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MembersFamilyComponent,
     MemberPaymentsComponent,
     DeletedialogComponent,
-    MembersComponent
+    MembersComponent,
+    AssignmentComponent
   ],
   imports: [
     CommonModule,

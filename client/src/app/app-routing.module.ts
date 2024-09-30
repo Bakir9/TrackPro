@@ -19,7 +19,7 @@ const routes: Routes =
       {path: "users", component: MembersComponent},
       {path: "user-details/:id", component: MemberDetailComponent},
       {path: "payments", component: PaymentComponent},
-      {path: "activity", component: ActivityComponent},
+      {path: "other-payments", component: ActivityComponent},
       {path: "activity/:id", component: ActivityComponent},
       {path: '', redirectTo: '/home', pathMatch:'full'}
     ]

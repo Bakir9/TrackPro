@@ -45,7 +45,6 @@ export class MembersComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(EditMemberComponent);
-
     dialogRef.afterClosed().subscribe(result => {
        
     });
@@ -54,7 +53,6 @@ export class MembersComponent implements OnInit {
   openDialogAddMember() {
     const dialogRef = this.dialog.open(AddMemberComponent);
     dialogRef.afterClosed().subscribe(result => {
-
     });
   }
 

@@ -1,0 +1,64 @@
+<div mat-dialog-title>
+    <h1>Assignment</h1>
+</div>
+<form [formGroup]="assignment">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Title</mat-label>
+                    <input matInput type="text" placeholder="Title" formControlName="title">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field>
+                    <mat-label>Assignment</mat-label>
+                    <textarea matInput placeholder="Assignment description" formControlName="assignmentDescription"></textarea>
+                  </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field>
+                    <mat-label>Status</mat-label>
+                    <mat-select>
+                      <mat-option value="working" selected>Working</mat-option>
+                      <mat-option value="finished">Finished</mat-option>
+                      <mat-option value="wait">Wait</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field>
+                    <mat-label>Priority</mat-label>
+                    <mat-select>
+                      <mat-option value="low" selected>Low</mat-option>
+                      <mat-option value="normal">Normal</mat-option>
+                      <mat-option value="high">High</mat-option>
+                      <mat-option value="critical">Critical</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field>
+                    <mat-label>Evaluation</mat-label>
+                    <mat-select [(value)]="selected">
+                      <mat-option value="1" selected>1</mat-option>
+                      <mat-option value="2">2</mat-option>
+                      <mat-option value="3">3</mat-option>
+                      <mat-option value="4">4</mat-option>
+                      <mat-option value="5">5</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    <mat mat-dialog-actions align="end" class="me-5">
+        <button mat-stroked-button>Close</button>
+        <button mat-flat-button color="primary" type="submit">Add</button>
+    </mat>
+</form>
