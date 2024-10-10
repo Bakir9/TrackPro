@@ -40,34 +40,19 @@
                               </mat-form-field>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Adress</mat-label>
+                                <input matInput placeholder="Adress" formControlName="adress" value="Grillweg 7b">
+                            </mat-form-field>
+                        </div>
                         <div class="col">
                             <mat-radio-group aria-label="Select please:" formControlName="gender">
                                 <mat-label>Gender:</mat-label>
                                 <mat-radio-button value="Male" checked="true">Male</mat-radio-button>
                                 <mat-radio-button value="Female">Female</mat-radio-button>
                             </mat-radio-group>
-                            
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-4">
-                            <mat-form-field appearance="outline">
-                                <mat-label>Adress</mat-label>
-                                <input matInput placeholder="Adress" formControlName="adress" value="Grillweg 7b">
-                            </mat-form-field>
-                        </div>
-                        <div class="col-4">
-                            <mat-form-field appearance="outline" aria-disabled="false">
-                                <mat-label>PLZ</mat-label>
-                                <input matInput placeholder="PLZ" formControlName="plz" value="8053">
-                            </mat-form-field>
-                        </div>
-                        <div class="col-4">
-                            <mat-form-field appearance="outline">
-                                <mat-label>Ort</mat-label>
-                                <input matInput placeholder="Ort" formControlName="ort" value="Graz">
-                            </mat-form-field>
                         </div>
                     </div>
                     <div class="row">
@@ -98,6 +83,8 @@
                                   <mat-option value="Serbien">Serbien</mat-option>
                                   <mat-option value="Austria">Austria</mat-option>
                                   <mat-option value="Germany">Germany</mat-option>
+                                  <mat-option value="Nigeria">Nigeria</mat-option>
+                                  <mat-option value="China">China</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
@@ -112,6 +99,8 @@
                                   <mat-option value="Serbien">Serbien</mat-option>
                                   <mat-option value="Austria">Austria</mat-option>
                                   <mat-option value="Germany">Germany</mat-option>
+                                  <mat-option value="Nigeria">Nigeria</mat-option>
+                                  <mat-option value="China">China</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
@@ -121,7 +110,7 @@
                             <mat-form-field>
                                 <mat-label>Marriage Status</mat-label>
                                 <mat-select formControlName="marriageStatus">
-                                  <mat-option value="Single" selected>Sigle</mat-option>
+                                  <mat-option value="Single" selected>Single</mat-option>
                                   <mat-option value="Married">Married</mat-option>
                                   <mat-option value="Divorced">Divorced</mat-option>
                                   <mat-option value="Separated">Separated</mat-option>

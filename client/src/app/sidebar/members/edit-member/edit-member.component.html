@@ -27,7 +27,7 @@
             <div class="col">
                 <mat-form-field>
                     <mat-label>Choose a date</mat-label>
-                    <input matInput [matDatepicker]="picker">
+                    <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
                     <mat-hint>MM/DD/YYYY</mat-hint>
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
@@ -36,9 +36,11 @@
         </div>
         <div class="row">
             <div class="col">
-                <mat-label>Gender:</mat-label>
-                <mat-radio-button value="male">Male</mat-radio-button>
-                <mat-radio-button value="female">Female</mat-radio-button>
+                <mat-radio-group aria-label="Select please:" formControlName="gender">
+                    <mat-label>Gender:</mat-label>
+                    <mat-radio-button value="Male">Male</mat-radio-button>
+                    <mat-radio-button value="Female">Female</mat-radio-button>
+                </mat-radio-group>
             </div>
         </div>
         <div class="row mt-3">
@@ -69,28 +71,56 @@
             <div class="col">
                 <mat-form-field>
                     <mat-label>Select Country</mat-label>
-                    <mat-select>
-                      <mat-option value="bih" selected>Bosnien-Herzegowina</mat-option>
-                      <mat-option value="croatien">Croatia</mat-option>
-                      <mat-option value="albanien">Albania</mat-option>
-                      <mat-option value="slowenien">Slowenia</mat-option>
-                      <mat-option value="serbien">Serbien</mat-option>
-                      <mat-option value="austria">Austria</mat-option>
-                      <mat-option value="germany">Germany</mat-option>
+                    <mat-select formControlName="country">
+                        <mat-option value="Bosnia-Herzegowina" selected>Bosnien-Herzegowina</mat-option>
+                        <mat-option value="Croatien">Croatia</mat-option>
+                        <mat-option value="Albanien">Albania</mat-option>
+                        <mat-option value="Slowenien">Slowenia</mat-option>
+                        <mat-option value="Serbien">Serbien</mat-option>
+                        <mat-option value="Austria">Austria</mat-option>
+                        <mat-option value="Germany">Germany</mat-option>
+                        <mat-option value="Nigeria">Nigeria</mat-option>
+                        <mat-option value="China">China</mat-option>
+                        <mat-option value="Portugal">Portugal</mat-option>
+                        <mat-option value="Lithuania">Lithuania</mat-option>
+                        <mat-option value="Czech Republic">Czech Republic</mat-option>
+                        <mat-option value="Russia">Russia</mat-option>
+                        <mat-option value="Hungary">Hungary</mat-option>
+                        <mat-option value="South Africa">South Africa</mat-option>
+                        <mat-option value="Zimbabwe">Zimbabwe</mat-option>
+                        <mat-option value="Norway">Norway</mat-option>
+                        <mat-option value="Brazil">Brazil</mat-option>
+                        <mat-option value="Japan">Japan</mat-option>
+                        <mat-option value="Thailand">Thailand</mat-option>
+                        <mat-option value="Sweden">Sweden</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
             <div class="col">
                 <mat-form-field>
                     <mat-label>Select Nationality</mat-label>
-                    <mat-select>
-                      <mat-option value="bih" selected>Bosnien-Herzegowina</mat-option>
-                      <mat-option value="croatien">Croatien</mat-option>
-                      <mat-option value="albanien">Albanien</mat-option>
-                      <mat-option value="slowenien">Slowenien</mat-option>
-                      <mat-option value="serbien">Serbien</mat-option>
-                      <mat-option value="austria">Austria</mat-option>
-                      <mat-option value="germany">Germany</mat-option>
+                    <mat-select formControlName="nationality">
+                        <mat-option value="Bosnia-Herzegowina" selected>Bosnien-Herzegowina</mat-option>
+                        <mat-option value="Croatien">Croatia</mat-option>
+                        <mat-option value="Albanien">Albania</mat-option>
+                        <mat-option value="Slowenien">Slowenia</mat-option>
+                        <mat-option value="Serbien">Serbien</mat-option>
+                        <mat-option value="Austria">Austria</mat-option>
+                        <mat-option value="Germany">Germany</mat-option>
+                        <mat-option value="Nigeria">Nigeria</mat-option>
+                        <mat-option value="China">China</mat-option>
+                        <mat-option value="Portugal">Portugal</mat-option>
+                        <mat-option value="Lithuania">Lithuania</mat-option>
+                        <mat-option value="Czech Republic">Czech Republic</mat-option>
+                        <mat-option value="Russia">Russia</mat-option>
+                        <mat-option value="Hungary">Hungary</mat-option>
+                        <mat-option value="South Africa">South Africa</mat-option>
+                        <mat-option value="Zimbabwe">Zimbabwe</mat-option>
+                        <mat-option value="Norway">Norway</mat-option>
+                        <mat-option value="Brazil">Brazil</mat-option>
+                        <mat-option value="Japan">Japan</mat-option>
+                        <mat-option value="Thailand">Thailand</mat-option>
+                        <mat-option value="Sweden">Sweden</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
@@ -99,12 +129,11 @@
             <div class="col">
                 <mat-form-field>
                     <mat-label>Marriage Status</mat-label>
-                    <mat-select>
-                      <mat-option value="option1" selected>Sigle</mat-option>
-                      <mat-option value="option2">Married</mat-option>
-                      <mat-option value="option3">Widowed</mat-option>
-                      <mat-option value="option3">Divorced</mat-option>
-                      <mat-option value="option3">Separated</mat-option>
+                    <mat-select formControlName="marriageStatus">
+                        <mat-option value="Single" selected>Single</mat-option>
+                        <mat-option value="Married">Married</mat-option>
+                        <mat-option value="Divorced">Divorced</mat-option>
+                        <mat-option value="Separated">Separated</mat-option>
                     </mat-select>
                   </mat-form-field>
             </div>
@@ -121,6 +150,6 @@
     </div>
     <mat mat-dialog-actions align="end" class="me-5">
         <button mat-stroked-button>Close</button>
-        <button mat-flat-button color="primary" type="submit">Add</button>
+        <button mat-flat-button color="primary" type="submit">Save</button>
     </mat>
 </form>

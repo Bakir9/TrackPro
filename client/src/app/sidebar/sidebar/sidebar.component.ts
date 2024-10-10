@@ -3,8 +3,6 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatDialog } from '@angular/material/dialog';
 import { AddMemberComponent } from '../members/add-member/add-member.component';
-import { NestedTreeControl } from '@angular/cdk/tree';
-import { MatTreeNestedDataSource, MatTreeModule } from '@angular/material/tree';
 import { IActivity } from 'src/app/shared/models/activity';
 import { MembersService } from '../members/members.service';
 import { AccountService } from 'src/app/account/account.service';
@@ -25,10 +23,8 @@ export class SidebarComponent implements OnInit {
   menuitems = ['dashboard','sales', 'orders', 'customers', 'products'];
   loading = true;
   activity: IActivity[];
- // treeControl = new NestedTreeControl<IActivity>(node => node.users);
-  //dataSource = new MatTreeNestedDataSource<IActivity>();
-  
   currentUser$: Observable<IUser>;
+  currentLogedUser: IUser;
   currentToken: string;
   actuelUser:IMember;
 
@@ -47,7 +43,7 @@ export class SidebarComponent implements OnInit {
     if(this.currentToken === null){
       this.router.navigate(['/login']); 
     }
-    this.getUserById(1);
+    this.getUserById(parseInt(localStorage.getItem("id")));
     this.getSidebarActivity();
   }
 
@@ -71,17 +67,20 @@ export class SidebarComponent implements OnInit {
     });
   }
 
+  getUserId(){
+    
+  }
+
   getSidebarActivity() {
     this.memberService.getSidebarActivity().subscribe((activity: IActivity[]) => {
       this.activity = activity;
-      //this.dataSource.data = this.activity;
     }, error => {
       console.log(error);
     })
   }
 
   getUserById(id: number){
-    this.memberService.getMemberIdDetail(1).subscribe((user: IMember) => {
+    this.memberService.getMemberDetail(parseInt(localStorage.getItem('id'))).subscribe((user: IMember) => {
       this.actuelUser = user;
     })
   }

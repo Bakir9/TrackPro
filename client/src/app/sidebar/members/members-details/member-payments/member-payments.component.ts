@@ -34,7 +34,6 @@ export class MemberPaymentsComponent {
       if(!result[groupKey]){
         result[groupKey] = [];
       }
-
       //push the current value to the group
       result[groupKey].push(currentValue);
 

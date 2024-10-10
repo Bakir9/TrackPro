@@ -20,14 +20,13 @@ export class AccountService {
     if(token === null) {
       this.currentUserSource.next(null);
       this.router.navigate(['/login']);
-      //return of(null);
     }
+    
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', `Bearer ${token}`);
     return this.http.get(this.baseUrl + 'account', {headers}).pipe(
       map((user: IUser) => {
         if(user){
-          localStorage.setItem('token', user.token);
           this.currentUserSource.next(user);
         }
       })
@@ -37,6 +36,7 @@ export class AccountService {
   login(values: any){
     return this.http.post<IUser>(this.baseUrl + 'account/login', values).pipe(
       map((user: IUser) => {
+        localStorage.setItem('id',user.id);
         localStorage.setItem('token', user.token);
         this.currentUserSource.next(user);
       })

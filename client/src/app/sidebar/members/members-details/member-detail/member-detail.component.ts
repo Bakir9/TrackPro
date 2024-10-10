@@ -3,8 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IMember, IMemberPayments } from 'src/app/shared/models/member';
 import { MembersService } from '../../members.service';
 import { FormBuilder } from '@angular/forms';
-import { formatDate } from '@angular/common';
+import { Observable } from 'rxjs';
 import { MemberPaymentsComponent } from '../member-payments/member-payments.component';
+import { IUser } from 'src/app/shared/models/user';
+import { AccountService } from 'src/app/account/account.service';
 
 @Component({
   selector: 'app-member-detail',
@@ -19,6 +21,7 @@ export class MemberDetailComponent implements AfterViewInit {
   currentMember:IMember;
   membersPayment: IMemberPayments[];
   user: IMember;
+  currentUser$: Observable<IUser>;
 
   memberDetail = this.formBuilder.group({
     id:0,
@@ -46,16 +49,18 @@ export class MemberDetailComponent implements AfterViewInit {
     private router: Router, 
     private memberService: MembersService, 
     private route: ActivatedRoute,
+    private accountService: AccountService,
     private formBuilder: FormBuilder) {}
  
     ngAfterViewInit(): void {
+      this.currentUser$ = this.accountService.currentUser$;
       this.setValueOnForm();
     }
 
 
 
     setValueOnForm() {
-      this.memberService.getMemberIdDetail(1).subscribe((user:IMember) => {
+      this.memberService.getMemberDetail(parseInt(localStorage.getItem('id'))).subscribe((user:IMember) => {
         this.currentMember = user;
         this.membersPaymentRef.setCurrentData(this.currentMember);
       

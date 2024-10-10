@@ -43,7 +43,7 @@
                 <ng-container matColumnDef="action">
                     <th mat-header-cell *matHeaderCellDef >Action</th>
                     <td mat-cell *matCellDef="let member"> 
-                        <button value="{{member.id}}" mat-icon-button color="primary" (click)="openDialog()">
+                        <button value="{{member.id}}" mat-icon-button color="primary" (click)="openDialog(member.id)">
                             <mat-icon>edit</mat-icon>
                         </button>
                         <button value="{{member.id}}" mat-icon-button color="accent">

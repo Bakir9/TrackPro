@@ -1,5 +1,5 @@
 export interface IUser {
-    appUserId: number
+    id: string,
     email: string
     displayName: string
     token: string

@@ -62,6 +62,7 @@ namespace API.Controllers
 
             return new UserLoginDTO
             {   
+                Id = user.Id,
                 Email = user.Email,
                 DisplayName = user.FirstName,
                 Token = _tokenService.CreateToken(user)
