@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { catchError, map } from 'rxjs';
 import { IActivity } from 'src/app/shared/models/activity';
 import { IMember } from 'src/app/shared/models/member';
 
@@ -39,8 +39,11 @@ export class MembersService {
     return this.http.post(this.apiUrl +'users/create', values);
   }
 
-  editMember(id: number){
-
+  editMember(member:IMember){
+    return this.http.put<IMember>(this.apiUrl + 'users/' + member.id, member)
+    .pipe(
+      
+    );
   }
   
   deleteMember(id: number) {
@@ -51,9 +54,6 @@ export class MembersService {
     return this.http.post(this.apiUrl + 'payments/create',values);
   }
 
-  deletePayment(id:number) {
-
-  }
   updatePayment(id: number){
 
   }

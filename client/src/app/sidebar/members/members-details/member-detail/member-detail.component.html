@@ -7,7 +7,7 @@
       <div class="row mt-3 ms-2">
         <div class="col border border-light shadow-sm p-3 mb-5 bg-body rounded">
             <h4>Members Info</h4>
-            <form [formGroup]="memberDetail">
+            <form [formGroup]="memberDetail" (ngSubmit)="onClickSubmit()">
                 <div class="content">
                     <div class="row">
                         <div class="col">
@@ -118,6 +118,15 @@
                                 </mat-select>
                               </mat-form-field>
                         </div>
+                        <div class="col">
+                            <mat-form-field>
+                                <mat-label>Select Association</mat-label>
+                                <mat-select formControlName="associationId">
+                                  <mat-option [value]="1">Emaneh</mat-option>
+                                  <mat-option [value]="2" >Klub prijatelja</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col" align="end">
@@ -176,13 +185,7 @@
         <mat-icon class="example-tab-icon">person_add</mat-icon>
         Family
       </ng-template>
-      <div class="row">
-        <div class="col">
-            <h4>Family Members</h4>
-        </div>
-      </div>
       <app-members-family></app-members-family>
     </mat-tab>
-    
   </mat-tab-group>
   

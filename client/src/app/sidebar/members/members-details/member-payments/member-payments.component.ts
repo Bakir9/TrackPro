@@ -20,7 +20,7 @@ export class MemberPaymentsComponent {
     for(let i=0; i < this.currentMemberTest.payments.length; i++){
       this.payments.push(this.currentMemberTest.payments[i]);
     }
-    console.log("Velicina " + this.groupedPayment.length);
+   
     this.groupByYearAndActivity(this.payments,'year','purpose');
     for(let k=0; k<this.groupedPayment.length; k++){
      

@@ -49,7 +49,7 @@ export class AddMemberComponent implements OnInit {
           alert("User created");
         },
         error: (err: any) => {
-          console.log("Korisnik nazalost nije dodan");
+          console.log("User is not created");
         }
       })
     }

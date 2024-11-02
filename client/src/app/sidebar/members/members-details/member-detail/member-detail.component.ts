@@ -20,7 +20,7 @@ export class MemberDetailComponent implements AfterViewInit {
   checked = false;
   currentMember:IMember;
   membersPayment: IMemberPayments[];
-  user: IMember;
+  memberUpdate: Partial<IMember> = {};
   currentUser$: Observable<IUser>;
 
   memberDetail = this.formBuilder.group({
@@ -37,7 +37,8 @@ export class MemberDetailComponent implements AfterViewInit {
     phone: '',
     country: '',
     nationality: '',
-    marriageStatus: ''
+    marriageStatus: '',
+    associationId: 0
   });
 
   passwordChange = this.formBuilder.group({
@@ -57,16 +58,13 @@ export class MemberDetailComponent implements AfterViewInit {
       this.setValueOnForm();
     }
 
-
-
     setValueOnForm() {
       this.memberService.getMemberDetail(parseInt(localStorage.getItem('id'))).subscribe((user:IMember) => {
         this.currentMember = user;
         this.membersPaymentRef.setCurrentData(this.currentMember);
-      
         if(this.currentMember != null ){
           this.memberDetail.patchValue({
-            id:0,
+            id:this.currentMember.id,
             firstName: this.currentMember.firstName,
             lastName: this.currentMember.lastName,
             adress:this.currentMember.adress,
@@ -79,12 +77,35 @@ export class MemberDetailComponent implements AfterViewInit {
             phone: this.currentMember.phone,
             country: this.currentMember.country,
             nationality: this.currentMember.nationality,
-            marriageStatus: this.currentMember.marriageStatus
-          })
+            marriageStatus: this.currentMember.marriageStatus,
+            associationId: this.currentMember.associationId
+          });
         }
       })
     }
 
-  groupPayments(){
-  }
+    onClickSubmit(){
+      this.memberUpdate.id = this.memberDetail.value.id,
+      this.memberUpdate.firstName = this.memberDetail.value.firstName,
+      this.memberUpdate.lastName = this.memberDetail.value.lastName,
+      this.memberUpdate.adress = this.memberDetail.value.adress,
+      this.memberUpdate.title = this.memberDetail.value.title,
+      this.memberUpdate.birthday = this.memberDetail.value.dateOfBirth,
+      this.memberUpdate.gender = this.memberDetail.value.gender,
+      this.memberUpdate.email = this.memberDetail.value.email,
+      this.memberUpdate.phone = this.memberDetail.value.phone,
+      this.memberUpdate.country = this.memberDetail.value.country,
+      this.memberUpdate.nationality = this.memberDetail.value.nationality,
+      this.memberUpdate.marriageStatus = this.memberDetail.value.marriageStatus,
+      this.memberUpdate.associationId = this.memberDetail.value.associationId
+      this.memberService.editMember(this.memberUpdate as IMember).subscribe({
+        next: (res: IMember) => {
+          alert("User updated !");
+        },
+        error(res: any) {
+          alert("Error on update !")
+        }
+      });
+      
+    }
 }

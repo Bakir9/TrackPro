@@ -38,7 +38,11 @@ namespace Infrastructure.Data
 
         public void Edit(User user)
         {
-            _context.Set<User>().Update(user);
+            _context.Update(user);
+            _context.SaveChanges();
+            //_context.Entry(user).State = EntityState.Modified;
+            //_context.SaveChanges();
+            //_context.Set<User>().Update(user);
         }
 
         public async Task SaveAsync()

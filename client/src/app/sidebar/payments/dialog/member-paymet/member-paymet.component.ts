@@ -36,7 +36,6 @@ export class MemberPaymetComponent implements OnInit {
   ngOnInit(): void {}
 
   onPaymentSubmit() {
-    console.log("Unutar metode");
     if(this.newPayment.valid){
        this.memberService.createPayment(this.newPayment.value).subscribe({
         next: (val: any) => {

@@ -140,16 +140,16 @@
             <div class="col">
                 <mat-form-field>
                     <mat-label>Select Association</mat-label>
-                    <mat-select [(value)]="selected">
-                      <mat-option value="emaneh" selected>Emaneh</mat-option>
-                      <mat-option value="klubprijateljea">Klub prijatelja</mat-option>
+                    <mat-select formControlName="associationId">
+                      <mat-option [value]="1">Emaneh</mat-option>
+                      <mat-option [value]="2">Klub prijatelja</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
         </div>
     </div>
     <mat mat-dialog-actions align="end" class="me-5">
-        <button mat-stroked-button>Close</button>
-        <button mat-flat-button color="primary" type="submit">Save</button>
+        <button mat-stroked-button (click)="closeDialog()">Close</button>
+        <button mat-flat-button color="primary" type="submit" (click)="onSubmit()">Save</button>
     </mat>
 </form>

@@ -34,14 +34,14 @@ export class EditMemberComponent implements OnInit {
     marriageStatus: '',
     lastActive: '2023-09-21T00:00:00',
     payments: '',
-    associationId: ''
+    associationId: 0
    });
 
   constructor(
     private memberService: MembersService,
     private dialogRef: MatDialogRef<EditMemberComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private formBuilder: FormBuilder 
+    private formBuilder: FormBuilder
     ) {}
 
     ngOnInit(): void {
@@ -49,7 +49,7 @@ export class EditMemberComponent implements OnInit {
         this.currentMember =  member;
         if(this.currentMember != null ){
           this.editForm.patchValue({
-            id:0,
+            id: this.currentMember.id,
             firstName: this.currentMember.firstName,
             lastName: this.currentMember.lastName,
             adress:this.currentMember.adress,
@@ -60,9 +60,41 @@ export class EditMemberComponent implements OnInit {
             phone: this.currentMember.phone,
             country: this.currentMember.country,
             nationality: this.currentMember.nationality,
-            marriageStatus: this.currentMember.marriageStatus
+            marriageStatus: this.currentMember.marriageStatus,
+            associationId: this.currentMember.associationId
           })
         }
       });
+    }
+
+    closeDialog(){
+      this.dialogRef.close();
+    }
+
+    onSubmit(){
+     this.currentMember.id = this.editForm.value.id
+     this.currentMember.firstName = this.editForm.value.firstName,
+     this.currentMember.lastName = this.editForm.value.lastName,
+     this.currentMember.adress = this.editForm.value.adress,
+     this.currentMember.title = this.editForm.value.title,
+     this.currentMember.birthday = this.editForm.value.dateOfBirth,
+     this.currentMember.gender = this.editForm.value.gender,
+     this.currentMember.email = this.editForm.value.email,
+     this.currentMember.phone = this.editForm.value.phone,
+     this.currentMember.country = this.editForm.value.country,
+     this.currentMember.nationality = this.editForm.value.nationality,
+     this.currentMember.marriageStatus = this.editForm.value.marriageStatus,
+     this.currentMember.associationId = this.editForm.value.associationId
+
+     this.memberService.editMember(this.currentMember as IMember).subscribe({
+      next: (res:IMember) => {
+        alert("User updated");
+        this.dialogRef.close();
+      },
+      error(res: any){
+        alert("Update failed");
+        this.dialogRef.close();
+      }
+     })
     }
 }

@@ -1,7 +1,7 @@
 import { IUser } from "./user";
 
 export interface IMember {
-    id: string;
+    id: number;
     firstName: string;
     lastName: string;
     title: string;
@@ -17,6 +17,7 @@ export interface IMember {
     memberFrom: string;
     active: string;
     lastActive: string;
+    associationId: number;
     payments: IMemberPayments[];
 }
 

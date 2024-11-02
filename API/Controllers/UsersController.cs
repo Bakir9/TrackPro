@@ -45,19 +45,38 @@ namespace API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<UserDTO>> Update(int id, [FromBody]User user) 
+        public async Task<ActionResult<UserDTO>> Update(int id,[FromBody]User user) 
         {
-            if(user == null){
+            var userUpdate = await _userRepository.GetUserById(id);
+            if(userUpdate is null)
+            {
                 Log.Information("User not found !"); _logger.LogInformation("User not found !");
                 return NotFound();
             }
-            _userRepository.Edit(user);
+
+            
+            if(userUpdate != null)
+            {
+                userUpdate.FirstName = user.FirstName;
+                userUpdate.LastName = user.LastName;
+                userUpdate.Gender = user.Gender;
+                userUpdate.Birthday = user.Birthday;
+                userUpdate.Adress = user.Adress;
+                userUpdate.Country = user.Country;
+                userUpdate.Nationality = user.Nationality;
+                userUpdate.Title = user.Title;
+                userUpdate.Phone = user.Phone;
+                userUpdate.MarriageStatus = user.MarriageStatus;
+                userUpdate.AssociationId = user.AssociationId;
+                userUpdate.NormalizedUserName = user.FirstName + user.LastName;
+                userUpdate.Email = user.Email;
+                userUpdate.NormalizedEmail = user.Email.ToUpper();
+            }
+            
             await _userRepository.SaveAsync();
+            _logger.LogInformation("Successfully updated !");
 
-            var updatedUser = await _userRepository.GetUserById(id);
-            Log.Information("Successfully updated !"); _logger.LogInformation("Successfully updated !");
-
-            return Ok(_mapper.Map<User, UserDTO>(updatedUser));
+            return Ok(_mapper.Map<User, UserDTO>(userUpdate));
         }
 
         [HttpDelete("{id}")]
