@@ -8,9 +8,9 @@
                 <mat-form-field>
                     <mat-label>Svrha placanja</mat-label>
                     <mat-select formControlName="purpose">
-                            <mat-option value="1" selected>Clanarina</mat-option>
-                            <mat-option value="2">Mekteb</mat-option>
-                            <mat-option value="3">Ostalo</mat-option>
+                            <mat-option value="Clanarina" selected>Clanarina</mat-option>
+                            <mat-option value="Mekteb">Mekteb</mat-option>
+                            <mat-option value="Ostalo">Ostalo</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
@@ -25,8 +25,8 @@
                 <mat-form-field>
                     <mat-label>Nacin placanja</mat-label>
                     <mat-select formControlName="paymentMethod">
-                            <mat-option value="1">Uplatnica</mat-option>
-                            <mat-option value="2">Online</mat-option>
+                            <mat-option value="Uplatnica">Uplatnica</mat-option>
+                            <mat-option value="Online">Online</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
@@ -36,18 +36,18 @@
                 <mat-form-field>
                     <mat-label>Mjesec</mat-label>
                     <mat-select  formControlName="month">
-                            <mat-option value="1">Januar</mat-option>
-                            <mat-option value="2">Februar</mat-option>
-                            <mat-option value="3">Mart</mat-option>
-                            <mat-option value="4">April</mat-option>
-                            <mat-option value="5">Maj</mat-option>
-                            <mat-option value="6">Juni</mat-option>
-                            <mat-option value="7">Juli</mat-option>
-                            <mat-option value="8">August</mat-option>
-                            <mat-option value="9">Septembar</mat-option>
-                            <mat-option value="10">Oktobar</mat-option>
-                            <mat-option value="11">Novembar</mat-option>
-                            <mat-option value="12">Decembar</mat-option>
+                            <mat-option value="Januar">Januar</mat-option>
+                            <mat-option value="Februar">Februar</mat-option>
+                            <mat-option value="Mart">Mart</mat-option>
+                            <mat-option value="April">April</mat-option>
+                            <mat-option value="Maj">Maj</mat-option>
+                            <mat-option value="Juni">Juni</mat-option>
+                            <mat-option value="Juli">Juli</mat-option>
+                            <mat-option value="August">August</mat-option>
+                            <mat-option value="Septembar">Septembar</mat-option>
+                            <mat-option value="Oktobar">Oktobar</mat-option>
+                            <mat-option value="Novembar">Novembar</mat-option>
+                            <mat-option value="Decembar">Decembar</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
@@ -55,16 +55,16 @@
                 <mat-form-field>
                     <mat-label>Semestar</mat-label>
                     <mat-select>
-                            <mat-option value="1">I Semestar</mat-option>
-                            <mat-option value="2">II Semestar</mat-option>
-                            <mat-option value="3">Obicna uplata</mat-option>
+                            <mat-option value="semestar 1">I Semestar</mat-option>
+                            <mat-option value="semestar 2">II Semestar</mat-option>
+                            <mat-option value="ostalo">Obicna uplata</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <mat-form-field appearance="outline" >
+                <mat-form-field appearance="outline">
                     <mat-label>Napomene</mat-label>
                     <textarea matInput value="2" placeholder="Napomene"></textarea>
                 </mat-form-field> 

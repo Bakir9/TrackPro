@@ -49,11 +49,10 @@
                         <button value="{{member.id}}" mat-icon-button color="accent">
                             <mat-icon>rate_review</mat-icon>
                         </button>
-                        <!-- [routerLink]="['/user-details', member.id] -->
-                        <button value="{{member.id}}" mat-icon-button color="primary" (click)="openPayment()">
+                        <button value="{{member.id}}" mat-icon-button color="primary" (click)="openPayment(member.id)">
                             <mat-icon>payment</mat-icon>
                         </button>
-                        <button value="{{member.id}}" mat-icon-button color="warn" (click)="openDeleteDialog()">
+                        <button value="{{member.id}}" mat-icon-button color="warn" (click)="openDeleteDialog(member.id)">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </td>

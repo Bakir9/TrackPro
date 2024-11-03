@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError, map } from 'rxjs';
 import { IActivity } from 'src/app/shared/models/activity';
 import { IMember } from 'src/app/shared/models/member';
+import { IPayment } from 'src/app/shared/models/payment';
 
 @Injectable({
   providedIn: 'root'
@@ -40,22 +41,15 @@ export class MembersService {
   }
 
   editMember(member:IMember){
-    return this.http.put<IMember>(this.apiUrl + 'users/' + member.id, member)
-    .pipe(
-      
-    );
+    return this.http.put<IMember>(this.apiUrl + 'users/' + member.id, member);
   }
   
   deleteMember(id: number) {
-    return this.http.get(this.apiUrl + 'users/' + id);
+    return this.http.delete(this.apiUrl + 'users/' + id);
   }
 
-  createPayment(values: any){
-    return this.http.post(this.apiUrl + 'payments/create',values);
-  }
-
-  updatePayment(id: number){
-
+  createPayment(payment: IPayment){
+    return this.http.post<IPayment>(this.apiUrl + 'payments/create',payment);
   }
 
   activitiyMembers(id: number) {

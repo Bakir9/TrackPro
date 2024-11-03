@@ -63,12 +63,16 @@ export class MembersComponent implements OnInit {
     });
   }
 
-  openPayment() {
-    const dialogRef = this.dialog.open(MemberPaymetComponent);
+  openPayment(userId:number) {
+    const dialogRef = this.dialog.open(MemberPaymetComponent, {
+      data:{userId: userId}
+    });
   }
 
-  openDeleteDialog() {
-    const dialogRef = this.dialog.open(DeletedialogComponent);
+  openDeleteDialog(userId:number) {
+    const dialogRef = this.dialog.open(DeletedialogComponent, {
+      data: {userId: userId}
+    });
     
     dialogRef.afterClosed().subscribe((result: any )=> { 
         console.log("ovo je result " + result); 

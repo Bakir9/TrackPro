@@ -20,12 +20,7 @@ export class MemberPaymentsComponent {
     for(let i=0; i < this.currentMemberTest.payments.length; i++){
       this.payments.push(this.currentMemberTest.payments[i]);
     }
-   
     this.groupByYearAndActivity(this.payments,'year','purpose');
-    for(let k=0; k<this.groupedPayment.length; k++){
-     
-    }
-    
   }
 
   groupByYearAndActivity(array: any[], column1: string, column2: string){
