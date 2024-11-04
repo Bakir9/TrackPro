@@ -6,6 +6,7 @@ using Core.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
+using System.Security.Claims;
 
 namespace API.Controllers
 {
@@ -102,8 +103,15 @@ namespace API.Controllers
                 return NotFound();
             }
 
+            var check = _userManager.FindByEmailAsync(user.Email);
+           
+            if(check.Result != null) {
+                Log.Information("User already registered");
+                return Unauthorized(new ApiResponse(401));
+            }
+
             user.UserName = user.Email;
-            var result = await _userManager.CreateAsync(user);
+            var result = await _userManager.CreateAsync(user, user.Password);
             if(!result.Succeeded)
             {
                 return BadRequest(new ApiResponse(500));
@@ -113,5 +121,12 @@ namespace API.Controllers
 
             return Ok(_mapper.Map<User, UserDTO>(user)); 
         }
+
+        //TODO
+        //[HttpPost("password-change")]
+        //public async Task<ActionResult<PasswordChangeDTO>> PasswordChange(PasswordChangeDTO model)
+        //{
+           
+        //}
     }
 }

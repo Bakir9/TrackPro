@@ -1,7 +1,7 @@
 export interface IActivity{
-    id: number;
-    createdBy:string;
-    name: string;
+    id: number
+    name: string
+    createdBy:string
     users?: IActivityMembers[];
 }
 
