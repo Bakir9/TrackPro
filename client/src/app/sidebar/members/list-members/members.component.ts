@@ -1,13 +1,10 @@
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MembersService } from '../members.service';
+import {TooltipPosition, MatTooltipModule} from '@angular/material/tooltip';
 import { IMember } from 'src/app/shared/models/member';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { MatTableDataSource,  } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import {  MatDialog } from '@angular/material/dialog';
 import { EditMemberComponent } from '../edit-member/edit-member.component';
 import { MemberPaymetComponent } from '../../payments/dialog/member-paymet/member-paymet.component';
 import { DeletedialogComponent } from '../deletedialog/deletedialog.component';

@@ -1,10 +1,20 @@
 <mat-toolbar>
-    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+    <div class="toolbar-left">
+      <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
         <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
         <mat-icon *ngIf="sidenav.opened">close</mat-icon>
-    </button>
-    <span class="dashboard-name">TrackPro - Work smarter</span>
-   
+      </button>
+      <span class="dashboard-name">TrackPro - Work smarter</span>
+    </div>
+    <div class="navbar-container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <ul class="navbar-nav ms-auto ">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#" (click)="logout()">  Logout</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
 </mat-toolbar>
 
 <mat-sidenav-container>
@@ -36,30 +46,6 @@
                 <span>{{item.name}}</span>
             </button>
         </div>
-        <!-- <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="tree">
-            <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
-                <button mat-button class="menu-button" routerLink="/activity/{{node.id}}" value= {{node.id}}>
-                    <mat-icon>group_work</mat-icon>
-                    <span> {{node.name}}</span>
-                </button>
-            </mat-tree-node>
-            <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
-                <div class="mat-tree-node">
-                  <button mat-icon-button matTreeNodeToggle
-                          [attr.aria-label]="'Toggle ' + node.name"
-                          >
-                    <mat-icon>
-                       {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-                    </mat-icon>
-                  </button>
-                  <span>{{node.name}}</span>
-                </div>
-                <div [class.example-tree-invisible]="!treeControl.isExpanded(node)"
-                    role="group">
-                  <ng-container matTreeNodeOutlet></ng-container>
-              </div>
-            </mat-nested-tree-node>
-        </mat-tree> -->
         <mat-divider></mat-divider>
         <button mat-button class="menu-button">
             <mat-icon>info</mat-icon>

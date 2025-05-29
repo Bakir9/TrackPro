@@ -9,7 +9,15 @@ import { ParseSourceFile } from '@angular/compiler';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
+  
+  constructor(
+    private accountService: AccountService, 
+    private router: Router, 
+    private activatedRoute: ActivatedRoute, 
+    private formBuilder:FormBuilder) {}
+
   returnUrl: string;
   errorMessage: string;
   showError: boolean;
@@ -18,12 +26,7 @@ export class LoginComponent implements OnInit {
     password: ''
   })
 
-  constructor(
-    private accountService: AccountService, 
-    private router: Router, 
-    private activatedRoute: ActivatedRoute, 
-    private formBuilder:FormBuilder) {}
-
+  
   ngOnInit(): void {
    
   }

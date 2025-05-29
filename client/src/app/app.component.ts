@@ -12,9 +12,10 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'client';
+  title = 'Track Pro';
   currentUser$: Observable<IUser>;
   currentToken: string;
+  
   constructor( private accountService: AccountService,private router: Router){}
 
   ngOnInit(): void {

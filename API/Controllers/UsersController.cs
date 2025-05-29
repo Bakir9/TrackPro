@@ -3,28 +3,39 @@ using API.Errors;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
 using Serilog;
 using System.Security.Claims;
 
 namespace API.Controllers
 {
+    [Authorize]
     public class UsersController : BaseApiController
     {
         private readonly IUserRepository _userRepository;
         public readonly IMapper _mapper;
         private readonly ILogger<UsersController> _logger;
         private readonly UserManager<User> _userManager;
-       
-        public UsersController(IUserRepository userRepository,IMapper mapper,ILogger<UsersController> logger, UserManager<User> userManager)
+        public readonly IDistributedCache _cache;
+
+        public UsersController( 
+            IUserRepository userRepository,
+            IMapper mapper,
+            ILogger<UsersController> logger,
+            UserManager<User> userManager,
+            IDistributedCache cache)
         {
             _userRepository = userRepository;
             _logger = logger;
             _mapper = mapper;
             _userManager = userManager;
+            _cache = cache;
         }
 
+       
         [HttpGet]
         public async Task<ActionResult<IReadOnlyList<UserDTO>>> GetUsers()
         {
@@ -36,7 +47,7 @@ namespace API.Controllers
         public async Task<ActionResult<UserDTO>> GetUser(int id)
         {
             var user = await _userRepository.GetUserById(id);
-            if(user is null) 
+            if (user is null) 
             {
                 Log.Information("User not found !"); _logger.LogInformation("User not found !");
                 return NotFound();
@@ -54,7 +65,6 @@ namespace API.Controllers
                 Log.Information("User not found !"); _logger.LogInformation("User not found !");
                 return NotFound();
             }
-
             
             if(userUpdate != null)
             {
@@ -122,11 +132,33 @@ namespace API.Controllers
             return Ok(_mapper.Map<User, UserDTO>(user)); 
         }
 
-        //TODO
-        //[HttpPost("password-change")]
-        //public async Task<ActionResult<PasswordChangeDTO>> PasswordChange(PasswordChangeDTO model)
-        //{
-           
-        //}
+        [HttpPost("password-change")]
+        public async Task<ActionResult<PasswordChangeDTO>> PasswordChange(PasswordChangeDTO model)
+        {
+            var userId = User.FindFirst("Id")?.Value;
+            if(int.TryParse(userId, out var id))
+            {
+                var user = await _userRepository.GetUserById(id);
+
+                if(user == null)
+                {
+                    return NotFound();
+                }
+
+                var result = await _userManager.ChangePasswordAsync(user,model.CurrentPassword, model.NewPassword);
+
+                if (!result.Succeeded)
+                {
+                    return Problem("Something is wrong");
+                   
+                }
+
+                Log.Information("Password for User {0} changed", user.NormalizedUserName);
+                return Ok(result);
+            }
+
+            return NotFound();
+            
+        }
     }
 }

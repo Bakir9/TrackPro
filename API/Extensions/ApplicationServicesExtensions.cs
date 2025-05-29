@@ -15,11 +15,13 @@ namespace API.Extensions
                 {
                     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
                 });
+          
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
             services.AddScoped<IPaymentRepository, PaymentRepository>();
             services.AddScoped<IActivityRepository, ActivityRepository>();
+
             return services;
         }
     }

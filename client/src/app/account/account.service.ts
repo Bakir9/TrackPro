@@ -43,9 +43,8 @@ export class AccountService {
     );
   }
 
-  
-  
   register(values: any){}
+  
   logout(){
     localStorage.removeItem('token');
     this.currentUserSource.next(null);

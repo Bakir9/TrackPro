@@ -31,4 +31,5 @@ namespace Core.Enums
         [EnumMember(Value = "Others")]
         Others
     }
+
 }

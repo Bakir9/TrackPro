@@ -71,6 +71,10 @@ export class SidebarComponent implements OnInit {
     
   }
 
+  logout(){
+   
+  }
+
   getSidebarActivity() {
     this.memberService.getSidebarActivity().subscribe((activity: IActivity[]) => {
       this.activity = activity;

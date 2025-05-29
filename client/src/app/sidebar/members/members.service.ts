@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map } from 'rxjs';
+import { AccountService } from 'src/app/account/account.service';
 import { IActivity } from 'src/app/shared/models/activity';
 import { IMember } from 'src/app/shared/models/member';
 import { IPayment } from 'src/app/shared/models/payment';
@@ -8,6 +9,7 @@ import { IPayment } from 'src/app/shared/models/payment';
 @Injectable({
   providedIn: 'root'
 })
+
 export class MembersService {
   apiUrl = 'https://localhost:5001/api/';
   members: IMember[] = [];
@@ -54,6 +56,10 @@ export class MembersService {
 
   activitiyMembers(id: number) {
     return this.http.get(this.apiUrl + 'activitys/' + id)
+  }
+
+  logout(member: IMember){
+    return this.http.post(this.apiUrl + 'accounts/logout', member)
   }
 }
 

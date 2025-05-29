@@ -24,7 +24,13 @@ namespace API.Extensions
                 opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
             });
 
-            services.AddIdentityCore<User>(opt => {
+            services.AddStackExchangeRedisCache(opt =>
+            {
+                opt.Configuration = config.GetConnectionString("Cache");
+            });
+
+            services.AddIdentityCore<User>(opt =>
+            {
                 opt.Password.RequireDigit = true;
                 opt.Password.RequireLowercase = true;
                 opt.Password.RequireUppercase = true;
@@ -33,7 +39,7 @@ namespace API.Extensions
             .AddUserManager<UserManager<User>>()
             .AddEntityFrameworkStores<StoreContext>()
             .AddSignInManager<SignInManager<User>>();
-
+            
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(opt => 
                 {

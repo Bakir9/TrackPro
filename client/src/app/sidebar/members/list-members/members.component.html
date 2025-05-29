@@ -8,12 +8,64 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-4 pe-2">
             <mat-form-field>
                 <mat-label>Search members</mat-label>
                 <input matInput (keyup)="applyFilter($event)" placeholder="Search members" #input>
             </mat-form-field>
         </div>
+        <div class="col-2">
+            <mat-form-field>
+                <mat-label>Select Country</mat-label>
+                <mat-select >
+                    <mat-option value="Bosnia-Herzegowina" selected>Bosnien-Herzegowina</mat-option>
+                    <mat-option value="Croatien">Croatia</mat-option>
+                    <mat-option value="Albanien">Albania</mat-option>
+                    <mat-option value="Slowenien">Slowenia</mat-option>
+                    <mat-option value="Serbien">Serbien</mat-option>
+                    <mat-option value="Austria">Austria</mat-option>
+                    <mat-option value="Germany">Germany</mat-option>
+                    <mat-option value="Nigeria">Nigeria</mat-option>
+                    <mat-option value="China">China</mat-option>
+                    <mat-option value="Portugal">Portugal</mat-option>
+                    <mat-option value="Lithuania">Lithuania</mat-option>
+                    <mat-option value="Czech Republic">Czech Republic</mat-option>
+                    <mat-option value="Russia">Russia</mat-option>
+                    <mat-option value="Hungary">Hungary</mat-option>
+                    <mat-option value="South Africa">South Africa</mat-option>
+                    <mat-option value="Zimbabwe">Zimbabwe</mat-option>
+                    <mat-option value="Norway">Norway</mat-option>
+                    <mat-option value="Brazil">Brazil</mat-option>
+                    <mat-option value="Japan">Japan</mat-option>
+                    <mat-option value="Thailand">Thailand</mat-option>
+                    <mat-option value="Sweden">Sweden</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-2">
+            <mat-form-field>
+                <mat-label>Member from</mat-label>
+                <input matInput [matDatepicker]="pickerFrom" >
+                <mat-datepicker-toggle matIconSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+                <mat-datepicker #pickerFrom></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="col-2">
+            <mat-form-field>
+                <mat-label>Member bis</mat-label>
+                <input matInput [matDatepicker]="pickerBis" >
+                <mat-datepicker-toggle matIconSuffix [for]="pickerBis"></mat-datepicker-toggle>
+                <mat-datepicker #pickerBis></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="col-md-auto align-self-center justify-content-center">
+            <button mat-button class="text-bg-primary me-2">
+                <mat-icon>filter_list</mat-icon>  
+                Filtriraj
+            </button>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-12">
             <table mat-table [dataSource]="dataSource">
                 <ng-container matColumnDef="firstName">
@@ -43,7 +95,11 @@
                 <ng-container matColumnDef="action">
                     <th mat-header-cell *matHeaderCellDef >Action</th>
                     <td mat-cell *matCellDef="let member"> 
-                        <button value="{{member.id}}" mat-icon-button color="primary" (click)="openDialog(member.id)">
+                        <button value="{{member.id}}" 
+                            mat-icon-button 
+                            color="primary" 
+                            matTooltip = "Edit Info"
+                            (click)="openDialog(member.id)">
                             <mat-icon>edit</mat-icon>
                         </button>
                         <button value="{{member.id}}" mat-icon-button color="accent">

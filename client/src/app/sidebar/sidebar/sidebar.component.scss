@@ -1,6 +1,20 @@
+
 mat-toolbar {
     background-color: #0879ad;
     color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toolbar-left {
+    display: flex;
+    align-items: center;
+}
+
+  
+.navbar-container {
+    margin-left: auto;
 }
 
 mat-sidenav {
