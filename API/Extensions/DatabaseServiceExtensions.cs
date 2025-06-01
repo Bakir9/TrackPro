@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using StackExchange.Redis;
 
 namespace API.Extensions
 {
@@ -29,7 +30,7 @@ namespace API.Extensions
                 opt.Configuration = config.GetConnectionString("Cache");
             });
 
-            services.AddIdentityCore<User>(opt =>
+            services.AddIdentity<User, IdentityRole<int>>(opt =>
             {
                 opt.Password.RequireDigit = true;
                 opt.Password.RequireLowercase = true;

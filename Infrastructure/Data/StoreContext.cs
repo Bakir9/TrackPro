@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data
 {
-    public class StoreContext : IdentityDbContext<User,IdentityRole<int>, int>
+    public class StoreContext : IdentityDbContext<User, IdentityRole<int>, int>
     {
         public StoreContext(DbContextOptions<StoreContext> options) : base(options)
         {

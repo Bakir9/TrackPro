@@ -9,5 +9,6 @@ namespace Core.Enums.Claims
     public static class CustomClaims
     {
         public const string Id = "Id";
+        public const string Permission = "Permission";
     }
 }

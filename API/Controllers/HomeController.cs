@@ -26,11 +26,5 @@ namespace API.Controllers
             var activity = await _activityRepository.GetActivities();
              return Ok(_mapper.Map<IReadOnlyList<Activity>, IReadOnlyList<ActivityDTO>>(activity));
         }
-
-        // [HttpGet]
-        // public string GetSidebarActivities()
-        // {
-        //     return "Request je prosao";
-        // }
     }
 }

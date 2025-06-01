@@ -2,6 +2,7 @@ using API.DTO;
 using API.Errors;
 using AutoMapper;
 using Core.Entities;
+using Core.Enums.Roles;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -37,6 +38,9 @@ namespace API.Controllers
 
        
         [HttpGet]
+        [Authorize(Roles = CustomRoles.SuperAdmin)]
+        [Authorize(Roles = CustomRoles.Admin)]
+        [Authorize(Roles = CustomRoles.Moderator)]
         public async Task<ActionResult<IReadOnlyList<UserDTO>>> GetUsers()
         {
             var users = await _userRepository.GetUsers();
@@ -91,6 +95,9 @@ namespace API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = CustomRoles.SuperAdmin)]
+        [Authorize(Roles = CustomRoles.Admin)]
+        [Authorize(Roles = CustomRoles.Moderator)]
         public async Task<ActionResult<UserDTO>> Delete(int id)
         {
             var user = await _userRepository.GetUserById(id);
@@ -106,6 +113,9 @@ namespace API.Controllers
         }
 
         [HttpPost("create")]
+        [Authorize(Roles = CustomRoles.SuperAdmin)]
+        [Authorize(Roles = CustomRoles.Admin)]
+        [Authorize(Roles = CustomRoles.Moderator)]
         public async Task<ActionResult<UserDTO>> Create(User user)
         {
             if(user == null){
@@ -126,6 +136,9 @@ namespace API.Controllers
             {
                 return BadRequest(new ApiResponse(500));
             }
+
+            //assigning role to user
+            await _userManager.AddToRoleAsync(user, CustomRoles.User);
            
             Log.Information("Successfully created");  
 

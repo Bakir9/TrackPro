@@ -51,7 +51,7 @@ namespace API.Controllers
                 Id = user.Id,
                 DisplayName = user.FirstName,
                 Email = user.Email,
-                Token = _tokenService.CreateTokenAsync(user)
+                Token = await _tokenService.CreateTokenAsync(user)
              };
         }
 
@@ -85,11 +85,9 @@ namespace API.Controllers
                 Id = user.Id,
                 Email = user.Email,
                 DisplayName = user.FirstName,
-                Token = _tokenService.CreateTokenAsync(user),
+                Token = await _tokenService.CreateTokenAsync(user),
                 RefreshToken = refreshToken
             };
-
-            
         }
 
         [AllowAnonymous]
@@ -120,7 +118,7 @@ namespace API.Controllers
 
             return new UserLoginDTO
             {
-                Token = _tokenService.CreateTokenAsync(user),
+                Token = await _tokenService.CreateTokenAsync(user),
                 Email = user.UserName
             };
         }
@@ -152,7 +150,7 @@ namespace API.Controllers
                 await _cache.RemoveAsync($"member-{user.Id}");
                 await _cache.SetStringAsync($"member-{user.Id}", refresh);
 
-                return new TokenRequest() { Token = token, RefreshToken = refresh };
+                return new TokenRequest() { Token = await token, RefreshToken = refresh };
             }
 
             return BadRequest();
