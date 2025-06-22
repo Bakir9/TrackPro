@@ -3,6 +3,7 @@ using System;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20250621145154_PaymentPurpose")]
+    partial class PaymentPurpose
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.2");
@@ -184,8 +187,6 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PaymentPurposeId");
-
                     b.HasIndex("UserId");
 
                     b.ToTable("Payments");
@@ -203,7 +204,12 @@ namespace Infrastructure.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("PaymentId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("PaymentId");
 
                     b.ToTable("Purposes");
                 });
@@ -502,21 +508,22 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Core.Entities.Payment", b =>
                 {
-                    b.HasOne("Core.Entities.PaymentPurpose", "Purpose")
-                        .WithMany()
-                        .HasForeignKey("PaymentPurposeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("Core.Entities.User", "User")
                         .WithMany("Payments")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Purpose");
-
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Core.Entities.PaymentPurpose", b =>
+                {
+                    b.HasOne("Core.Entities.Payment", "Payment")
+                        .WithMany("Purpose")
+                        .HasForeignKey("PaymentId");
+
+                    b.Navigation("Payment");
                 });
 
             modelBuilder.Entity("Core.Entities.User", b =>
@@ -630,6 +637,11 @@ namespace Infrastructure.Data.Migrations
             modelBuilder.Entity("Core.Entities.Childs", b =>
                 {
                     b.Navigation("UserChilds");
+                });
+
+            modelBuilder.Entity("Core.Entities.Payment", b =>
+                {
+                    b.Navigation("Purpose");
                 });
 
             modelBuilder.Entity("Core.Entities.User", b =>

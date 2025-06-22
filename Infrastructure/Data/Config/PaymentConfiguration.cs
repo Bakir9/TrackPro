@@ -10,11 +10,10 @@ namespace Infrastructure.Data.Config
         {
             builder.Entity<Payment>().Property(p => p.UserId).IsRequired();
             builder.Entity<Payment>().Property(p => p.Amount).IsRequired();
-            builder.Entity<Payment>().Property(p => p.PaymentMethod).IsRequired();
-            builder.Entity<Payment>().Property(p => p.Month).IsRequired();
+            builder.Entity<Payment>().Property(p => p.Type).IsRequired();
+            builder.Entity<Payment>().Property(p => p.PaymentPurposeId).IsRequired();
             builder.Entity<Payment>().Property(p => p.Year).IsRequired();
-            builder.Entity<Payment>().Property(p => p.Purpose).IsRequired();
-            builder.Entity<Payment>().Property(p => p.PaymentDate).IsRequired().HasDefaultValue(DateTime.Now);
+            builder.Entity<Payment>().Property(p => p.TransactionDate).IsRequired().HasDefaultValue(DateTime.Now);
         }
     }
 }

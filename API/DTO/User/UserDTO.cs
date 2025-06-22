@@ -1,3 +1,4 @@
+using API.DTO.Payments;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace API.DTO
@@ -18,13 +19,11 @@ namespace API.DTO
       public int Active { get; set; }
       public string Title { get; set; }
       public string Email { get; set; }
-      public string Password { get; set; }
-      public string PasswordHash { get; set; }
       public string Phone { get; set; }
       public string MarriageStatus { get; set; }
       [Column(TypeName = "date")]
       public DateTime LastActive {get; set;}
       public int AssociationId {get; set; }
-      public List<PaymentDTO> Payments { get; set; } 
+      public List<UserPaymentDTO> Payments { get; set; } 
     }
 }

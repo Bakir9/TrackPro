@@ -1,4 +1,5 @@
 using API.DTO;
+using API.DTO.Payments;
 using API.DTO.User;
 using AutoMapper;
 using Core.Entities;
@@ -11,6 +12,8 @@ namespace API.Helpers
         {
             CreateMap<User, UserDTO>()
                 .ForMember(u => u.Payments, o => o.MapFrom(p => p.Payments));
+            CreateMap<Payment, UserPaymentDTO>()
+                .ForMember(u => u.Purpose, o => o.MapFrom(p => p.Purpose.Name));
             CreateMap<Payment, PaymentDTO>();
             CreateMap<UserDTO, User>();
             CreateMap<User, UserActivityDTO>();

@@ -22,7 +22,8 @@ namespace Infrastructure.Data
         {
             return await _context.Users
                 .Where(p => p.Id == id)
-                .Include("Payments")
+                .Include(p => p.Payments)
+                    .ThenInclude(u => u.Purpose)
                 .FirstOrDefaultAsync();
         }
 
@@ -40,9 +41,6 @@ namespace Infrastructure.Data
         {
             _context.Update(user);
             _context.SaveChanges();
-            //_context.Entry(user).State = EntityState.Modified;
-            //_context.SaveChanges();
-            //_context.Set<User>().Update(user);
         }
 
         public async Task SaveAsync()

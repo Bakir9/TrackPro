@@ -1,4 +1,4 @@
-using API.DTO;
+using API.DTO.Payments;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
@@ -32,7 +32,7 @@ namespace API.Controllers
 
             _paymentRepository.Create(payment);
              await _paymentRepository.SaveAsync();
-            Log.Information("Payment Success"); _logger.LogInformation("Payment Success");
+             _logger.LogInformation("Payment Success");
             
             return Ok(_mapper.Map<Payment, PaymentDTO>(payment));
         }

@@ -13,7 +13,7 @@ using System.Security.Claims;
 
 namespace API.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class UsersController : BaseApiController
     {
         private readonly IUserRepository _userRepository;
@@ -48,16 +48,16 @@ namespace API.Controllers
         } 
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<UserDTO>> GetUser(int id)
+        public async Task<ActionResult<User>> GetUser(int id)
         {
             var user = await _userRepository.GetUserById(id);
             if (user is null) 
             {
-                Log.Information("User not found !"); _logger.LogInformation("User not found !");
+                _logger.LogInformation("User not found !");
                 return NotFound();
             }
-
-            return Ok(_mapper.Map<User, UserDTO>(user));
+           
+           return Ok(_mapper.Map<User, UserDTO>(user));
         }
 
         [HttpPut("{id}")]
@@ -66,7 +66,7 @@ namespace API.Controllers
             var userUpdate = await _userRepository.GetUserById(id);
             if(userUpdate is null)
             {
-                Log.Information("User not found !"); _logger.LogInformation("User not found !");
+                 _logger.LogInformation("User not found !");
                 return NotFound();
             }
             
@@ -119,14 +119,14 @@ namespace API.Controllers
         public async Task<ActionResult<UserDTO>> Create(User user)
         {
             if(user == null){
-                Log.Information("User not created ! Check all fields !");  
+                _logger.LogInformation("User not created ! Check all fields !");  
                 return NotFound();
             }
 
             var check = _userManager.FindByEmailAsync(user.Email);
            
             if(check.Result != null) {
-                Log.Information("User already registered");
+                _logger.LogInformation("User already registered");
                 return Unauthorized(new ApiResponse(401));
             }
 

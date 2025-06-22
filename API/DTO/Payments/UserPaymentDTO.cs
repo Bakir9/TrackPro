@@ -1,0 +1,16 @@
+﻿namespace API.DTO.Payments
+{
+    public class UserPaymentDTO
+    {
+        public int Id { get; set; }
+        public decimal Amount { get; set; }
+        public DateTime Datum { get; set; }
+        public bool IsYear { get; set; }
+        public string Month { get; set; }
+        public string Purpose { get; set; }
+        public int ReceiptNr { get; set; }
+        public DateTime TransactionDate { get; set; }
+        public string Type { get; set; }
+        public string Year { get; set; }
+    }
+}
